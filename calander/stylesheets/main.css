@@ -4,7 +4,7 @@ html{color:#000;
 	padding:20px 0;
 	font: 12px/18px "맑은 고딕", "Malgun Gothic", "굴림", "Gulim", Verdana, Arial, Tahoma;
 }
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:1px;}
 table{border-collapse:collapse;border-spacing:0;}
 fieldset,img{border:0;}
 address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}
@@ -27,7 +27,28 @@ h2 {font-size:12px; line-height:24px; font-weight:bold;}
 a:hover, a:active {color:#C23700;}
 */
 
-#header{ height:50px; border:1px solid;}
-#menu_body{height:500px; width:170px; border:1px solid; float:left; }
-#content{height:500px; width:780px; border:1px; }
-#footer{height:20px; border:1px solid;}
+#header{ height:40px; width:99.5%; background-color: #666666; color:#eeff9d;font-size:30px; font-weight:bold; padding-left:10px; padding-top: 5px;}
+#menu_body{height:550px; width:14%; border:1px solid; float:left; text-align: center;}
+#menu_hide{height:550px; width:1%; border:1px solid; float:left; text-align: center; }
+#content{height:550px; width:84%; border:1px solid;float:left; text-align: center;}
+#footer{height:20px;  width:99.5%;color: #333333; float: left; border: 1px solid; text-align: center;}
+
+.menu_button{ width:87px;height:30px;background-color:#dddddd;border:1px solid #666666;}
+
+#menu_calander{width:100%; border:0px;}
+.mc_pointer{font-family:tahoma; font-size:24px; color:#aaaaaa;}
+#mc_year{font-family:tahoma; font-size:10px; font-weight:bold;}
+#mc_month{font-family:tahoma; font-size:20px; font-weight:bold;}
+#mc_top{ height:40px;}
+#week_col{ text-align:center; height:21px;}
+#sun{ width:14%; color:#ff0000;}
+#mon{width:14%;}
+#tues{width:14%;}
+#wed{width:14%;}
+#thu{width:14%;}
+#fri{width:14%;}
+#sat{width:14%; color:#0000ff;}
+
+.mc_border{ background-color:#666666;}
+.mday_col{text-align:center; height:17px; background-color:#eeeeee;}
+.csfont{color:red;}
