@@ -37,8 +37,8 @@ a:hover, a:active {color:#C23700;}
 
 #menu_calander{width:100%; border:0px;}
 .mc_pointer{font-family:tahoma; font-size:24px; color:#aaaaaa;}
-#mc_year{font-family:tahoma; font-size:10px; font-weight:bold;}
-#mc_month{font-family:tahoma; font-size:20px; font-weight:bold;}
+#mc_year{font-family:tahoma; font-size:10px; font-weight:bold; text-align: center;}
+#mc_month{font-family:tahoma; font-size:20px; font-weight:bold; text-align: center;}
 #mc_top{ height:40px;}
 #week_col{ text-align:center; height:21px;}
 #sun{ width:14%; color:#ff0000;}
@@ -49,6 +49,6 @@ a:hover, a:active {color:#C23700;}
 #fri{width:14%;}
 #sat{width:14%; color:#0000ff;}
 
-.mc_border{ background-color:#666666;}
+.mc_border{ background-color:#666666; height:1px; }
 .mday_col{text-align:center; height:17px; background-color:#eeeeee;}
 .csfont{color:red;}
