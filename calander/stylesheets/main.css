@@ -30,11 +30,10 @@ a:hover, a:active {color:#C23700;}
 #header{ height:40px; width:99.5%; background-color: #666666; color:#eeff9d;font-size:30px; font-weight:bold; padding-left:10px; padding-top: 5px;}
 #menu_body{height:550px; width:14%; border:1px solid; float:left; text-align: center;}
 #menu_hide{height:550px; width:1%; border:1px solid; float:left; text-align: center; }
-#content{height:550px; width:84%; border:1px solid;float:left; text-align: center;}
+#content{height:550px; width:84%; border:1px solid;float:left;}
 #footer{height:20px;  width:99.5%;color: #333333; float: left; border: 1px solid; text-align: center;}
 
 .menu_button{ width:87px;height:30px;background-color:#dddddd;border:1px solid #666666;}
-
 #menu_calander{width:100%; border:0px;}
 .mc_pointer{font-family:tahoma; font-size:24px; color:#aaaaaa;}
 #mc_year{font-family:tahoma; font-size:10px; font-weight:bold; text-align: center;}
@@ -49,6 +48,16 @@ a:hover, a:active {color:#C23700;}
 #fri{width:14%;}
 #sat{width:14%; color:#0000ff;}
 
+#content_search{padding-left: 10px; padding-top: 10px;}
+.search_text{float:left;}
+.search_button{width:30px; height:22px;}
+#content_navbar{position: absolute;left:40%;}
+.navbar_button{ width:87px;height:30px;background-color:#dddddd;float: left;}
+
+#frame{margin-top: 40px;}
+.week_header{width:100%;}
+.week_header th{text-align: center;border:1px solid black;}
+.sun{color:red;}
 .mc_border{ background-color:#666666; height:1px; }
 .mday_col{text-align:center; height:17px; background-color:#eeeeee;}
 .csfont{color:red;}

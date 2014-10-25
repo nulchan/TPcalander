@@ -2,19 +2,19 @@
 
 <html lang="ko">
 <head>
-	<meta charset="utf-8">
-	<title>Calander</title>
-	<link href="stylesheets/main.css" rel="stylesheet" type="text/css"> 
+    <meta charset="utf-8">
+    <title>Calander</title>
+    <link href="stylesheets/main.css" rel="stylesheet" type="text/css"> 
 </head>
 <body>
-	<div id="wrap">
-		<div id="header">
-			Calander - 8조
-		</div>
-		<div id="menu">
-			<div id="menu_body">
-				<input class="menu_button" type="button" value="일정쓰기" >
-        <input class="menu_button" type="button" value="기념일관리" >
+    <div id="wrap">
+        <div id="header">
+            Calander - 8조
+        </div>
+        <div id="menu">
+            <div id="menu_body">
+                <input class="menu_button" type="button" value="일정쓰기" >
+                <input class="menu_button" type="button" value="기념일관리" >
 
                  <!-- 메뉴영역 달력 start -->
                   <table id="menu_calander">
@@ -94,18 +94,45 @@
                     <tr class="mc_border"><td class="mc_border" colspan="7"></td></tr>
                   </table>
                   <!-- 메뉴영역 달력 end -->
-			</div>
-			<div id="menu_hide">
-				<a href="">◀</a>
-			</div>
-		</div>
-		<div id="content">
-			<a href="">content</a>
-		</div>
-		<div id="footer">
-			8조 - 박정현, 최기영, 하늘찬
-		</div>
-	</div>
+            </div>
+            <div id="menu_hide">
+                <a href="">◀</a>
+            </div>
+        </div>
+        <div id="content">
+          
+            <div id="content_search">
+                <input class="search_text", type="text" value="일정검색">
+                <input class="search_button", type="button" value="검색">
+            </div>
+            <div id="content_navbar">
+                <input class="navbar_button" type="button" value="일간">
+                <input class="navbar_button" type="button" value="주간">
+                <input class="navbar_button" type="button" value="월간">
+                <input class="navbar_button" type="button" value="목록">
+                <input class="navbar_button" type="button" value="정렬">
+            </div>
+            <div id="frame">
+                <div id="month_clander">
+                    <table class="week_header">
+                        <tbody>
+                          <tr>
+                              <th title="일" class="sun">일</th>
+                              <th title="월">월</th>
+                              <th title="화">화</th>
+                              <th title="수">수</th>
+                              <th title="목">목</th>
+                              <th title="금">금</th>
+                              <th title="토">토</th>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            8조 - 박정현, 최기영, 하늘찬
+        </div>
+    </div>
 </body>
 </html>
-
