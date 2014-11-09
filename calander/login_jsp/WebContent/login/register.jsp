@@ -33,6 +33,7 @@
 	}catch(SQLException e){
 		errorMsg = "SQL 에러" + e.getMessage();
 	}finally{
+		if(rs != null)try{rs.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
 		if(stmt != null)try{stmt.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
 		if(conn != null)try{conn.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
 	}

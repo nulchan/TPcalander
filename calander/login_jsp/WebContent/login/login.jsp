@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*" import="java.sql.*"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,6 @@
 <link href="../stylesheets/login_page.css" rel="stylesheet" type="text/css"> 
 </head>
 <body>
-
 	<div id="wrap">
 		<form action="../login/login_Process.jsp" method="post">
 			<div id="login">

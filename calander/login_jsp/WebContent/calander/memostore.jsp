@@ -5,7 +5,6 @@
 	Connection conn = null;
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
-	List<String> errorMsgs = new ArrayList<String>();
 	String dbUrl = "jdbc:mysql://localhost:3306/member_data";
 	String dbUser = "login";
 	String dbPassword = "12345";
@@ -13,20 +12,15 @@
 	String userpwd = "";
 	
 	request.setCharacterEncoding("utf-8");
-	String id = request.getParameter("id");
-	String pwd = request.getParameter("pwd");
-	if (errorMsgs.size() == 0) {
+	String id = (String)session.getAttribute("id");
+	String memo = request.getParameter("memo");
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-		stmt = conn.prepareStatement("SELECT *FROM users WHERE id=? AND password=?");
+		stmt = conn.prepareStatement("insert into memo(id,memo) values(?,?)");
 		stmt.setString(1,id);
-		stmt.setString(2, pwd);
-		rs = stmt.executeQuery();
-		if(rs.next()){
-			userid = rs.getString("id");
-			userpwd = rs.getString("password"); 
-		}
+		stmt.setString(2,memo);
+		stmt.executeUpdate();
 	}catch(SQLException e){
 		errorMsg = "SQL 에러" + e.getMessage();
 	}finally{
@@ -34,27 +28,16 @@
 		if(stmt != null)try{stmt.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
 		if(conn != null)try{conn.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
 	}
-	}
 %>
-<!DOCTYPE html">
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
- <%
-	  if (id == null || pwd == null || id.length() == 0 || pwd.length() == 0) {
-		  %>
-		   <div class="error">아이디와 비밀번호를 입력하세요.</div>
-		  <%
-	  }if (id.equals(userid) && pwd.equals(userpwd)) {
-	      session.setAttribute("id", userid);
-	      session.setAttribute("pwd", userpwd);	
-	      response.sendRedirect("../calander/calander.jsp");	      
-		 }else{%>
-		 	잘못입력하셨습니다.
-		 <% }%>
 </head>
 <body>
-
+	<%String req = request.getHeader("REFERER");
+	  response.sendRedirect(req);
+	 %>
 </body>
 </html>

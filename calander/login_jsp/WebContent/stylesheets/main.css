@@ -1,7 +1,7 @@
 /* Reset CSS: from YUI2: Reset CSS */
 html{color:#000;
 	background:#fff; 
-	font: 12px/18px "맑은 고딕", "Malgun Gothic", "굴림", "Gulim", Verdana, Arial, Tahoma;
+	font: 12px/18px "留묒� 怨좊뵓", "Malgun Gothic", "援대┝", "Gulim", Verdana, Arial, Tahoma;
 }
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:1px;}
 table{border-collapse:collapse;border-spacing:0;}
@@ -25,7 +25,9 @@ h2 {font-size:12px; line-height:24px; font-weight:bold;}
 /*a:visited, a:link {color:#c20A00;text-decoration:none;}
 a:hover, a:active {color:#C23700;}
 */
-
+#top{height: 15px;text-align: right;color:black;}
+#top a:visited, a:link {color:black;text-decoration:none;}
+#top a:hover, a:active {margin-top:20px;}
 #header{ height:60px; width:99.5%; background-color: #666666; color:#eeff9d;font-size:30px; font-weight:bold; padding-left:10px; padding-top: 5px;}
 #menu_body{height:550px; width:18%; border:1px solid; float:left; text-align: center;}
 #menu_hide{height:550px; width:1%; border:1px solid; float:left; text-align: center; }
