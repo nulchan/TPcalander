@@ -20,7 +20,7 @@
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 		stmt = conn.prepareStatement("SELECT *FROM users WHERE id=? AND password=?");
-		stmt.setString(1,id);
+		stmt.setString(1, id);
 		stmt.setString(2, pwd);
 		rs = stmt.executeQuery();
 		if(rs.next()){
@@ -41,6 +41,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<<<<<<< HEAD
  <%
 	  if (id == null || pwd == null || id.length() == 0 || pwd.length() == 0) {
 		  %>
@@ -53,8 +54,30 @@
 		 }else{%>
 		 	잘못입력하셨습니다.
 		 <%}%>
+=======
+<%
+	if (id == null || pwd == null || id.length() == 0 || pwd.length() == 0) {
+%>
+	<div class="error" >아이디와 비밀번호를 입력하세요.</div>
+<%
+	}else if (id.equals(userid) && pwd.equals(userpwd)) {
+		session.setAttribute("id", userid);
+		session.setAttribute("pwd", userpwd);	
+		response.sendRedirect("../calander/calander.jsp");	      
+	}else{%>
+	<div class="error" onload="popupOpen();">아이디 또는 비밀번호 오류입니다</div>
+<% }%>
+>>>>>>> 4dd5abf0c4b04880c26a1abb2a3811bc73b83af7
 </head>
 <body>
 
 </body>
 </html>
+
+<script type="text/javascript">
+function popupOpen(){
+	var popUrl = "../login/login_error.jsp";	//팝업창에 출력될 페이지 URL
+	var popOption = "width=370, height=360, top=400, left=400, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+	window.open(popUrl,"",popOption);
+}
+</script>
