@@ -140,121 +140,88 @@
             <div id="menu_hide" onclick="HideLeftMenu();">
                 <a href="">◀</a>
             </div>
-        <div id="content">
-          
-            <div id="content_search">
-                <input class="search_text", type="text" value="일정검색">
-                <input class="search_button", type="button" value="검색">
-            </div>
-            
-           	<div id ="move_month">
-            	2014. 10. 
-            	<input class="month_button" type="button" value="◁">
-            	<input class="month_button" type="button" value="▷">
-           	</div>
-           	<br><br>
-            <div id="content_navbar">
-                <input class="navbar_button" type="button" value="일간">
-                <input class="navbar_button" type="button" value="주간">
-                <input class="navbar_button" type="button" value="월간">
-                <input class="navbar_button" type="button" value="목록">
-                <input class="navbar_button" type="button" value="정렬">
-            </div>
-            <div id="frame"	>
-                <div id="month_clander">
-                    <table class="week_header">
-                        <tbody>
-                          <tr>
-                              <th title="일" class="sun">일</th>
-                              <th title="월">월</th>
-                              <th title="화">화</th>
-                              <th title="수">수</th>
-                              <th title="목">목</th>
-                              <th title="금">금</th>
-                              <th title="토">토</th>
-                          </tr>
-                        </tbody>
-                    </table>
-                    <div class="month_row">
-                        <table class="week_row">
-                            <tbody>
-                                <tr>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
-                               </tr>
-                           </tbody>
-                       </table>
-                    </div>
-                    <div class="month_row">
-                        <table class="week_row">
-                            <tbody>
-                                <tr>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>                   
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="month_row">
-                        <table class="week_row">
-                            <tbody>
-                                <tr>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="month_row">
-                        <table class="week_row">
-                            <tbody>
-                                <tr>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                </tr>
-                            </tbody>
-                        </table>  
-                    </div>
-                    <div class="month_row">
-                        <table class="week_row">
-                            <tbody>
-                               <tr>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        </div>
+        	<div id="make_schedule">
+        	<br>
+        	<div id="new_schedule">
+        	일정 등록  | <a href="../calander/calander.jsp">캘린더로 돌아가기</a>
+			</div>
+			<div id="title">
+				제목 &nbsp; <input class="title_box", type="text" placeholder="제목을 입력하세요">
+			</div>
+			
+			<div id="time">
+				시간 &nbsp; <input class="time_box", type="text" placeholder="YYYY-MM-DD">
+					<select name="">
+						<option value="time">00:00</option>
+						<option value="time">01:00</option>
+						<option value="time">02:00</option>
+						<option value="time">03:00</option>
+						<option value="time">04:00</option>
+						<option value="time">05:00</option>
+						<option value="time">06:00</option>
+						<option value="time">07:00</option>
+						<option value="time">08:00</option>
+						<option value="time">09:00</option>
+						<option value="time">10:00</option>
+						<option value="time">11:00</option>
+						<option value="time">12:00</option>
+						<option value="time">13:00</option>
+						<option value="time">14:00</option>
+						<option value="time">15:00</option>
+						<option value="time">16:00</option>
+						<option value="time">17:00</option>
+						<option value="time">18:00</option>
+						<option value="time">19:00</option>
+						<option value="time">20:00</option>
+						<option value="time">21:00</option>
+						<option value="time">22:00</option>
+						<option value="time">23:00</option>
+					</select>
+					~
+					<input class="time_box", type="text" placeholder="YYYY-MM-DD">
+					<select name="">
+						<option value="time">00:00</option>
+						<option value="time">01:00</option>
+						<option value="time">02:00</option>
+						<option value="time">03:00</option>
+						<option value="time">04:00</option>
+						<option value="time">05:00</option>
+						<option value="time">06:00</option>
+						<option value="time">07:00</option>
+						<option value="time">08:00</option>
+						<option value="time">09:00</option>
+						<option value="time">10:00</option>
+						<option value="time">11:00</option>
+						<option value="time">12:00</option>
+						<option value="time">13:00</option>
+						<option value="time">14:00</option>
+						<option value="time">15:00</option>
+						<option value="time">16:00</option>
+						<option value="time">17:00</option>
+						<option value="time">18:00</option>
+						<option value="time">19:00</option>
+						<option value="time">20:00</option>
+						<option value="time">21:00</option>
+						<option value="time">22:00</option>
+						<option value="time">23:00</option>
+					</select>
+			</div>
+			
+			<div id="color">
+				색상	
+			</div>
+			
+			<div id="schedule_content">
+				내용
+			</div>
+			
+			
+			
+			</div>
+
+
+
+
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
         </div>
