@@ -28,10 +28,11 @@ a:hover, a:active {color:#C23700;}
 #top{height: 15px;text-align: right;color:black;}
 #top a:visited, a:link {color:black;text-decoration:none;}
 #top a:hover, a:active {margin-top:20px;}
-#header{ height:60px; width:99.5%; background-color: #666666; color:#eeff9d;font-size:30px; font-weight:bold; padding-left:10px; padding-top: 5px;}
-#menu_body{height:550px; width:18%; border:1px solid; float:left; text-align: center;}
+#header{ height:70px; width:99.5%; background-color: #99D9EA; color:#ff00ff;font-size:30px; font-weight:bold; padding-left:10px; padding-top: 5px;}
+#cal_images{float:right;}
+#menu_body{height:550px; width:19%; border:1px solid; float:left; text-align: center;}
 #menu_hide{height:550px; width:1%; border:1px solid; float:left; text-align: center; }
-#content{height:550px; width:80%; border:1px solid;float:left;}
+#content{height:550px; width:79%; border:1px solid; float:right;}
 #footer{height:20px;  width:99.5%;color: #333333; float: left; border: 1px solid; text-align: center;}
 
 .menu_button{ width:87px;height:30px;background-color:#dddddd;border:1px solid #666666;}

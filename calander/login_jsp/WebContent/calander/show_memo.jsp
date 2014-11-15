@@ -153,7 +153,7 @@
         	<ul>
         	<% for(String content: memo) { %>
  						<li><%=content %></li>
- 					<% } %>
+ 					<%} %>
  			</ul>
         </div>
         <div id="footer">

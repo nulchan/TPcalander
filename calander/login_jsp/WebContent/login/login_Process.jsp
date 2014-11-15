@@ -52,7 +52,7 @@
 	      response.sendRedirect("../calander/calander.jsp");	      
 		 }else{%>
 		 	잘못입력하셨습니다.
-		 <% }%>
+		 <%}%>
 </head>
 <body>
 

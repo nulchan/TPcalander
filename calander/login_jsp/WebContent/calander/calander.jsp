@@ -14,8 +14,12 @@
     		<a href="../login/logout.jsp">로그아웃하기</a>
     	</div>
         <div id="header">
-            Calander - 8조       
+            <div id="cal_images">
+					<img src="../images/slogo.jpg" alt="small_logo">
+			</div>
+            Calander - 8조
         </div>
+        
         <div id="menu">
             <div id="menu_body">
                 <input class="menu_button" type="button" value="일정쓰기" >
@@ -117,7 +121,6 @@
             <div id="menu_hide">
                 <a href="">◀</a>
             </div>
-        </div>
         <div id="content">
           
             <div id="content_search">
@@ -131,7 +134,7 @@
                 <input class="navbar_button" type="button" value="목록">
                 <input class="navbar_button" type="button" value="정렬">
             </div>
-            <div id="frame">
+            <div id="frame"	>
                 <div id="month_clander">
                     <table class="week_header">
                         <tbody>
@@ -223,6 +226,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        
         </div>
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
