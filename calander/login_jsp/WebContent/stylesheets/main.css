@@ -58,8 +58,8 @@ a:hover, a:active {color:#C23700;}
 #content_search{padding-left: 10px; padding-top: 10px;}
 .search_text{float:left;}
 .search_button{width:30px; height:22px;}
-#content_navbar{position: absolute;left:43%;}
-.navbar_button{ width:87px;height:30px;background-color:#dddddd;float: left;}
+#content_navbar{position: absolute; left:43%;}
+.navbar_button{ width:87px;height:30px;background-color:#dddddd; float: left;}
 
 #frame{margin-top: 40px;}
 .week_header{width:100%; height:40px;}
