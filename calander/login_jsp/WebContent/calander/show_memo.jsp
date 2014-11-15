@@ -145,7 +145,7 @@
                       <a href="../calander/show_memo.jsp">메모 모아보기</a>
                   </div>
             </div>
-            <div id="menu_hide">
+            <div id="menu_hide" onclick="HideLeftMenu();">
                 <a href="">◀</a>
             </div>
         </div>
@@ -162,3 +162,17 @@
     </div>
 </body>
 </html>
+
+<script>
+	function HideLeftMenu() {
+		if (document.getElementById("menu_body").style.display == "none") {
+			document.getElementById("menu_body").style.display = "block";
+			document.getElementById("menu_hide").innerText = "◀";
+			document.getElementById("content").style.width = "79%";
+		} else {
+			document.getElementById("menu_body").style.display = "none";
+			document.getElementById("menu_hide").innerText = "▶";
+			document.getElementById("content").style.width = "98%";
+		}
+	}
+</script>
