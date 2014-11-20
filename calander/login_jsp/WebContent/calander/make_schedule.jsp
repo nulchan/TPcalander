@@ -1,54 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*" import="java.sql.*"%>
-<%
-	String errorMsg = null;
-	Connection conn = null;
-	PreparedStatement stmt = null;
-	ResultSet rs = null;
-	String dbUrl = "jdbc:mysql://localhost:3306/member_data";
-	String dbUser = "login";
-	String dbPassword = "12345";
-	String userid = "";
-	String userpwd = "";
-
-	request.setCharacterEncoding("utf-8");
-	String id = (String)session.getAttribute("id");
-	List<String> memo = new ArrayList<String>();
-	try{
-		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-		stmt = conn.prepareStatement("SELECT *FROM users join memo on users.id = memo.id WHERE users.id=?");
-		stmt.setString(1,id);
-		rs = stmt.executeQuery();
-		while(rs.next()){
-			memo.add(rs.getString("memo"));
-		}
-	}catch(SQLException e){
-		errorMsg = "SQL 에러" + e.getMessage();
-	}finally{
-		if(rs != null)try{rs.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
-		if(stmt != null)try{stmt.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
-		if(conn != null)try{conn.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
-	}
-%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>메모 모아보기</title>
+<meta charset="utf-8">
+<title>Calander</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	 <div id="wrap">
+    <div id="wrap">
     	<div id="top">
     		안녕하세요. <b><%=session.getAttribute("id") %></b>님 ||
     		<a href="../login/logout.jsp">로그아웃하기</a>
     	</div>
         <div id="header">
-            Calander - 8조       
+            <div id="cal_images">
+					<img src="../images/slogo.jpg" alt="small_logo">
+			</div>
+            Calander - 8조
         </div>
+        
         <div id="menu">
             <div id="menu_body">
+	            <a href="../calander/make_schedule.jsp">
                 <input class="menu_button" type="button" value="일정쓰기" >
                 <input class="menu_button" type="button" value="기념일관리" >
 
@@ -133,36 +107,125 @@
                   <div id="menu_memo">
                 	<form action ="../calander/memostore.jsp" method="post">  	
 	                    <div class="memo_box">
-	                    <textarea cols="36" rows="10" name="memo" id="memo" placeholder="이 곳에 메모를 입력 할 수 있습니다"></textarea>
+	                    <textarea cols="36" rows="8" name="memo" id="memo" placeholder="이 곳에 메모를 입력 할 수 있습니다"></textarea>
 	                    </div>
 	                    <input class="memo_button" type="submit" value="등록">
                     </form>
                   </div>
                   <div id="menu_check">
-                      <a href="">전체 일정 보기</a></br>
-                      <a href="">중요 일정 보기</a></br>
-                      <a href="">오래된 일정 삭제</a></br>
-                      <a href="../calander/show_memo.jsp">메모 모아보기</a>
+                      
+                      <a href="">
+                      	<div id="all_schedule">
+							<img src="../images/all.png" alt="all_schedule">
+							전체 일정 보기</a></br>
+						</div>
+                      <a href="">
+                      	<div id="show_important">
+							<img src="../images/important.png" alt="important">
+							중요 일정 보기</a></br>
+						</div>
+                      <a href="">
+                      	<div id="menu_delete">
+							<img src="../images/can.png" alt="delete">
+							오래된 일정 삭제</a></br>
+						</div>
+						
+                      <a href="../calander/show_memo.jsp">
+                      	<div id="show_memo">
+							<img src="../images/memo.png" alt="show_memo">
+							메모 모아보기</a>
+						</div>
                   </div>
             </div>
             <div id="menu_hide" onclick="HideLeftMenu();">
                 <a href="">◀</a>
             </div>
-        </div>
-        </div id="memo content">
-        	<ul>
-        	<% for(String content: memo) { %>
- 						<li><%=content %></li>
- 					<%} %>
- 			</ul>
-        </div>
+        	<div id="make_schedule">
+        	<br>
+        	<div id="new_schedule">
+        	일정 등록  | <a href="../calander/calander.jsp">캘린더로 돌아가기</a>
+			</div>
+			<div id="title">
+				제목 &nbsp; <input class="title_box", type="text" placeholder="제목을 입력하세요">
+			</div>
+			
+			<div id="time">
+				시간 &nbsp; <input class="time_box", type="text" placeholder="YYYY-MM-DD">
+					<select name="">
+						<option value="time">00:00</option>
+						<option value="time">01:00</option>
+						<option value="time">02:00</option>
+						<option value="time">03:00</option>
+						<option value="time">04:00</option>
+						<option value="time">05:00</option>
+						<option value="time">06:00</option>
+						<option value="time">07:00</option>
+						<option value="time">08:00</option>
+						<option value="time">09:00</option>
+						<option value="time">10:00</option>
+						<option value="time">11:00</option>
+						<option value="time">12:00</option>
+						<option value="time">13:00</option>
+						<option value="time">14:00</option>
+						<option value="time">15:00</option>
+						<option value="time">16:00</option>
+						<option value="time">17:00</option>
+						<option value="time">18:00</option>
+						<option value="time">19:00</option>
+						<option value="time">20:00</option>
+						<option value="time">21:00</option>
+						<option value="time">22:00</option>
+						<option value="time">23:00</option>
+					</select>
+					~
+					<input class="time_box", type="text" placeholder="YYYY-MM-DD">
+					<select name="">
+						<option value="time">00:00</option>
+						<option value="time">01:00</option>
+						<option value="time">02:00</option>
+						<option value="time">03:00</option>
+						<option value="time">04:00</option>
+						<option value="time">05:00</option>
+						<option value="time">06:00</option>
+						<option value="time">07:00</option>
+						<option value="time">08:00</option>
+						<option value="time">09:00</option>
+						<option value="time">10:00</option>
+						<option value="time">11:00</option>
+						<option value="time">12:00</option>
+						<option value="time">13:00</option>
+						<option value="time">14:00</option>
+						<option value="time">15:00</option>
+						<option value="time">16:00</option>
+						<option value="time">17:00</option>
+						<option value="time">18:00</option>
+						<option value="time">19:00</option>
+						<option value="time">20:00</option>
+						<option value="time">21:00</option>
+						<option value="time">22:00</option>
+						<option value="time">23:00</option>
+					</select>
+			</div>
+			
+			<div id="color">
+				색상	
+			</div>
+			
+			<div id="schedule_content">
+				내용
+			</div>
+			
+			
+			
+			</div>
+
+
+
+
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
         </div>
     </div>
-</body>
-</html>
-
 <script>
 	function HideLeftMenu() {
 		if (document.getElementById("menu_body").style.display == "none") {

@@ -7,6 +7,7 @@
 <title>에러입니다</title>
 </head>
 <body>
-	로그인틀림 
+	로그인 에러 
 </body>
 </html>
+

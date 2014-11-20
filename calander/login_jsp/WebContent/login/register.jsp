@@ -23,20 +23,21 @@
 		}
 	}
 	if (errorMsgs.size() == 0) {
-	try{
-		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-		stmt = conn.prepareStatement("insert into users values(?,?)");
-		stmt.setString(1,join_id);
-		stmt.setString(2, join_pwd);
-		stmt.executeUpdate();
-	}catch(SQLException e){
-		errorMsg = "SQL 에러" + e.getMessage();
-	}finally{
-		if(rs != null)try{rs.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
-		if(stmt != null)try{stmt.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
-		if(conn != null)try{conn.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
-	}
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+			stmt = conn.prepareStatement("insert into users values(?,?)");
+			stmt.setString(1,join_id);
+			stmt.setString(2, join_pwd);
+			stmt.executeUpdate();
+			
+		}catch(SQLException e){
+			errorMsg = "SQL 에러" + e.getMessage();
+		}finally{
+			if(rs != null)try{rs.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
+			if(stmt != null)try{stmt.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
+			if(conn != null)try{conn.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
+		}
 	}
 %>
 <!DOCTYPE>
