@@ -6,6 +6,7 @@
 <meta charset="utf-8">
 <title>Calander</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
+<<<<<<< HEAD
 <script type="text/javascript">
 	function calendar(){ //위에 날짜옮기는 걸 함수만들고 값을 리턴해서 calendar에 넣는 방법이나 아니면 전체를 자바스크립트로ㄱ
 		var date = new Date();
@@ -59,6 +60,8 @@
 		document.write('</tbody></tabel>');
 	}
 </script>
+=======
+>>>>>>> 735ce47a2f4e8b62360a4836d08c3ef248428d9e
 </head>
 <body>
     <div id="wrap">
@@ -201,7 +204,11 @@
             </div>
             
            	<div id ="move_month">
+<<<<<<< HEAD
             	2014. 11. 
+=======
+            	2014. 10. 
+>>>>>>> 735ce47a2f4e8b62360a4836d08c3ef248428d9e
             	<input class="month_button" type="button" value="◁">
             	<input class="month_button" type="button" value="▷">
            	</div>
@@ -214,9 +221,102 @@
                 <input class="navbar_button" type="button" value="정렬">
             </div>
             <div id="frame"	>
+<<<<<<< HEAD
                 <script type="text/javascript">
               		calendar();
               	</script>
+=======
+                <div id="month_clander">
+                    <table class="week_header">
+                        <tbody>
+                          <tr>
+                              <th title="일" class="sun">일</th>
+                              <th title="월">월</th>
+                              <th title="화">화</th>
+                              <th title="수">수</th>
+                              <th title="목">목</th>
+                              <th title="금">금</th>
+                              <th title="토">토</th>
+                          </tr>
+                        </tbody>
+                    </table>
+                    <div class="month_row">
+                        <table class="week_row">
+                            <tbody>
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                 <th></th>
+                                 <th></th>
+                                 <th></th>
+                                 <th></th>
+                               </tr>
+                           </tbody>
+                       </table>
+                    </div>
+                    <div class="month_row">
+                        <table class="week_row">
+                            <tbody>
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>                   
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="month_row">
+                        <table class="week_row">
+                            <tbody>
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="month_row">
+                        <table class="week_row">
+                            <tbody>
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+                            </tbody>
+                        </table>  
+                    </div>
+                    <div class="month_row">
+                        <table class="week_row">
+                            <tbody>
+                               <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+>>>>>>> 735ce47a2f4e8b62360a4836d08c3ef248428d9e
             </div>
         </div>
         
