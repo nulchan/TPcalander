@@ -1,13 +1,147 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>Calander</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	function mini_calendar(change_year,change_month){ 
+		var now_Date = new Date();               
+		var year = now_Date.getFullYear();      
+		var month = now_Date.getMonth() ;       
+		var date = now_Date.getDate();          
+		var day = now_Date.getDay();         
+		var end_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);      
+		var week = new Array("일","월","화","수","목","금","토");
+		var col=0;  
+		
+		if (change_year == null){
+			change_year=year;
+		}	
+		if (change_month == null){
+			change_month=month;
+		}
+		
+		Change_Date = new Date();      
+		Change_Date.setFullYear(change_year);
+		Change_Date.setMonth(change_month);  
+		Change_Date.setDate(1);        
+		var first_day = Change_Date.getDay(); 
+		var last_Day = end_day[Change_Date.getMonth()];
+		if((Change_Date.getMonth() == 1)&&(((Change_Date.getYear()%4 == 0)&&(Change_Date.getYear() %100 != 0))|| Change_Date.getYear() % 400 ==0 )){
+			last_Day=29;
+		} 
+		calendarSave ="<a href=javascript:mini_calendar("+change_year+","+(change_month-1)+")><input class=month_button id=month_button type=button value=◀></a>"
+		calendarSave +="<font size=3 color=black>  <b>"+Change_Date.getFullYear()+"년"+(Change_Date.getMonth()+1)+"월</b></font>"
+		calendarSave +="<a href=javascript:mini_calendar("+change_year+","+(change_month+1)+")><input class=month_button id=month_button type=button value=▶></a>"
+		calendarSave +="<table><tr>"
+		for (i=0;i<week.length;i++){			
+			calendarSave +="<td>"+week[i] + "</td>"
+		}	
+		calendarSave +="</tr><tr align=center>"
+		for (i=0;i<first_day;i++){         
+			calendarSave +="<td>&nbsp;</td>" 
+			col++;                     
+		}
+		for (i=1; i<=last_Day; i++){     
+			if(Change_Date.getFullYear()==change_year && Change_Date.getMonth()==change_month && i==date){
+				calendarSave +="<td>"+i+"</td>" 
+			}else{
+				if(col==0){             
+					calendarSave +="<td>"+i+"</td>"
+				}else if(1<=col && col<=5){
+					calendarSave +="<td>"+i+"</td>" 
+				}else if(col==6){        
+					calendarSave +="<td>"+i+"</td>" 
+				}
+		
+				}			
+				col++;
+				if(col==7){    
+					calendarSave +="</tr><tr align=center>"
+					col=0;
+				}
+			}   
+			for (i=col;i<week.length;i++){       
+				calendarSave +="<td>&nbsp;</td>"
+			}		
+			calendarSave +="</tr></table>"
+			document.getElementById('mini_calendar').innerHTML = calendarSave
+	}
+	function big_calendar(change_year,change_month){ 
+		var now_Date = new Date();               
+		var year = now_Date.getFullYear();      
+		var month = now_Date.getMonth() ;       
+		var date = now_Date.getDate();          
+		var day = now_Date.getDay();         
+		var end_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);      
+		var week = new Array("일","월","화","수","목","금","토");
+		var col=0;  
+		
+		if (change_year == null){
+			change_year=year;
+		}	
+		if (change_month == null){
+			change_month=month;
+		}
+		
+		Change_Date = new Date();      
+		Change_Date.setFullYear(change_year);
+		Change_Date.setMonth(change_month);  
+		Change_Date.setDate(1);        
+		var first_day = Change_Date.getDay(); 
+		var last_Day = end_day[Change_Date.getMonth()];
+		if((Change_Date.getMonth() == 1)&&(((Change_Date.getYear()%4 == 0)&&(Change_Date.getYear() %100 != 0))|| Change_Date.getYear() % 400 ==0 )){
+			last_Day=29;
+		}
+		calendarSave = "<div id=content_search><input class=search_text type=text value=일정검색><input class=search_button type=button value=검색></div>"
+		calendarSave += "<div id=content_navbar><input class=navbar_button type=button value=일간><input class=navbar_button type=button value=주간><input class=navbar_button type=button value=월간><input class=navbar_button type=button value=목록><input class=navbar_button type=button value=정렬></div>"
+		calendarSave += Change_Date.getFullYear()+"."+(Change_Date.getMonth()+1)
+		calendarSave +="<a href=javascript:big_calendar("+change_year+","+(change_month-1)+")><input class=month_button id=month_button type=button value=◀></a>"
+		calendarSave +="<a href=javascript:big_calendar("+change_year+","+(change_month+1)+")><input class=month_button id=month_button type=button value=▶></a>"
+		calendarSave +="<table><tr>"
+		for (i=0;i<week.length;i++){			
+			calendarSave +="<td>"+week[i] + "</td>"
+		}	
+		calendarSave +="</tr><tr align=center>"
+		for (i=0;i<first_day;i++){         
+			calendarSave +="<td>&nbsp;</td>" 
+			col++;                     
+		}
+		for (i=1; i<=last_Day; i++){     
+			if(Change_Date.getFullYear()==change_year && Change_Date.getMonth()==change_month && i==date){
+				calendarSave +="<td>"+i+"</td>" 
+			}else{
+				if(col==0){             
+					calendarSave +="<td>"+i+"</td>"
+				}else if(1<=col && col<=5){
+					calendarSave +="<td>"+i+"</td>" 
+				}else if(col==6){        
+					calendarSave +="<td>"+i+"</td>" 
+				}
+		
+				}			
+				col++;
+				if(col==7){    
+					calendarSave +="</tr><tr align=center>"
+					col=0;
+				}
+			}   
+			for (i=col;i<week.length;i++){       
+				calendarSave +="<td>&nbsp;</td>"
+			}		
+			calendarSave +="</tr></table>"
+			document.getElementById('big_calendar').innerHTML = calendarSave
+	}
+</script>
 </head>
+<<<<<<< HEAD
 <body background = "../images/background.jpg" >
+=======
+<body onload="mini_calendar(null,null),big_calendar(null,null)">
+>>>>>>> 55d29bc737d54371abf4a52c7b05509a936ce968
     <div id="wrap">
     	<div id="top">
     		안녕하세요. <b><%=session.getAttribute("id") %></b>님 ||
@@ -23,87 +157,16 @@
         <div id="menu">
             <div id="menu_body">
 	            <a href="../calander/make_schedule.jsp">
+<<<<<<< HEAD
                 <input class="menu_button" type="button" value="일정쓰기" >
                 </a>
+=======
+                <input class="menu_button" type="button" value="일정쓰기" ></a>
+>>>>>>> 55d29bc737d54371abf4a52c7b05509a936ce968
                 <input class="menu_button" type="button" value="기념일관리" >
 
                  <!-- 메뉴영역 달력 start -->
-                  <table id="menu_calander">
-                    <tr id="mc_top">
-                      <td class="mc_pointer" colspan="2" >◀</td>
-                      <td colspan="3">
-                        <div id="mc_year">2014</div>
-                        <div id="mc_month">10</div>
-                      </td>
-                      <td class="mc_pointer" colspan="2" >▶</td>
-                    </tr>
-                    <tr class="mc_border"><td class="mc_border" colspan="7"></td></tr>
-                    <tr id="week_col">
-                      <td id="sun">일</td>
-                      <td id="mon">월</td>
-                      <td id="tues">화</td>
-                      <td id="wed">수</td>
-                      <td id="thu">목</td>
-                      <td id="fri">금</td>
-                      <td id="sat">토</td>
-                    </tr>
-                    <tr class="mc_border"><td class="mc_border" colspan="7"></td></tr>
-                    <tr class="mday_col" >
-                      <td class="csfont">28</td>
-                      <td class="cfont">29</td>
-                      <td class="cfont">30</td>
-                      <td class="cfont">1</td>
-                      <td class="cfont">2</td>
-                      <td class="cfont">3</td>
-                      <td class="cfont">4</td>
-                    </tr>
-                    <tr class="mday_col">
-                      <td class="csfont">5</td>
-                      <td class="cfont">6</td>
-                      <td class="cfont">7</td>
-                      <td class="cfont">8</td>
-                      <td class="cfont">9</td>
-                      <td class="cfont">10</td>
-                      <td class="cfont">11</td>
-                    </tr>
-                    <tr class="mday_col">
-                      <td class="csfont">12</td>
-                      <td class="cfont">13</td>
-                      <td class="cfont">14</td>
-                      <td class="cfont">15</td>
-                      <td class="cfont">16</td>
-                      <td class="cfont">17</td>
-                      <td class="cfont">18</td>
-                    </tr>
-                    <tr class="mday_col">
-                      <td class="csfont">19</td>
-                      <td class="cfont">20</td>
-                      <td class="cfont">21</td>
-                      <td class="cfont">22</td>
-                      <td class="cfont">23</td>
-                      <td class="cfont">24</td>
-                      <td class="cfont">25</td>
-                    </tr>
-                    <tr class="mday_col">
-                      <td class="csfont">26</td>
-                      <td class="cfont">27</td>
-                      <td class="cfont">28</td>
-                      <td class="cfont">29</td>
-                      <td class="cfont">30</td>
-                      <td class="cfont">31</td>
-                      <td class="cfont">1</td>
-                    </tr>
-                    <tr class="mday_col">
-                      <td class="csfont">2</td>
-                      <td class="cfont">3</td>
-                      <td class="cfont">4</td>
-                      <td class="cfont">5</td>
-                      <td class="cfont">6</td>
-                      <td class="cfont">7</td>
-                      <td class="cfont">8</td>
-                    </tr>
-                    <tr class="mc_border"><td class="mc_border" colspan="7"></td></tr>
-                  </table>
+                 <div id="mini_calendar" ></div>
                   <!-- 메뉴영역 달력 end -->
                   <div id="menu_memo">
                 	<form action ="../calander/memostore.jsp" method="post">  	
@@ -138,9 +201,11 @@
 						</div>
                   </div>
             </div>
+        </div>
             <div id="menu_hide" onclick="HideLeftMenu();">
                 <a href="">◀</a>
             </div>
+<<<<<<< HEAD
         <div id="content">
           
             <div id="content_search">
@@ -260,6 +325,17 @@
         </div>
 
 </body>
+=======
+        </div>
+        <div id="content">
+          <div id="big_calendar" ></div>
+    	</div>
+        <div id="footer">
+            8조 - 박정현, 최기영, 하늘찬
+        </div>
+ 
+ 
+>>>>>>> 55d29bc737d54371abf4a52c7b05509a936ce968
 <script>
 	function HideLeftMenu() {
 		if (document.getElementById("menu_body").style.display == "none") {
@@ -273,3 +349,8 @@
 		}
 	}
 </script>
+<<<<<<< HEAD
+=======
+</body>
+    </html>
+>>>>>>> 55d29bc737d54371abf4a52c7b05509a936ce968
