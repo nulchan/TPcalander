@@ -7,7 +7,7 @@
 <title>Calander</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body background = "../images/background.jpg" >
     <div id="wrap">
     	<div id="top">
     		안녕하세요. <b><%=session.getAttribute("id") %></b>님 ||
@@ -24,6 +24,7 @@
             <div id="menu_body">
 	            <a href="../calander/make_schedule.jsp">
                 <input class="menu_button" type="button" value="일정쓰기" >
+                </a>
                 <input class="menu_button" type="button" value="기념일관리" >
 
                  <!-- 메뉴영역 달력 start -->
@@ -148,7 +149,7 @@
             </div>
             
            	<div id ="move_month">
-            	2014. 10. 
+            	2014. 11. 
             	<input class="month_button" type="button" value="◁">
             	<input class="month_button" type="button" value="▷">
            	</div>
@@ -254,11 +255,11 @@
             </div>
         </div>
         
-        </div>
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
         </div>
-    </div>
+
+</body>
 <script>
 	function HideLeftMenu() {
 		if (document.getElementById("menu_body").style.display == "none") {
@@ -272,4 +273,3 @@
 		}
 	}
 </script>
-

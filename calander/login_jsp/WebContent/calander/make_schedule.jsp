@@ -7,7 +7,7 @@
 <title>Calander</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body background = "../images/background.jpg" >
     <div id="wrap">
     	<div id="top">
     		안녕하세요. <b><%=session.getAttribute("id") %></b>님 ||
@@ -141,83 +141,86 @@
                 <a href="">◀</a>
             </div>
         	<div id="make_schedule">
-        	<br>
-        	<div id="new_schedule">
-        	일정 등록  | <a href="../calander/calander.jsp">캘린더로 돌아가기</a>
-			</div>
-			<div id="title">
-				제목 &nbsp; <input class="title_box", type="text" placeholder="제목을 입력하세요">
-			</div>
-			
-			<div id="time">
-				시간 &nbsp; <input class="time_box", type="text" placeholder="YYYY-MM-DD">
-					<select name="">
-						<option value="time">00:00</option>
-						<option value="time">01:00</option>
-						<option value="time">02:00</option>
-						<option value="time">03:00</option>
-						<option value="time">04:00</option>
-						<option value="time">05:00</option>
-						<option value="time">06:00</option>
-						<option value="time">07:00</option>
-						<option value="time">08:00</option>
-						<option value="time">09:00</option>
-						<option value="time">10:00</option>
-						<option value="time">11:00</option>
-						<option value="time">12:00</option>
-						<option value="time">13:00</option>
-						<option value="time">14:00</option>
-						<option value="time">15:00</option>
-						<option value="time">16:00</option>
-						<option value="time">17:00</option>
-						<option value="time">18:00</option>
-						<option value="time">19:00</option>
-						<option value="time">20:00</option>
-						<option value="time">21:00</option>
-						<option value="time">22:00</option>
-						<option value="time">23:00</option>
-					</select>
-					~
-					<input class="time_box", type="text" placeholder="YYYY-MM-DD">
-					<select name="">
-						<option value="time">00:00</option>
-						<option value="time">01:00</option>
-						<option value="time">02:00</option>
-						<option value="time">03:00</option>
-						<option value="time">04:00</option>
-						<option value="time">05:00</option>
-						<option value="time">06:00</option>
-						<option value="time">07:00</option>
-						<option value="time">08:00</option>
-						<option value="time">09:00</option>
-						<option value="time">10:00</option>
-						<option value="time">11:00</option>
-						<option value="time">12:00</option>
-						<option value="time">13:00</option>
-						<option value="time">14:00</option>
-						<option value="time">15:00</option>
-						<option value="time">16:00</option>
-						<option value="time">17:00</option>
-						<option value="time">18:00</option>
-						<option value="time">19:00</option>
-						<option value="time">20:00</option>
-						<option value="time">21:00</option>
-						<option value="time">22:00</option>
-						<option value="time">23:00</option>
-					</select>
-			</div>
-			
-			<div id="color">
-				색상	
-			</div>
-			
-			<div id="schedule_content">
-				내용
-			</div>
-			
-			
-			
-			</div>
+        		<table>
+        		<br>
+        			<div id="write_top">
+						일정 등록  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
+					</div>
+					<br>
+					<div id="title">
+						제목 &nbsp; <input class="title_box", type="text" placeholder="제목을 입력하세요">
+						
+						<tr height="1" bgcolor="#B2CCFF"><td colspan="4"></td></tr>
+					</div>
+					<div id="time">
+						시간 &nbsp; <input class="time_box", type="text" placeholder="YYYY-MM-DD">
+							<select name="">
+								<option value="time">00:00</option>
+								<option value="time">01:00</option>
+								<option value="time">02:00</option>
+								<option value="time">03:00</option>
+								<option value="time">04:00</option>
+								<option value="time">05:00</option>
+								<option value="time">06:00</option>
+								<option value="time">07:00</option>
+								<option value="time">08:00</option>
+								<option value="time">09:00</option>
+								<option value="time">10:00</option>
+								<option value="time">11:00</option>
+								<option value="time">12:00</option>
+								<option value="time">13:00</option>
+								<option value="time">14:00</option>
+								<option value="time">15:00</option>
+								<option value="time">16:00</option>
+								<option value="time">17:00</option>
+								<option value="time">18:00</option>
+								<option value="time">19:00</option>
+								<option value="time">20:00</option>
+								<option value="time">21:00</option>
+								<option value="time">22:00</option>
+								<option value="time">23:00</option>
+							</select>
+							~
+							<input class="time_box", type="text" placeholder="YYYY-MM-DD">
+							<select name="">
+								<option value="time">00:00</option>
+								<option value="time">01:00</option>
+								<option value="time">02:00</option>
+								<option value="time">03:00</option>
+								<option value="time">04:00</option>
+								<option value="time">05:00</option>
+								<option value="time">06:00</option>
+								<option value="time">07:00</option>
+								<option value="time">08:00</option>
+								<option value="time">09:00</option>
+								<option value="time">10:00</option>
+								<option value="time">11:00</option>
+								<option value="time">12:00</option>
+								<option value="time">13:00</option>
+								<option value="time">14:00</option>
+								<option value="time">15:00</option>
+								<option value="time">16:00</option>
+								<option value="time">17:00</option>
+								<option value="time">18:00</option>
+								<option value="time">19:00</option>
+								<option value="time">20:00</option>
+								<option value="time">21:00</option>
+								<option value="time">22:00</option>
+								<option value="time">23:00</option>
+							</select>
+					</div>
+					
+					<div id="color">
+						색상	
+					</div>
+					
+					<div id="schedule_content">
+						내용
+					</div>
+					
+					
+						</table>
+					</div>
 
 
 
@@ -225,7 +228,7 @@
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
         </div>
-    </div>
+</body>
 <script>
 	function HideLeftMenu() {
 		if (document.getElementById("menu_body").style.display == "none") {
