@@ -7,6 +7,9 @@
 <title>Calander</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
+	function day_click(change_year,change_month,day,week){
+		date = new Date(change_year,change_month,day);
+	}
 	function mini_calendar(change_year,change_month){ 
 		var now_Date = new Date();               
 		var year = now_Date.getFullYear();      
@@ -112,14 +115,14 @@
 		}
 		for (i=1; i<=last_Day; i++){     
 			if(Change_Date.getFullYear()==change_year && Change_Date.getMonth()==change_month && i==date){
-				calendarSave +="<td>"+i+"</td>" 
+				calendarSave +="<td onclick=day_click("+change_year+","+change_month+","+i+","+week[col]+")>"+i+"</td>" 
 			}else{
 				if(col==0){             
-					calendarSave +="<td>"+i+"</td>"
+					calendarSave +="<td onclick=day_click("+change_year+","+change_month+","+i+","+week[col]+")>"+i+"</td>"
 				}else if(1<=col && col<=5){
-					calendarSave +="<td>"+i+"</td>" 
+					calendarSave +="<td onclick=day_click("+change_year+","+change_month+","+i+","+week[col]+")>"+i+"</td>" 
 				}else if(col==6){        
-					calendarSave +="<td>"+i+"</td>" 
+					calendarSave +="<td onclick=day_click("+change_year+","+change_month+","+i+","+week[col]+")>"+i+"</td>" 
 				}
 		
 				}			
@@ -137,11 +140,8 @@
 	}
 </script>
 </head>
-<<<<<<< HEAD
-<body background = "../images/background.jpg" >
-=======
-<body onload="mini_calendar(null,null),big_calendar(null,null)">
->>>>>>> 55d29bc737d54371abf4a52c7b05509a936ce968
+<body background = "../images/background.jpg" onload="mini_calendar(null,null),big_calendar(null,null)">
+
     <div id="wrap">
     	<div id="top">
     		안녕하세요. <b><%=session.getAttribute("id") %></b>님 ||
@@ -157,12 +157,12 @@
         <div id="menu">
             <div id="menu_body">
 	            <a href="../calander/make_schedule.jsp">
-<<<<<<< HEAD
+
                 <input class="menu_button" type="button" value="일정쓰기" >
                 </a>
-=======
+
                 <input class="menu_button" type="button" value="일정쓰기" ></a>
->>>>>>> 55d29bc737d54371abf4a52c7b05509a936ce968
+
                 <input class="menu_button" type="button" value="기념일관리" >
 
                  <!-- 메뉴영역 달력 start -->
@@ -205,137 +205,12 @@
             <div id="menu_hide" onclick="HideLeftMenu();">
                 <a href="">◀</a>
             </div>
-<<<<<<< HEAD
-        <div id="content">
-          
-            <div id="content_search">
-                <input class="search_text", type="text" value="일정검색">
-                <input class="search_button", type="button" value="검색">
-            </div>
-            
-           	<div id ="move_month">
-            	2014. 11. 
-            	<input class="month_button" type="button" value="◁">
-            	<input class="month_button" type="button" value="▷">
-           	</div>
-           	<br><br>
-            <div id="content_navbar">
-                <input class="navbar_button" type="button" value="일간">
-                <input class="navbar_button" type="button" value="주간">
-                <input class="navbar_button" type="button" value="월간">
-                <input class="navbar_button" type="button" value="목록">
-                <input class="navbar_button" type="button" value="정렬">
-            </div>
-            <div id="frame"	>
-                <div id="month_clander">
-                    <table class="week_header">
-                        <tbody>
-                          <tr>
-                              <th title="일" class="sun">일</th>
-                              <th title="월">월</th>
-                              <th title="화">화</th>
-                              <th title="수">수</th>
-                              <th title="목">목</th>
-                              <th title="금">금</th>
-                              <th title="토">토</th>
-                          </tr>
-                        </tbody>
-                    </table>
-                    <div class="month_row">
-                        <table class="week_row">
-                            <tbody>
-                                <tr>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
-                                 <th></th>
-                               </tr>
-                           </tbody>
-                       </table>
-                    </div>
-                    <div class="month_row">
-                        <table class="week_row">
-                            <tbody>
-                                <tr>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>                   
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="month_row">
-                        <table class="week_row">
-                            <tbody>
-                                <tr>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="month_row">
-                        <table class="week_row">
-                            <tbody>
-                                <tr>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                </tr>
-                            </tbody>
-                        </table>  
-                    </div>
-                    <div class="month_row">
-                        <table class="week_row">
-                            <tbody>
-                               <tr>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div id="footer">
-            8조 - 박정현, 최기영, 하늘찬
-        </div>
-
-</body>
-=======
-        </div>
         <div id="content">
           <div id="big_calendar" ></div>
     	</div>
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
         </div>
- 
- 
->>>>>>> 55d29bc737d54371abf4a52c7b05509a936ce968
 <script>
 	function HideLeftMenu() {
 		if (document.getElementById("menu_body").style.display == "none") {
@@ -349,8 +224,7 @@
 		}
 	}
 </script>
-<<<<<<< HEAD
-=======
+
 </body>
     </html>
->>>>>>> 55d29bc737d54371abf4a52c7b05509a936ce968
+
