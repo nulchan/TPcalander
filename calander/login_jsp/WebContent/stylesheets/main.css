@@ -99,7 +99,7 @@ a:hover, a:active {color:#C23700;}
 #content{}
 #save_schedule{text-align:center;}
 
-#write_top{height:30px; width:300px; background-color: #D4F4FA; color:#000000;font-size:20px; font-weight:bold;  border-radius: 5px;
+#write_top{height:30px; width:330px; background-color: #D4F4FA; color:#000000;font-size:20px; font-weight:bold;  border-radius: 5px;
 padding-top:10px; padding-left:10px;
 background: rgb(242,245,246); /* Old browsers */
 background: -moz-linear-gradient(top,  rgba(242,245,246,1) 0%, rgba(227,234,237,1) 37%, rgba(200,215,220,1) 100%);

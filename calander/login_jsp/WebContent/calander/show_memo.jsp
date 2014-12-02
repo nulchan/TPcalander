@@ -129,11 +129,12 @@ function popupOpen(){
         <div id="menu">
             <div id="menu_body">
 	            <a href="../calander/make_schedule.jsp">
-
                 <input class="menu_button" type="button" value="일정쓰기" >
                 </a>
 
+                <a href="../calander/make_aniv.jsp">
                 <input class="menu_button" type="button" value="기념일관리" >
+				</a>
 
                  <!-- 메뉴영역 달력 start -->
                  <div id="mini_calendar" ></div>

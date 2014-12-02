@@ -150,7 +150,7 @@ function mini_calendar(change_year,change_month){
         		<table>
         		<br>
         			<div id="write_top">
-						일정 등록  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
+						기념일 등록  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
 					</div>
 					<br>
 					<form action ="../calander/scheduleStore.jsp" method="post">
