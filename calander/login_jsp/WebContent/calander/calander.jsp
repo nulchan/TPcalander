@@ -39,7 +39,7 @@
 		calendarSave ="<a href=javascript:mini_calendar("+change_year+","+(change_month-1)+")><input class=month_button id=month_button type=button value=◀></a>"
 		calendarSave +="<font size=3 color=black>  <b>"+Change_Date.getFullYear()+"년"+(Change_Date.getMonth()+1)+"월</b></font>"
 		calendarSave +="<a href=javascript:mini_calendar("+change_year+","+(change_month+1)+")><input class=month_button id=month_button type=button value=▶></a>"
-		calendarSave +="<table><tr>"
+		calendarSave +=" <table width= 100% border= 1 solid><tr>"
 		for (i=0;i<week.length;i++){			
 			calendarSave +="<td>"+week[i] + "</td>"
 		}	
@@ -52,7 +52,7 @@
 			if(Change_Date.getFullYear()==change_year && Change_Date.getMonth()==change_month && i==date){
 				calendarSave +="<td>"+i+"</td>" 
 			}else{
-				if(col==0){             
+				if(col==0){
 					calendarSave +="<td>"+i+"</td>"
 				}else if(1<=col && col<=5){
 					calendarSave +="<td>"+i+"</td>" 
@@ -100,16 +100,17 @@
 			last_Day=29;
 		}
 		calendarSave = "<div id=content_search><input class=search_text type=text value=일정검색><input class=search_button type=button value=검색></div>"
-		calendarSave += "<div id=content_navbar><input class=navbar_button type=button value=일간><input class=navbar_button type=button value=주간><input class=navbar_button type=button value=월간><input class=navbar_button type=button value=목록><input class=navbar_button type=button value=정렬></div>"
+		calendarSave += "<div id=content_navbar><input class=navbar_button type=button value=일간><input class=navbar_button type=button value=주간><input class=navbar_button type=button value=월간><input class=navbar_button type=button value=목록><input class=navbar_button type=button value=정렬></div><br>"
 		calendarSave += Change_Date.getFullYear()+"."+(Change_Date.getMonth()+1)
 		calendarSave +="<a href=javascript:big_calendar("+change_year+","+(change_month-1)+")><input class=month_button id=month_button type=button value=◀></a>"
 		calendarSave +="<a href=javascript:big_calendar("+change_year+","+(change_month+1)+")><input class=month_button id=month_button type=button value=▶></a>"
-		calendarSave +="<table><tr>"
+		calendarSave +="<table width=100% height=100% border= 1 solid><tr align=center height=50>"
 		for (i=0;i<week.length;i++){			
 			calendarSave +="<td>"+week[i] + "</td>"
 		}	
-		calendarSave +="</tr><tr align=center>"
-		for (i=0;i<first_day;i++){         
+
+		calendarSave +="</tr><tr valign=top height=60 >"
+		for (i=0;i<first_day;i++){
 			calendarSave +="<td>&nbsp;</td>" 
 			col++;                     
 		}
@@ -128,7 +129,7 @@
 				}			
 				col++;
 				if(col==7){    
-					calendarSave +="</tr><tr align=center>"
+					calendarSave +="</tr><tr valign=top height=60>"
 					col=0;
 				}
 			}   
@@ -138,6 +139,10 @@
 			calendarSave +="</tr></table>"
 			document.getElementById('big_calendar').innerHTML = calendarSave
 	}
+
+
+	
+	
 </script>
 </head>
 <body background = "../images/background.jpg" onload="mini_calendar(null,null),big_calendar(null,null)">
@@ -161,8 +166,6 @@
                 <input class="menu_button" type="button" value="일정쓰기" >
                 </a>
 
-                <input class="menu_button" type="button" value="일정쓰기" ></a>
-
                 <input class="menu_button" type="button" value="기념일관리" >
 
                  <!-- 메뉴영역 달력 start -->
@@ -177,35 +180,38 @@
                     </form>
                   </div>
                   <div id="menu_check">
-                      
-                      <a href="">
                       	<div id="all_schedule">
+                 			<a href="">
 							<img src="../images/all.png" alt="all_schedule">
-							전체 일정 보기</a></br>
+							전체 일정 보기</a><br>
 						</div>
-                      <a href="">
+                      
                       	<div id="show_important">
+	                      	<a href="">
 							<img src="../images/important.png" alt="important">
-							중요 일정 보기</a></br>
+							중요 일정 보기</a><br>
 						</div>
-                      <a href="">
+                      
                       	<div id="menu_delete">
+                      		<a href="javascript:popupOpen();" >
 							<img src="../images/can.png" alt="delete">
-							오래된 일정 삭제</a></br>
+							오래된 일정 삭제</a><br>
 						</div>
 						
-                      <a href="../calander/show_memo.jsp">
+                      
                       	<div id="show_memo">
+                    	  	<a href="../calander/show_memo.jsp">
 							<img src="../images/memo.png" alt="show_memo">
 							메모 모아보기</a>
-						</div>
-                  </div>
-            </div>
-        </div>
+						</div>    
+                     
+         		  </div>
+          </div>
+     </div>
             <div id="menu_hide" onclick="HideLeftMenu();">
                 <a href="">◀</a>
             </div>
-        <div id="content">
+        <div id="c_content">
           <div id="big_calendar" ></div>
     	</div>
         <div id="footer">

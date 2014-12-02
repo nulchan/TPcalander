@@ -7,6 +7,15 @@
 <title>Calander</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 </head>
+<script type="text/javascript">
+function popupOpen(){
+	var popUrl = "delete_popUp.jsp";	//팝업창에 출력될 페이지 URL
+	var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+		window.open(popUrl,"",popOption);
+
+	}
+</script>
+
 <body background = "../images/background.jpg" >
     <div id="wrap">
     	<div id="top">
@@ -24,6 +33,7 @@
             <div id="menu_body">
 	            <a href="../calander/make_schedule.jsp">
                 <input class="menu_button" type="button" value="일정쓰기" >
+                </a>
                 <input class="menu_button" type="button" value="기념일관리" >
 
                  <!-- 메뉴영역 달력 start -->
@@ -38,30 +48,34 @@
                     </form>
                   </div>
                   <div id="menu_check">
-                      
-                      <a href="">
                       	<div id="all_schedule">
+                 			<a href="../calander/calander.jsp">
 							<img src="../images/all.png" alt="all_schedule">
-							전체 일정 보기</a></br>
+							전체 일정 보기</a><br>
 						</div>
-                      <a href="">
+                      
                       	<div id="show_important">
+	                      	<a href="">
 							<img src="../images/important.png" alt="important">
-							중요 일정 보기</a></br>
+							중요 일정 보기</a><br>
 						</div>
-                      <a href="">
+                      
                       	<div id="menu_delete">
+                      		<a href="javascript:popupOpen();" >
 							<img src="../images/can.png" alt="delete">
-							오래된 일정 삭제</a></br>
+							오래된 일정 삭제</a><br>
 						</div>
 						
-                      <a href="../calander/show_memo.jsp">
+                      
                       	<div id="show_memo">
+                    	  	<a href="../calander/show_memo.jsp">
 							<img src="../images/memo.png" alt="show_memo">
 							메모 모아보기</a>
-						</div>
-                  </div>
-            </div>
+						</div>    
+                     
+         		  </div>
+         </div>
+     </div>
             <div id="menu_hide" onclick="HideLeftMenu();">
                 <a href="">◀</a>
             </div>
@@ -136,21 +150,26 @@
 					</div>
 					
 					<div id="color">
-						색상	<select name="color">
-								<option value="red">빨강</option>
-								<option value="blue">파랑</option>
-								<option value="yello">노랑</option>
-								<option value="puple">보라</option>
-								<option value="black">검정</option>
-							</select>	
+						색상&nbsp;&nbsp;
+						<select name="name_color">
+							<option style="background-color: #000000; color: white" value="color0">BLACK</option>
+							<option style="background-color: #FF0000; color: white" value="color1">RED</option>
+							<option style="background-color: #0100FF; color: white" value="color2">BLUE</option>
+							<option style="background-color: #FF5E00; color: white" value="color3">ORANGE</option>
+							<option style="background-color: #1DDB16; color: white" value="color4">GREEN</option>
+							<option style="background-color: #FFE400; color: white" value="color5">YELLOW</option>
+						</select>
+
 					</div>
 					
 					<div id="schedule_content">
-						내용 <textarea cols="36" rows="8" id="content"></textarea>
+						내용&nbsp;&nbsp; <textarea cols="50" rows="10" id="content"></textarea>
 					</div>
 					</table>
-					<input type="submit" value="저장하기">
-					</form>
+						<div id="save_schedule">
+							<input type="submit" value="저장하기">
+						</div>
+					
 					</div>
 
 
