@@ -179,15 +179,19 @@ function popupOpen(){
             <div id="menu_hide" onclick="HideLeftMenu();">
                 <a href="">◀</a>
             </div>
-          <div id="content" >
-         
-           <ul>
-           <% for(String content: memo) { %>
-                   <li><%=content %></li>
-                <%} %>
-          </ul>
-          
-          </div>
+	          <div id="memo_content" >
+	         		<div id="write_top">
+						메모  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
+					</div>
+	           <ul>
+	           <% for(String content: memo) { %>
+	                   <li><%=content %></li>
+	                <%} %>
+	                
+	          </ul>
+	          
+	          </div>
+
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
         </div>
@@ -196,11 +200,11 @@ function popupOpen(){
 		if (document.getElementById("menu_body").style.display == "none") {
 			document.getElementById("menu_body").style.display = "block";
 			document.getElementById("menu_hide").innerText = "◀";
-			document.getElementById("content").style.width = "79%";
+			document.getElementById("memo_content").style.width = "79%";
 		} else {
 			document.getElementById("menu_body").style.display = "none";
 			document.getElementById("menu_hide").innerText = "▶";
-			document.getElementById("content").style.width = "98%";
+			document.getElementById("memo_content").style.width = "98%";
 		}
 	}
 </script>
