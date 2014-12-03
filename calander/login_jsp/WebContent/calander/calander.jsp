@@ -139,7 +139,12 @@
 			calendarSave +="</tr></table>"
 			document.getElementById('big_calendar').innerHTML = calendarSave
 	}
+	function popupOpen(){
+		var popUrl = "delete_popUp.jsp";	//팝업창에 출력될 페이지 URL
+		var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+			window.open(popUrl,"",popOption);
 
+		}
 
 	
 	

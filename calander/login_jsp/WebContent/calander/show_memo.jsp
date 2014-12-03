@@ -179,7 +179,7 @@ function popupOpen(){
             <div id="menu_hide" onclick="HideLeftMenu();">
                 <a href="">◀</a>
             </div>
-          <div id="memo_content" >
+          <div id="content" >
          
            <ul>
            <% for(String content: memo) { %>
