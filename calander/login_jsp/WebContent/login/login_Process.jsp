@@ -41,29 +41,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+</head>
+<body>
 <%
 	if (id == null || pwd == null || id.length() == 0 || pwd.length() == 0) {
 %>
-	<div class="error" >아이디와 비밀번호를 입력하세요.</div>
+	<div class="error">
+		<script type="text/javascript">
+			alert("아이디와 비밀번호를 입력하세요");
+			location.href=("../login/login.jsp");
+	    </script>
+	</div>
 <%
 	}else if (id.equals(userid) && pwd.equals(userpwd)) {
 		session.setAttribute("id", userid);
 		session.setAttribute("pwd", userpwd);	
 		response.sendRedirect("../calander/calander.jsp");	      
 	}else{%>
-	<div class="error" onload="popupOpen();">아이디 또는 비밀번호 오류입니다</div>
-	
+	<div class="error">
+		<script type="text/javascript">
+			alert("아이디 또는 비밀번호 오류입니다.");
+			location.href=("../login/login.jsp");
+	    </script>
+	</div>
 <% }%>
-</head>
-<body>
-
 </body>
 </html>
 
-<script type="text/javascript">
-function popupOpen(){
-	var popUrl = "../login/login_error.jsp";	//팝업창에 출력될 페이지 URL
-	var popOption = "width=370, height=360, top=400, left=400, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-	window.open(popUrl,"",popOption);
-}
-</script>
+

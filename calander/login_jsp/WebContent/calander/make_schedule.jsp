@@ -147,32 +147,91 @@ function mini_calendar(change_year,change_month){
                 <a href="">◀</a>
             </div>
         	<div id="make_schedule">
-        		<table>
-        		<br>
-        			<div id="write_top">
-						일정 등록  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
-					</div>
-					<br>
-					<form action ="../calander/scheduleStore.jsp" method="post">
-					<div id="title">
-						제목 &nbsp; <input class="title_box", name="submit" type="text" placeholder="제목을 입력하세요">				
-						<tr height="1" bgcolor="#B2CCFF"><td colspan="4"></td></tr>
-					</div>
-					<div id="time">
-						시간 &nbsp; <input class="time_box", type="text" id="start" placeholder="YYYY-MM-DD">
-							
-					</div>
-					
-					
-					<div id="schedule_content">
-						내용&nbsp;&nbsp; <textarea cols="50" rows="10" id="content"></textarea>
-					</div>
-					</table>
-						<div id="save_schedule">
-							<input type="submit" value="저장하기">
-						</div>
-					
-					</div>
+              <table>
+              <br>
+                 <div id="write_top">
+                  일정 등록  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
+               </div>
+               <br>
+               <form action ="../calander/scheduleStore.jsp" method="post">
+               <div id="title">
+                  제목 &nbsp; <input class="title_box", name="submit" type="text" placeholder="제목을 입력하세요">            
+                  <tr height="1" bgcolor="#B2CCFF"><td colspan="4"></td></tr>
+               </div>
+               <div id="time">
+                  시간 &nbsp; <input class="time_box", type="text" id="start" placeholder="YYYY-MM-DD">
+                     <select name="start_time">
+                        <option value="time0">00:00</option>
+                        <option value="time1">01:00</option>
+                        <option value="time2">02:00</option>
+                        <option value="time3">03:00</option>
+                        <option value="time4">04:00</option>
+                        <option value="time5">05:00</option>
+                        <option value="time6">06:00</option>
+                        <option value="time7">07:00</option>
+                        <option value="time8">08:00</option>
+                        <option value="time9">09:00</option>
+                        <option value="time10">10:00</option>
+                        <option value="time11">11:00</option>
+                        <option value="time12">12:00</option>
+                        <option value="time13">13:00</option>
+                        <option value="time14">14:00</option>
+                        <option value="time15">15:00</option>
+                        <option value="time16">16:00</option>
+                        <option value="time17">17:00</option>
+                        <option value="time18">18:00</option>
+                        <option value="time19">19:00</option>
+                        <option value="time20">20:00</option>
+                        <option value="time21">21:00</option>
+                        <option value="time22">22:00</option>
+                        <option value="time23">23:00</option>
+                     </select>
+                     ~
+                     <input class="time_box" type="text" id="end" placeholder="YYYY-MM-DD">
+                     <select name="end_time">
+                        <option value="time24">00:00</option>
+                        <option value="time25">01:00</option>
+                        <option value="time26">02:00</option>
+                        <option value="time27">03:00</option>
+                        <option value="time28">04:00</option>
+                        <option value="time29">05:00</option>
+                        <option value="time30">06:00</option>
+                        <option value="time31">07:00</option>
+                        <option value="time32">08:00</option>
+                        <option value="time33">09:00</option>
+                        <option value="time34">10:00</option>
+                        <option value="time35">11:00</option>
+                        <option value="time36">12:00</option>
+                        <option value="time37">13:00</option>
+                        <option value="time38">14:00</option>
+                        <option value="time39">15:00</option>
+                        <option value="time40">16:00</option>
+                        <option value="time41">17:00</option>
+                        <option value="time42">18:00</option>
+                        <option value="time43">19:00</option>
+                        <option value="time44">20:00</option>
+                        <option value="time45">21:00</option>
+                        <option value="time46">22:00</option>
+                        <option value="time47">23:00</option>
+                     </select>
+               </div>
+               
+               <div id="color">
+                  색상   <select name="color">
+                        <option value="red">빨강</option>
+                        <option value="blue">파랑</option>
+                        <option value="yello">노랑</option>
+                        <option value="puple">보라</option>
+                        <option value="black">검정</option>
+                     </select>   
+               </div>
+               
+               <div id="schedule_content">
+                  내용 <textarea cols="36" rows="8" id="content"></textarea>
+               </div>
+               </table>
+               <input type="submit" value="저장하기"></form>
+               </div>
 
 
 

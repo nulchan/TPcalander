@@ -26,12 +26,12 @@
 		stmt = conn.prepareStatement("insert into schedule values(?,?,?,?,?,?,?,?)");
 		stmt.setString(1,id);
 		stmt.setString(2,submit);
-		stmt.setString(2,start);
-		stmt.setString(2,end);
-		stmt.setString(2,start_time);
-		stmt.setString(2,end_time);
-		stmt.setString(2,color);
-		stmt.setString(2,submit);
+		stmt.setString(3,start);
+		stmt.setString(4,end);
+		stmt.setString(5,start_time);
+		stmt.setString(6,end_time);
+		stmt.setString(7,color);
+		stmt.setString(8,submit);
 		stmt.executeUpdate();
 	}catch(SQLException e){
 		errorMsg = "SQL 에러" + e.getMessage();
