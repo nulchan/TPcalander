@@ -8,78 +8,81 @@
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 </head>
 <script type="text/javascript">
-function popupOpen(){
-	var popUrl = "delete_popUp.jsp";	//팝업창에 출력될 페이지 URL
-	var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-		window.open(popUrl,"",popOption);
-
-	}
-function day_click(change_year,change_month,day,week){
-	date = new Date(change_year,change_month,day);
-}
-function mini_calendar(change_year,change_month){ 
-	var now_Date = new Date();               
-	var year = now_Date.getFullYear();      
-	var month = now_Date.getMonth() ;       
-	var date = now_Date.getDate();          
-	var day = now_Date.getDay();         
-	var end_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);      
-	var week = new Array("일","월","화","수","목","금","토");
-	var col=0;  
+	function popupOpen(){
+		var popUrl = "delete_popUp.jsp";	//팝업창에 출력될 페이지 URL
+		var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+			window.open(popUrl,"",popOption);
 	
-	if (change_year == null){
-		change_year=year;
-	}	
-	if (change_month == null){
-		change_month=month;
+		}
+	function day_click(change_year,change_month,day,week){
+		date = new Date(change_year,change_month,day);
 	}
-	
-	Change_Date = new Date();      
-	Change_Date.setFullYear(change_year);
-	Change_Date.setMonth(change_month);  
-	Change_Date.setDate(1);        
-	var first_day = Change_Date.getDay(); 
-	var last_Day = end_day[Change_Date.getMonth()];
-	if((Change_Date.getMonth() == 1)&&(((Change_Date.getYear()%4 == 0)&&(Change_Date.getYear() %100 != 0))|| Change_Date.getYear() % 400 ==0 )){
-		last_Day=29;
-	} 
-	calendarSave ="<a href=javascript:mini_calendar("+change_year+","+(change_month-1)+")><input class=month_button id=month_button type=button value=◀></a>"
-	calendarSave +="<font size=3 color=black>  <b>"+Change_Date.getFullYear()+"년"+(Change_Date.getMonth()+1)+"월</b></font>"
-	calendarSave +="<a href=javascript:mini_calendar("+change_year+","+(change_month+1)+")><input class=month_button id=month_button type=button value=▶></a>"
-	calendarSave +=" <table width= 100% border= 1 solid><tr>"
-	for (i=0;i<week.length;i++){			
-		calendarSave +="<td>"+week[i] + "</td>"
-	}	
-	calendarSave +="</tr><tr align=center>"
-	for (i=0;i<first_day;i++){         
-		calendarSave +="<td>&nbsp;</td>" 
-		col++;                     
-	}
-	for (i=1; i<=last_Day; i++){     
-		if(Change_Date.getFullYear()==change_year && Change_Date.getMonth()==change_month && i==date){
-			calendarSave +="<td>"+i+"</td>" 
-		}else{
-			if(col==0){
-				calendarSave +="<td>"+i+"</td>"
-			}else if(1<=col && col<=5){
+	function mini_calendar(change_year,change_month){ 
+		var now_Date = new Date();               
+		var year = now_Date.getFullYear();      
+		var month = now_Date.getMonth() ;       
+		var date = now_Date.getDate();          
+		var day = now_Date.getDay();         
+		var end_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);      
+		var week = new Array("일","월","화","수","목","금","토");
+		var col=0;  
+		
+		if (change_year == null){
+			change_year=year;
+		}	
+		if (change_month == null){
+			change_month=month;
+		}
+		
+		Change_Date = new Date();      
+		Change_Date.setFullYear(change_year);
+		Change_Date.setMonth(change_month);  
+		Change_Date.setDate(1);        
+		var first_day = Change_Date.getDay(); 
+		var last_Day = end_day[Change_Date.getMonth()];
+		if((Change_Date.getMonth() == 1)&&(((Change_Date.getYear()%4 == 0)&&(Change_Date.getYear() %100 != 0))|| Change_Date.getYear() % 400 ==0 )){
+			last_Day=29;
+		} 
+		calendarSave ="<a href=javascript:mini_calendar("+change_year+","+(change_month-1)+")><input class=month_button id=month_button type=button value=◀></a>"
+		calendarSave +="<font size=3 color=black>  <b>"+Change_Date.getFullYear()+"년"+(Change_Date.getMonth()+1)+"월</b></font>"
+		calendarSave +="<a href=javascript:mini_calendar("+change_year+","+(change_month+1)+")><input class=month_button id=month_button type=button value=▶></a>"
+		calendarSave +=" <table width= 100% border= 1 solid><tr>"
+		for (i=0;i<week.length;i++){			
+			calendarSave +="<td>"+week[i] + "</td>"
+		}	
+		calendarSave +="</tr><tr align=center>"
+		for (i=0;i<first_day;i++){         
+			calendarSave +="<td>&nbsp;</td>" 
+			col++;                     
+		}
+		for (i=1; i<=last_Day; i++){     
+			if(Change_Date.getFullYear()==change_year && Change_Date.getMonth()==change_month && i==date){
 				calendarSave +="<td>"+i+"</td>" 
-			}else if(col==6){        
-				calendarSave +="<td>"+i+"</td>" 
-			}
-	
-			}			
-			col++;
-			if(col==7){    
-				calendarSave +="</tr><tr align=center>"
-				col=0;
-			}
-		}   
-		for (i=col;i<week.length;i++){       
-			calendarSave +="<td>&nbsp;</td>"
-		}		
-		calendarSave +="</tr></table>"
-		document.getElementById('mini_calendar').innerHTML = calendarSave
-}
+			}else{
+				if(col==0){
+					calendarSave +="<td>"+i+"</td>"
+				}else if(1<=col && col<=5){
+					calendarSave +="<td>"+i+"</td>" 
+				}else if(col==6){        
+					calendarSave +="<td>"+i+"</td>" 
+				}
+		
+				}			
+				col++;
+				if(col==7){    
+					calendarSave +="</tr><tr align=center>"
+					col=0;
+				}
+			}   
+			for (i=col;i<week.length;i++){       
+				calendarSave +="<td>&nbsp;</td>"
+			}		
+			calendarSave +="</tr></table>"
+			document.getElementById('mini_calendar').innerHTML = calendarSave
+	}
+	function add_memo(){
+		alert("새 메모를 등록했습니다");
+	}
 </script>
 
 <body background = "../images/background.jpg" onload="mini_calendar(null,null)">
@@ -111,7 +114,7 @@ function mini_calendar(change_year,change_month){
 	                    <div class="memo_box">
 	                    <textarea cols="36" rows="8" name="memo" id="memo" placeholder="이 곳에 메모를 입력 할 수 있습니다"></textarea>
 	                    </div>
-	                    <input class="memo_button" type="submit" value="등록">
+	                    <input class="memo_button" type="submit" value="등록" onclick="add_memo();">
                     </form>
                   </div>
                   <div id="menu_check">

@@ -144,8 +144,10 @@
 		var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 			window.open(popUrl,"",popOption);
 
-		}
-
+	}
+	function add_memo(){
+		alert("새 메모를 등록했습니다");
+	}
 	
 	
 </script>
@@ -181,7 +183,7 @@
 	                    <div class="memo_box">
 	                    <textarea cols="36" rows="8" name="memo" id="memo" placeholder="이 곳에 메모를 입력 할 수 있습니다"></textarea>
 	                    </div>
-	                    <input class="memo_button" type="submit" value="등록">
+	                    <input class="memo_button" type="submit" value="등록" onclick="add_memo();">
                     </form>
                   </div>
                   <div id="menu_check">

@@ -4,7 +4,7 @@ create table users(
 );
 
 create table memo(
-	id varchar(20) not null primary key,
+	id varchar(20) not null,
 	memo varchar(255) not null
 );
 
