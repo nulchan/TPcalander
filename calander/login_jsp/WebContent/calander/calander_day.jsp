@@ -135,7 +135,7 @@
 			last_Day=29;
 		}
 		calendarSave = "<div id=content_search><input class=search_text type=text value=일정검색><input class=search_button type=button value=검색></div>"
-		calendarSave += "<div id=content_navbar><a href=../calander/calander_day.jsp><input class=navbar_button type=button value=일간></a><a href=../calander/calander_week.jsp><input class=navbar_button type=button value=주간></a><input class=navbar_button type=button value=월간><input class=navbar_button type=button value=목록><input class=navbar_button type=button value=정렬></div><br>"
+		calendarSave += "<div id=content_navbar><input class=navbar_button type=button value=일간><a href=../calander/calander_week.jsp><input class=navbar_button type=button value=주간></a><input class=navbar_button type=button value=월간><input class=navbar_button type=button value=목록><input class=navbar_button type=button value=정렬></div><br>"
 		calendarSave += Change_Date.getFullYear()+"."+(Change_Date.getMonth()+1)
 		calendarSave +="<a href=javascript:big_calendar("+change_year+","+(change_month-1)+")><input class=month_button id=month_button type=button value=◀></a>"
 		calendarSave +="<a href=javascript:big_calendar("+change_year+","+(change_month+1)+")><input class=month_button id=month_button type=button value=▶></a>"
@@ -248,7 +248,6 @@
             </div>
         <div id="c_content">
           <div id="big_calendar" ></div>
-          
     	</div>
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬

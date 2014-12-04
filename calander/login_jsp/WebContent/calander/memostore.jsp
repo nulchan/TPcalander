@@ -29,6 +29,7 @@
 		if(conn != null)try{conn.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
 	}
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
