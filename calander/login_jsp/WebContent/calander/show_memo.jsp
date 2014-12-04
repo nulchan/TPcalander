@@ -104,11 +104,14 @@
 			calendarSave +="</tr></table>"
 			document.getElementById('mini_calendar').innerHTML = calendarSave
 	}
-function popupOpen(){
-	var popUrl = "delete_popUp.jsp";	//팝업창에 출력될 페이지 URL
-	var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-		window.open(popUrl,"",popOption);
-
+	function popupOpen(){
+		var popUrl = "delete_popUp.jsp";	//팝업창에 출력될 페이지 URL
+		var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+			window.open(popUrl,"",popOption);
+	
+	}
+	function add_memo(){
+		alert("새 메모를 등록했습니다");
 	}
 </script>
 </head>
@@ -144,7 +147,7 @@ function popupOpen(){
 	                    <div class="memo_box">
 	                    <textarea cols="36" rows="8" name="memo" id="memo" placeholder="이 곳에 메모를 입력 할 수 있습니다"></textarea>
 	                    </div>
-	                    <input class="memo_button" type="submit" value="등록">
+	                    <input class="memo_button" type="submit" value="등록" onclick="add_memo();">
                     </form>
                   </div>
                   <div id="menu_check">
@@ -179,15 +182,19 @@ function popupOpen(){
             <div id="menu_hide" onclick="HideLeftMenu();">
                 <a href="">◀</a>
             </div>
-          <div id="memo_content" >
-         
-           <ul>
-           <% for(String content: memo) { %>
-                   <li><%=content %></li>
-                <%} %>
-          </ul>
-          
-          </div>
+	          <div id="memo_content" >
+	         		<div id="write_top">
+						메모  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
+					</div>
+	           <ul>
+	           <% for(String content: memo) { %>
+	                   <li><%=content %></li>
+	                <%} %>
+	                
+	          </ul>
+	          
+	          </div>
+
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
         </div>
@@ -196,11 +203,11 @@ function popupOpen(){
 		if (document.getElementById("menu_body").style.display == "none") {
 			document.getElementById("menu_body").style.display = "block";
 			document.getElementById("menu_hide").innerText = "◀";
-			document.getElementById("content").style.width = "79%";
+			document.getElementById("memo_content").style.width = "79%";
 		} else {
 			document.getElementById("menu_body").style.display = "none";
 			document.getElementById("menu_hide").innerText = "▶";
-			document.getElementById("content").style.width = "98%";
+			document.getElementById("memo_content").style.width = "98%";
 		}
 	}
 </script>

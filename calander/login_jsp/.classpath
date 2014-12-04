@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path=""/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/giyoung/Desktop/apache-tomcat-8.0.15/lib/servlet-api.jar"/>
+=======
+>>>>>>> 2f639a34da16f1031fe08f8a627b25875a298b38
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 7.0/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
