@@ -7,9 +7,7 @@
 <title>Calander</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 </head>
-<<<<<<< HEAD
 <body background = "../images/background.jpg" >
-=======
 <script type="text/javascript">
 	function popupOpen(){
 		var popUrl = "delete_popUp.jsp";	//팝업창에 출력될 페이지 URL
@@ -89,7 +87,6 @@
 </script>
 
 <body background = "../images/background.jpg" onload="mini_calendar(null,null)">
->>>>>>> 2f639a34da16f1031fe08f8a627b25875a298b38
     <div id="wrap">
     	<div id="top">
     		안녕하세요. <b><%=session.getAttribute("id") %></b>님 ||
@@ -148,7 +145,6 @@
                 <a href="">◀</a>
             </div>
         	<div id="make_schedule">
-<<<<<<< HEAD
         		<table>
         		<br>
         			<div id="write_top">
@@ -234,7 +230,6 @@
 					</table>
 					<input type="submit" value="저장하기"></form>
 					</div>
-=======
               <table>
               <br>
                  <div id="write_top">
@@ -320,7 +315,6 @@
                </table>
                <input type="submit" value="저장하기"></form>
                </div>
->>>>>>> 2f639a34da16f1031fe08f8a627b25875a298b38
 
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬

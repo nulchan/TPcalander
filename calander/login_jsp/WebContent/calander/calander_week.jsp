@@ -81,13 +81,10 @@
       		var title = "<div id=content_search><input class=search_text type=text value=일정검색><input class=search_button type=button value=검색></div>"
       		title += "<div id=content_navbar><a href=../calander/calander_day.jsp><input class=navbar_button type=button value=일간></a><a href=../calander/calander_week.jsp><input class=navbar_button type=button value=주간></a><a href=../calander/calander.jsp><input class=navbar_button type=button value=월간></a><input class=navbar_button type=button value=목록><input class=navbar_button type=button value=정렬></div><br>"
       	 	title +="<a href=javascript:week_calandar(-1)><input class=month_button id=month_button type=button value=◀></a>"
-      		title += day.getFullYear() + "." + (day.getMonth()+1); 
+      		title += day.getFullYear() + "." + (day.getMonth()+1)+","+Math.ceil((day.getDate()/7))+"번쨰 주"; 
       		var data = "<table width=98% height=100% border= 1 solid><tr align=center height=50>" 
       		for(var i=0 ; i<7 ; i++) {
-      			data += "<td width=14%>"+day.getDate()+"</td>" ;
-      			if(day.getDate() == 1){ 
-      				title += " ~ " + day.getFullYear() + "." + (day.getMonth()+1); 
-      			}	
+      			data += "<td width=14%>"+day.getDate()+"</td>";	
       			day.setDate(day.getDate()+1); 
       		}
       		day.setDate(day.getDate()-7); 

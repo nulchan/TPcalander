@@ -108,12 +108,12 @@
 			calendarSave +="</tr></table>"
 			document.getElementById('mini_calendar').innerHTML = calendarSave
 	}
-	function big_calendar(change_year,change_month){ 
+	function big_calendar(change_year,change_month,change_date,change_day){ 
 		var now_Date = new Date();               
 		var year = now_Date.getFullYear();      
 		var month = now_Date.getMonth() ;       
 		var date = now_Date.getDate();          
-		var day = now_Date.getDay();         
+		var day = now_Date.getDay(); 
 		var end_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);      
 		var week = new Array("일","월","화","수","목","금","토");
 		var col=0;  
@@ -124,63 +124,43 @@
 		if (change_month == null){
 			change_month=month;
 		}
-		
+		if(change_date == null){
+			change_date=date;
+		}
+		if(change_day == null){
+			change_day = day;
+		}
+		if(change_day < 0){
+			change_day = 6;
+		}
+		if(change_day > 6){
+			change_day = 0;
+		}
 		Change_Date = new Date();      
 		Change_Date.setFullYear(change_year);
 		Change_Date.setMonth(change_month);  
-		Change_Date.setDate(1);        
+		Change_Date.setDate(change_date);   
+		now_Date.setDate(change_date);
 		var first_day = Change_Date.getDay(); 
 		var last_Day = end_day[Change_Date.getMonth()];
 		if((Change_Date.getMonth() == 1)&&(((Change_Date.getYear()%4 == 0)&&(Change_Date.getYear() %100 != 0))|| Change_Date.getYear() % 400 ==0 )){
 			last_Day=29;
 		}
 		calendarSave = "<div id=content_search><input class=search_text type=text value=일정검색><input class=search_button type=button value=검색></div>"
-		calendarSave += "<div id=content_navbar><input class=navbar_button type=button value=일간><a href=../calander/calander_week.jsp><input class=navbar_button type=button value=주간></a><input class=navbar_button type=button value=월간><input class=navbar_button type=button value=목록><input class=navbar_button type=button value=정렬></div><br>"
-		calendarSave += Change_Date.getFullYear()+"."+(Change_Date.getMonth()+1)
-		calendarSave +="<a href=javascript:big_calendar("+change_year+","+(change_month-1)+")><input class=month_button id=month_button type=button value=◀></a>"
-		calendarSave +="<a href=javascript:big_calendar("+change_year+","+(change_month+1)+")><input class=month_button id=month_button type=button value=▶></a>"
+		calendarSave += "<div id=content_navbar><a href=../calander/calander_day.jsp><input class=navbar_button type=button value=일간></a><a href=../calander/calander_week.jsp><input class=navbar_button type=button value=주간></a><input class=navbar_button type=button value=월간><input class=navbar_button type=button value=목록><input class=navbar_button type=button value=정렬></div><br>"
+		calendarSave += Change_Date.getFullYear()+"."+(Change_Date.getMonth()+1)+"."+now_Date.getDate()+"."+week[change_day]+"요일"
+		calendarSave +="<a href=javascript:big_calendar("+change_year+","+change_month+","+(change_date-1)+","+(change_day-1)+")><input class=month_button id=month_button type=button value=◀></a>"
+		calendarSave +="<a href=javascript:big_calendar("+change_year+","+change_month+","+(change_date+1)+","+(change_day+1)+")><input class=month_button id=month_button type=button value=▶></a>"
 		calendarSave +="<table width=100% height=100% border= 1 solid><tr align=center height=50>"
-		for (i=0;i<week.length;i++){			
-			calendarSave +="<td>"+week[i] + "</td>"
-		}	
-
-		calendarSave +="</tr><tr valign=top height=60 >"
-		for (i=0;i<first_day;i++){
-			calendarSave +="<td>&nbsp;</td>" 
-			col++;                     
-		}
-		for (i=1; i<=last_Day; i++){     
-			if(Change_Date.getFullYear()==change_year && Change_Date.getMonth()==change_month && i==date){
-				calendarSave +="<td onclick=day_click("+change_year+","+change_month+","+i+","+week[col]+")>"+i+"</td>" 
-			}else{
-				if(col==0){             
-					calendarSave +="<td onclick=day_click("+change_year+","+change_month+","+i+","+week[col]+")>"+i+"</td>"
-				}else if(1<=col && col<=5){
-					calendarSave +="<td onclick=day_click("+change_year+","+change_month+","+i+","+week[col]+")>"+i+"</td>" 
-				}else if(col==6){        
-					calendarSave +="<td onclick=day_click("+change_year+","+change_month+","+i+","+week[col]+")>"+i+"</td>" 
-				}
 		
-				}			
-				col++;
-				if(col==7){    
-					calendarSave +="</tr><tr valign=top height=60>"
-					col=0;
-				}
-			}   
-			for (i=col;i<week.length;i++){       
-				calendarSave +="<td>&nbsp;</td>"
-			}		
-			calendarSave +="</tr></table>"
-			document.getElementById('big_calendar').innerHTML = calendarSave
+		calendarSave +="</tr></table>"
+		document.getElementById('big_calendar').innerHTML = calendarSave
 	}
-
-
 	
 	
 </script>
 </head>
-<body background = "../images/background.jpg" onload="mini_calendar(null,null),big_calendar(null,null)">
+<body background = "../images/background.jpg" onload="mini_calendar(null,null), big_calendar(null,null,null,null)">
 
     <div id="wrap">
     	<div id="top">
