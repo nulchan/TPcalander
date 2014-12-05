@@ -242,7 +242,7 @@
                   <tr height="1" bgcolor="#B2CCFF"><td colspan="4"></td></tr>
                </div>
                <div id="time">
-                  시간 &nbsp; <input class="time_box", type="text" id="start" placeholder="YYYY-MM-DD">
+                  시간 &nbsp; <input class="time_box", type="text" id="start" name="start" placeholder="YYYY-MM-DD">
                      <select name="start_time">
                         <option value="time0">00:00</option>
                         <option value="time1">01:00</option>
@@ -270,7 +270,7 @@
                         <option value="time23">23:00</option>
                      </select>
                      ~
-                     <input class="time_box" type="text" id="end" placeholder="YYYY-MM-DD">
+                     <input class="time_box" type="text" id="end" name = "end"placeholder="YYYY-MM-DD">
                      <select name="end_time">
                         <option value="time24">00:00</option>
                         <option value="time25">01:00</option>
@@ -310,7 +310,7 @@
                </div>
                
                <div id="schedule_content">
-                  내용 <textarea cols="36" rows="8" id="content"></textarea>
+                  내용 <textarea cols="36" rows="8" id="content" name="content"></textarea>
                </div>
                </table>
                <input type="submit" value="저장하기"></form>

@@ -37,8 +37,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%String req = request.getHeader("REFERER");
-	  response.sendRedirect(req);
-	 %>
+	<script type="text/javascript">
+	 		alert("저장되었습니다");
+			parent.location.replace("../calander/calander.jsp");
+ 	</script>
 </body>
 </html>

@@ -20,6 +20,7 @@
 	String start_time = request.getParameter("start_time");
 	String end_time = request.getParameter("end_time");
 	String color = request.getParameter("color");
+	
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
@@ -31,7 +32,7 @@
 		stmt.setString(5,start_time);
 		stmt.setString(6,end_time);
 		stmt.setString(7,color);
-		stmt.setString(8,submit);
+		stmt.setString(8,content);
 		stmt.executeUpdate();
 	}catch(SQLException e){
 		errorMsg = "SQL 에러" + e.getMessage();
@@ -48,8 +49,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%String req = request.getHeader("REFERER");
-	  response.sendRedirect(req);
-	 %>
+	<script type="text/javascript">
+	 		alert("저장되었습니다");
+			parent.location.replace("../calander/calander.jsp");
+ 	</script>
 </body>
 </html>
