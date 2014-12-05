@@ -147,7 +147,7 @@
 			last_Day=29;
 		}
 		calendarSave = "<div id=content_search><input class=search_text type=text value=일정검색><input class=search_button type=button value=검색></div>"
-		calendarSave += "<div id=content_navbar><a href=../calander/calander_day.jsp><input class=navbar_button type=button value=일간></a><a href=../calander/calander_week.jsp><input class=navbar_button type=button value=주간></a><input class=navbar_button type=button value=월간><input class=navbar_button type=button value=목록><input class=navbar_button type=button value=정렬></div><br>"
+		calendarSave += "<div id=content_navbar><a href=../calander/calander_day.jsp><input class=navbar_button type=button value=일간></a><a href=../calander/calander_week.jsp><input class=navbar_button type=button value=주간></a><a href=../calander/calander.jsp><input class=navbar_button type=button value=월간></a><a href=../calander/calander_view.jsp><input class=navbar_button type=button value=목록></a><a href=javascript:popupOpen2()><input class=navbar_button type=button value=정렬></a></div><br>"
 		calendarSave += Change_Date.getFullYear()+"."+(Change_Date.getMonth()+1)+"."+now_Date.getDate()+"."+week[change_day]+"요일"
 		calendarSave +="<a href=javascript:big_calendar("+change_year+","+change_month+","+(change_date-1)+","+(change_day-1)+")><input class=month_button id=month_button type=button value=◀></a>"
 		calendarSave +="<a href=javascript:big_calendar("+change_year+","+change_month+","+(change_date+1)+","+(change_day+1)+")><input class=month_button id=month_button type=button value=▶></a>"
@@ -156,7 +156,22 @@
 		calendarSave +="</tr></table>"
 		document.getElementById('big_calendar').innerHTML = calendarSave
 	}
+	function popupOpen(){
+		var popUrl = "delete_popUp.jsp";	//팝업창에 출력될 페이지 URL
+		var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+			window.open(popUrl,"",popOption);
+
+	}
 	
+	function popupOpen2(){
+		var popUrl = "choice_popUp.jsp";	//팝업창에 출력될 페이지 URL
+		var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+			window.open(popUrl,"",popOption);
+
+	}
+	function add_memo(){
+		alert("새 메모를 등록했습니다");
+	}
 	
 </script>
 </head>
@@ -210,7 +225,7 @@
                       	<div id="menu_delete">
                       		<a href="javascript:popupOpen();" >
 							<img src="../images/can.png" alt="delete">
-							오래된 일정 삭제</a><br>
+							기념일 삭제</a><br>
 						</div>
 						
                       

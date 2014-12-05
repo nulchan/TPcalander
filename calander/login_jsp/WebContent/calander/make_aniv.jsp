@@ -150,31 +150,31 @@
                 <a href="">◀</a>
             </div>
         	<div id="make_schedule">
-        		<table>
-        		<br>
-        			<div id="write_top">
-						기념일 등록  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
-					</div>
-					<br>
-					<form action ="../calander/scheduleStore.jsp" method="post">
-					<div id="title">
-						제목 &nbsp; <input class="title_box", name="submit" type="text" placeholder="제목을 입력하세요">				
-						<tr height="1" bgcolor="#B2CCFF"><td colspan="4"></td></tr>
-					</div>
-					<div id="time">
-						시간 &nbsp; <input class="time_box", type="text" id="start" placeholder="YYYY-MM-DD">
-							
-					</div>
-					
-					
-					<div id="schedule_content">
-						내용&nbsp;&nbsp; <textarea cols="50" rows="10" id="content"></textarea>
-					</div>
-					</table>
-						<div id="save_schedule">
-							<input type="submit" value="저장하기">
+	        		<table>
+	        		<br>
+	        			<div id="write_top">
+							기념일 등록  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
 						</div>
-					
+						<br>
+						<form action ="../calander/aniv_store.jsp" method="post">
+						<div id="title">
+							제목 &nbsp; <input class="title_box", name="submit" type="text" placeholder="제목을 입력하세요">				
+							<tr height="1" bgcolor="#B2CCFF"><td colspan="4"></td></tr>
+						</div>
+						<div id="time">
+							시간 &nbsp; <input class="time_box", type="text" id="start" name="start" placeholder="YYYY-MM-DD">
+								
+						</div>
+						
+						
+						<div id="schedule_content">
+							내용&nbsp;&nbsp; <textarea cols="50" rows="10" id="content" name="content"></textarea>
+						</div>
+						</table>
+							<div id="save_schedule">
+								<input type="submit" value="저장하기">
+							</div>
+						</form>
 					</div>
 
 

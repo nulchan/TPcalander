@@ -13,13 +13,17 @@
 	
 	request.setCharacterEncoding("utf-8");
 	String id = (String)session.getAttribute("id");
-	String memo = request.getParameter("memo");
+	String submit = request.getParameter("submit");
+	String time = request.getParameter("start");
+	String content = request.getParameter("content");
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-		stmt = conn.prepareStatement("insert into memo(id,memo) values(?,?)");
+		stmt = conn.prepareStatement("insert into aniv(id,submit,time,content) values(?,?,?,?)");
 		stmt.setString(1,id);
-		stmt.setString(2,memo);
+		stmt.setString(2,submit);
+		stmt.setString(3,time);
+		stmt.setString(4,content);
 		stmt.executeUpdate();
 	}catch(SQLException e){
 		errorMsg = "SQL 에러" + e.getMessage();
@@ -37,8 +41,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%String req = request.getHeader("REFERER");
-	  response.sendRedirect(req);
-	 %>
+	<script type="text/javascript">
+	 		alert("저장되었습니다");
+			parent.location.replace("../calander/calander.jsp");
+ 	</script>
 </body>
 </html>

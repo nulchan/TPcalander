@@ -128,6 +128,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', end
 }
 .yes_button{ font-size: 15px; position: absolute; left : 37%;}
 .no_button{ font-size: 15px; position: absolute; left : 47%;}
+
+.one_button{ font-size: 15px; position: absolute; left :28%;}
+.two_button{ font-size: 15px;position: absolute;left :38%; }
+.three_button{ font-size: 15px; position: absolute;left :48%;}
+.four_button{ font-size: 15px; position: absolute; left :58%;}
+
 #delete_message{ font-size : 20px; text-align : center;}
 
 #delete_time{ font-size : 18px; text-align : center;}
