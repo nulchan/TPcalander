@@ -16,10 +16,13 @@
 	List<String> start = new ArrayList<String>();
 	List<String> end = new ArrayList<String>();
 	List<String> color = new ArrayList<String>();
+	List<String> submit = new ArrayList<String>();
 	List<Integer> start_year = new ArrayList<Integer>();
 	List<Integer> start_month = new ArrayList<Integer>();
+	List<Integer> start_day = new ArrayList<Integer>();
 	List<Integer> end_year = new ArrayList<Integer>();
 	List<Integer> end_month = new ArrayList<Integer>();
+	List<Integer> end_day = new ArrayList<Integer>();
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
@@ -27,11 +30,19 @@
 		stmt.setString(1,id);
 		rs = stmt.executeQuery();
 		while(rs.next()){
+			submit.add(rs.getString("submit"));
 			start.add(rs.getString("start"));
 			end.add(rs.getString("end"));
 			color.add(rs.getString("color"));
 		}
-
+		for(int i=0;i<start.size();i++){
+			start_year.add(Integer.parseInt(start.get(i).substring(0, 4)));
+			start_month.add(Integer.parseInt(start.get(i).substring(5,7)));
+			start_day.add(Integer.parseInt(start.get(i).substring(8,10)));
+			end_year.add(Integer.parseInt(end.get(i).substring(0, 4)));
+			end_month.add(Integer.parseInt(end.get(i).substring(5,7)));
+			end_day.add(Integer.parseInt(end.get(i).substring(8,10)));
+		}
 	}catch(SQLException e){
 		errorMsg = "SQL 에러" + e.getMessage();
 	}finally{
@@ -39,6 +50,7 @@
 		if(stmt != null)try{stmt.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
 		if(conn != null)try{conn.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
 	}
+	int count = start_year.size();
 %>
 <!DOCTYPE html>
 <html>
@@ -110,6 +122,36 @@
 			document.getElementById('mini_calendar').innerHTML = calendarSave
 	}
 	function big_calendar(change_year,change_month){ 
+	 	var title;
+		var s_year;
+   	  	var s_month;
+   	  	var s_day;
+   	  	var e_year;
+   	  	var e_month;
+   	  	var e_day;
+   	  	var title_store = new Array();
+   	  	var s_year_store = new Array();
+   		var s_month_store = new Array();
+   		var s_day_store = new Array();
+   		var e_year_store = new Array();
+  	 	var e_month_store = new Array();
+  	 	var e_day_store = new Array();
+   	  	for(var i=0; i< <%=count%>;i++){
+   	  		title = document.getElementById("submit"+i).value;
+   	  		s_year = document.getElementById("s_year"+i).value;
+   	  		s_month = document.getElementById("s_month"+i).value;
+   	  		s_day = document.getElementById("s_day"+i).value;
+   	  		e_year = document.getElementById("e_year"+i).value;
+   	  		e_month = document.getElementById("e_month"+i).value;
+   	  		e_day = document.getElementById("e_day"+i).value;
+   	  		title_store[i] = title;
+   	  		s_year_store[i] = s_year;
+   		  	s_month_store[i] = s_month;
+   		  	s_day_store[i] = s_day;
+   			e_year_store[i] = e_year;
+ 		  	e_month_store[i] = e_month;
+ 		  	e_day_store[i] = e_day;
+   	  	}
 		var now_Date = new Date();               
 		var year = now_Date.getFullYear();      
 		var month = now_Date.getMonth() ;       
@@ -140,26 +182,168 @@
 		calendarSave += Change_Date.getFullYear()+"."+(Change_Date.getMonth()+1)
 		calendarSave +="<a href=javascript:big_calendar("+change_year+","+(change_month-1)+")><input class=month_button id=month_button type=button value=◀></a>"
 		calendarSave +="<a href=javascript:big_calendar("+change_year+","+(change_month+1)+")><input class=month_button id=month_button type=button value=▶></a>"
-		calendarSave +="<table width=100% height=100% border= 1 solid><tr align=center height=50>"
+		calendarSave +="<table width=98% height=100% border= 1 solid><tr align=center height=50>"
 		for (i=0;i<week.length;i++){			
-			calendarSave +="<td>"+week[i] + "</td>"
+			calendarSave +="<td width=14%>"+week[i] + "</td>"
 		}	
-
 		calendarSave +="</tr><tr valign=top height=60 >"
 		for (i=0;i<first_day;i++){
 			calendarSave +="<td>&nbsp;</td>" 
 			col++;                     
 		}
 		for (i=1; i<=last_Day; i++){     
+			var check = 0;
+			var check2 = 0;
+			var check3 = 0;
 			if(Change_Date.getFullYear()==change_year && Change_Date.getMonth()==change_month && i==date){
-				calendarSave +="<td>"+i+"</td>" 
+				for(num=0; num < <%=count%>; num++){
+					if(Change_Date.getFullYear() == s_year_store[num]){
+						if(Change_Date.getMonth()+1 == s_month_store[num]){
+							if(i == s_day_store[num]){
+								check = 1;
+								if(check2 == 1){
+									calendarSave +=","+title_store[num]+"시작"	
+								}else{
+									calendarSave +="<td width=14%>"+title_store[num]+"시작"
+								}
+								check2 = 1;
+							}
+						}
+					}
+					if(Change_Date.getFullYear() == s_year_store[num]){
+						if(Change_Date.getMonth()+1 == e_month_store[num]){
+							if(i == e_day_store[num]){
+								check = 1;
+								if(check3 == 1){
+									calendarSave +=","+title_store[num]+"종료"	
+								}else{
+									calendarSave +="<td width=14%>"+title_store[num]+"종료"
+								}
+								check3 = 1;
+							}
+						}
+					}
+					if(num == <%=count%>-1  && check == 0){
+						calendarSave +="<td width=14%>"+i
+						check = 1;
+					}
+				}
+				calendarSave += "</td>"
+				if(<%=count%> == 0){
+					calendarSave +="<td width=14%>"+i+"</td>"
+				}
 			}else{
 				if(col==0){             
-					calendarSave +="<td>"+i+"</td>"
+					for(num=0; num < <%=count%>; num++){
+						if(Change_Date.getFullYear() == s_year_store[num]){
+							if(Change_Date.getMonth()+1 == s_month_store[num]){
+								if(i == s_day_store[num]){
+									check = 1;
+									if(check2 == 1){
+										calendarSave +=","+title_store[num]+"시작"	
+									}else{
+										calendarSave +="<td width=14%>"+title_store[num]+"시작"
+									}
+									check2 = 1;
+								}
+							}
+						}
+						if(Change_Date.getFullYear() == e_year_store[num]){
+							if(Change_Date.getMonth()+1 == e_month_store[num]){
+								if(i == e_day_store[num]){
+									check = 1;
+									if(check3 == 1){
+										calendarSave +=","+title_store[num]+"종료"	
+									}else{
+										calendarSave +="<td width=14%>"+title_store[num]+"종료"
+									}
+									check3 = 1;
+								}
+							}
+						}
+						if(num == <%=count%>-1 && check == 0){
+							calendarSave +="<td width=14%>"+i
+							check = 1;
+						}
+					}
+					calendarSave += "</td>"
+					if(<%=count%> == 0){
+						calendarSave +="<td width=14%>"+i+"</td>"
+					}
 				}else if(1<=col && col<=5){
-					calendarSave +="<td>"+i+"</td>" 
+					for(num=0; num < <%=count%>; num++){
+						if(Change_Date.getFullYear() == s_year_store[num]){
+							if(Change_Date.getMonth()+1 == s_month_store[num]){
+								if(i == s_day_store[num]){
+									check = 1;
+									if(check2 == 1){
+										calendarSave +=","+title_store[num]+"시작"	
+									}else{
+										calendarSave +="<td width=14%>"+title_store[num]+"시작"
+									}
+									check2 = 1;
+								}
+							}
+						}
+						if(Change_Date.getFullYear() == e_year_store[num]){
+							if(Change_Date.getMonth()+1 == e_month_store[num]){
+								if(i == e_day_store[num]){
+									check = 1;
+									if(check3 == 1){
+										calendarSave +=","+title_store[num]+"종료"	
+									}else{
+										calendarSave +="<td width=14%>"+title_store[num]+"종료"
+									}
+									check3 = 1;
+								}
+							}
+						}
+						if(num == <%=count%>-1 && check == 0){
+							calendarSave +="<td width=14%>"+i
+							check = 1;
+						}
+					}
+					calendarSave += "</td>"
+					if(<%=count%> == 0){
+						calendarSave +="<td width=14%>"+i+"</td>"
+					}
 				}else if(col==6){        
-					calendarSave +="<td>"+i+"</td>" 
+					for(num=0; num < <%=count%>; num++){
+						if(Change_Date.getFullYear() == s_year_store[num]){
+							if(Change_Date.getMonth()+1 == s_month_store[num]){
+								if(i == s_day_store[num]){
+									check = 1;
+									if(check2 == 1){
+										calendarSave +=","+title_store[num]+"시작"	
+									}else{
+										calendarSave +="<td width=14%>"+title_store[num]+"시작"
+									}
+									check2 = 1;
+								}
+							}
+						}
+						if(Change_Date.getFullYear() == e_year_store[num]){
+							if(Change_Date.getMonth()+1 == e_month_store[num]){
+								if(i == e_day_store[num]){
+									check = 1;
+									if(check3 == 1){
+										calendarSave +=","+title_store[num]+"종료"	
+									}else{
+										calendarSave +="<td width=14%>"+title_store[num]+"종료"
+									}
+									check3 = 1;
+								}
+							}
+						}
+						if(num == <%=count%>-1 && check == 0){
+							calendarSave +="<td width=14%>"+i
+							check = 1;
+						}
+					}
+					calendarSave += "</td>"
+					if(<%=count%> == 0){
+						calendarSave +="<td width=14%>"+i+"</td>"
+					}
 				}
 		
 				}			
@@ -170,7 +354,7 @@
 				}
 			}   
 			for (i=col;i<week.length;i++){       
-				calendarSave +="<td>&nbsp;</td>"
+				calendarSave +="<td width=14%>&nbsp;</td>"
 			}		
 			calendarSave +="</tr></table>"
 			document.getElementById('big_calendar').innerHTML = calendarSave
@@ -191,8 +375,6 @@
 	function add_memo(){
 		alert("새 메모를 등록했습니다");
 	}
-	
-	
 </script>
 </head>
 <body background = "../images/background.jpg" onload="mini_calendar(null,null),big_calendar(null,null)">
@@ -263,7 +445,27 @@
             </div>
         <div id="c_content">
           <div id="big_calendar" ></div>
-          
+          <div id="hide">
+          	<%
+          		for(int i=0;i<start_year.size();i++){
+          			String title = submit.get(i);
+          			int s_year = start_year.get(i);
+          			int s_month = start_month.get(i);
+          			int s_day = start_day.get(i);
+          			int e_year = end_year.get(i);
+          			int e_month = end_month.get(i);
+          			int e_day = end_day.get(i);%>
+          			<input type="text" id = "submit<%=i%>" value="<%=title%>">
+          			<input type="text" id = "s_year<%=i%>" value="<%=s_year%>">
+          			<input type="text" id = "s_month<%=i%>" value="<%=s_month%>">
+          			<input type="text" id = "s_day<%=i%>" value="<%=s_day%>">
+          			<input type="text" id = "e_year<%=i%>" value="<%=e_year%>">
+          			<input type="text" id = "e_month<%=i%>" value="<%=e_month%>">
+          			<input type="text" id = "e_day<%=i%>" value="<%=e_day%>">
+          		<%}
+          	%>
+       	
+          </div>
     	</div>
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
