@@ -1,52 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*" import="java.sql.*"%>
-<%
-   String errorMsg = null;
-   Connection conn = null;
-   PreparedStatement stmt = null;
-   ResultSet rs = null;
-   String dbUrl = "jdbc:mysql://localhost:3306/member_data";
-   String dbUser = "login";
-   String dbPassword = "12345";
-   String userid = "";
-   String userpwd = "";
-
-   request.setCharacterEncoding("utf-8");
-   String id = (String)session.getAttribute("id");
-   List<String> submit = new ArrayList<String>();
-   List<String> start = new ArrayList<String>();
-   List<String> end = new ArrayList<String>();
-   List<String> start_time = new ArrayList<String>();
-   List<String> end_time = new ArrayList<String>();
-   List<String> content = new ArrayList<String>();
-   try{
-      Class.forName("com.mysql.jdbc.Driver");
-      conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-      stmt = conn.prepareStatement("SELECT *FROM users join schedule on users.id = schedule.id WHERE users.id=?");
-      stmt.setString(1,id);
-      rs = stmt.executeQuery();
-      while(rs.next()){
-    	  submit.add(rs.getString("submit"));
-    	  start.add(rs.getString("start"));
-    	  end.add(rs.getString("end"));
-    	  start_time.add(rs.getString("start_time"));
-    	  end_time.add(rs.getString("end_time"));
-    	  content.add(rs.getString("content"));
- 
-      }
-   }catch(SQLException e){
-      errorMsg = "SQL 에러" + e.getMessage();
-   }finally{
-      if(rs != null)try{rs.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
-      if(stmt != null)try{stmt.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
-      if(conn != null)try{conn.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
-   }
-%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Calander</title>
+<meta charset="UTF-8">
+<title>메모 모아보기</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function day_click(change_year,change_month,day,week){
@@ -119,21 +77,14 @@
 		var popUrl = "delete_popUp.jsp";	//팝업창에 출력될 페이지 URL
 		var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 			window.open(popUrl,"",popOption);
-
-	}
 	
-	function popupOpen2(){
-		var popUrl = "choice_popUp.jsp";	//팝업창에 출력될 페이지 URL
-		var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-			window.open(popUrl,"",popOption);
-
 	}
 	function add_memo(){
 		alert("새 메모를 등록했습니다");
 	}
 </script>
 </head>
-<body background = "../images/background.jpg" onload="mini_calendar(null,null), big_calendar(null,null,null,null)">
+<body background = "../images/background.jpg" onload="mini_calendar(null,null),big_calendar(null,null)">
 
     <div id="wrap">
     	<div id="top">
@@ -152,10 +103,11 @@
 	            <a href="../calander/make_schedule.jsp">
                 <input class="menu_button" type="button" value="일정쓰기" >
                 </a>
-              
-				<a href="../calander/make_aniv.jsp">
+
+                <a href="../calander/make_aniv.jsp">
                 <input class="menu_button" type="button" value="기념일관리" >
 				</a>
+
                  <!-- 메뉴영역 달력 start -->
                  <div id="mini_calendar" ></div>
                   <!-- 메뉴영역 달력 end -->
@@ -164,7 +116,7 @@
 	                    <div class="memo_box">
 	                    <textarea cols="36" rows="8" name="memo" id="memo" placeholder="이 곳에 메모를 입력 할 수 있습니다"></textarea>
 	                    </div>
-	                    <input class="memo_button" type="submit" value="등록">
+	                    <input class="memo_button" type="submit" value="등록" onclick="add_memo();">
                     </form>
                   </div>
                   <div id="menu_check">
@@ -199,28 +151,24 @@
             <div id="menu_hide" onclick="HideLeftMenu();">
                 <a href="">◀</a>
             </div>
-        <div id="c_content">
-		    <div id="content_search"><input class="search_text" type="text" value="일정검색"><input class="search_button" type="button" value="검색"></div>
-			<div id="content_navbar"><a href="../calander/calander_day.jsp"><input class="navbar_button" type="button" value="일간"></a><a href="../calander/calander_week.jsp"><input class="navbar_button" type="button" value="주간"></a><a href="../calander/calander.jsp"><input class="navbar_button" type="button" value="월간"></a><a href="../calander/calander_view.jsp"><input class="navbar_button" type="button" value="목록"></a><a href="javascript:popupOpen2()"><input class="navbar_button" type="button" value="정렬"></a></div><br>
-        	<table style="margin-top:20px;">       		
-				<%for(int i=0;i<submit.size();i++){
-	        			String save1 = submit.get(i);
-	        			String save2 = start.get(i);
-	        			String save3 = end.get(i);
-	        			String save4 = start_time.get(i);
-	        			String save5 = end_time.get(i);
-	        			String save6 = content.get(i);%>
-	        		<tr>	
-		        		<td><%=save1 %></td>
-		        		<td><%=save2 %></td>
-		        		<td><%=save3 %></td>
-		        		<td><%=save4 %></td>
-		        		<td><%=save5 %></td>
-		        		<td><%=save6 %></td>	
-	        		</tr>	
-				<%}%>
-			</table>     	
-    	</div>
+	         <div id="delete_menu">
+		<div id="delete_message">
+			<br>
+	    		오래된 일정 삭제
+	    </div>
+	    <br>
+	    <div id="delete_time">
+	    	<form action ="schedule_delete.jsp" method="post">
+			<input class="time_box", type="text" id="start" name="start" placeholder="YYYY-MM"><br>
+			이전의 일정을 모두 삭제하시겠습니까?
+		</div>
+		<br>
+	    <input class="yes_button" type="submit" value="확인" onclick="frameclose()">
+	    <input class="no_button" type="button" value="취소" onclick="go('../calander/calander.jsp'),frameclose()">
+	    <br><br>
+    	</form>
+</div>
+
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
         </div>
@@ -229,11 +177,11 @@
 		if (document.getElementById("menu_body").style.display == "none") {
 			document.getElementById("menu_body").style.display = "block";
 			document.getElementById("menu_hide").innerText = "◀";
-			document.getElementById("content").style.width = "79%";
+			document.getElementById("memo_content").style.width = "79%";
 		} else {
 			document.getElementById("menu_body").style.display = "none";
 			document.getElementById("menu_hide").innerText = "▶";
-			document.getElementById("content").style.width = "98%";
+			document.getElementById("memo_content").style.width = "98%";
 		}
 	}
 </script>

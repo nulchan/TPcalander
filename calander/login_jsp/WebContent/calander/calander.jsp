@@ -236,13 +236,13 @@
 						</div>
                       
                       	<div id="show_important">
-	                      	<a href="">
+	                      	<a href="../calander/show_aniv.jsp">
 							<img src="../images/important.png" alt="important">
 							기념일 보기</a><br>
 						</div>
                       
                       	<div id="menu_delete">
-                      		<a href="javascript:popupOpen();" >
+                      		<a href="../calander/s_delete_view.jsp" >
 							<img src="../images/can.png" alt="delete">
 							오래된 일정 삭제</a><br>
 						</div>
