@@ -16,6 +16,10 @@
 	List<String> start = new ArrayList<String>();
 	List<String> end = new ArrayList<String>();
 	List<String> color = new ArrayList<String>();
+	List<Integer> start_year = new ArrayList<Integer>();
+	List<Integer> start_month = new ArrayList<Integer>();
+	List<Integer> end_year = new ArrayList<Integer>();
+	List<Integer> end_month = new ArrayList<Integer>();
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
@@ -27,6 +31,7 @@
 			end.add(rs.getString("end"));
 			color.add(rs.getString("color"));
 		}
+
 	}catch(SQLException e){
 		errorMsg = "SQL 에러" + e.getMessage();
 	}finally{
@@ -42,9 +47,6 @@
 <title>Calander</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
-	function day_click(change_year,change_month,day,week){
-		date = new Date(change_year,change_month,day);
-	}
 	function mini_calendar(change_year,change_month){ 
 		var now_Date = new Date();               
 		var year = now_Date.getFullYear();      
@@ -94,7 +96,6 @@
 				}else if(col==6){        
 					calendarSave +="<td>"+i+"</td>" 
 				}
-		
 				}			
 				col++;
 				if(col==7){    
@@ -151,14 +152,14 @@
 		}
 		for (i=1; i<=last_Day; i++){     
 			if(Change_Date.getFullYear()==change_year && Change_Date.getMonth()==change_month && i==date){
-				calendarSave +="<td onclick=day_click("+change_year+","+change_month+","+i+","+week[col]+")>"+i+"</td>" 
+				calendarSave +="<td>"+i+"</td>" 
 			}else{
 				if(col==0){             
-					calendarSave +="<td onclick=day_click("+change_year+","+change_month+","+i+","+week[col]+")>"+i+"</td>"
+					calendarSave +="<td>"+i+"</td>"
 				}else if(1<=col && col<=5){
-					calendarSave +="<td onclick=day_click("+change_year+","+change_month+","+i+","+week[col]+")>"+i+"</td>" 
+					calendarSave +="<td>"+i+"</td>" 
 				}else if(col==6){        
-					calendarSave +="<td onclick=day_click("+change_year+","+change_month+","+i+","+week[col]+")>"+i+"</td>" 
+					calendarSave +="<td>"+i+"</td>" 
 				}
 		
 				}			
