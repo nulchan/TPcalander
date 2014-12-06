@@ -578,6 +578,17 @@
 	function add_memo(){
 		alert("새 메모를 등록했습니다");
 	}
+	function HideLeftMenu() {
+		if (document.getElementById("menu_body").style.display == "none") {
+			document.getElementById("menu_body").style.display = "block";
+			document.getElementById("menu_hide").innerText = "◀";
+			document.getElementById("c_content").style.width = "79%";
+		} else {
+			document.getElementById("menu_body").style.display = "none";
+			document.getElementById("menu_hide").innerText = "▶";
+			document.getElementById("c_content").style.width = "98%";
+		}
+	}
 </script>
 </head>
 <body background = "../images/background.jpg" onload="mini_calendar(null,null),big_calendar(null,null)">
@@ -591,7 +602,7 @@
             <div id="cal_images">
 					<img src="../images/slogo.jpg" alt="small_logo">
 			</div>
-            Calander - 8조
+            <a href="../calander/calander.jsp" id="header-title">HCP calendar</a> 
         </div>
         
         <div id="menu">
@@ -682,19 +693,6 @@
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
         </div>
-<script>
-	function HideLeftMenu() {
-		if (document.getElementById("menu_body").style.display == "none") {
-			document.getElementById("menu_body").style.display = "block";
-			document.getElementById("menu_hide").innerText = "◀";
-			document.getElementById("content").style.width = "79%";
-		} else {
-			document.getElementById("menu_body").style.display = "none";
-			document.getElementById("menu_hide").innerText = "▶";
-			document.getElementById("content").style.width = "98%";
-		}
-	}
-</script>
 
 </body>
     </html>

@@ -83,6 +83,30 @@
 	function add_memo(){
 		alert("새 메모를 등록했습니다");
 	}
+	function HideLeftMenu() {
+		if (document.getElementById("menu_body").style.display == "none") {
+			document.getElementById("menu_body").style.display = "block";
+			document.getElementById("menu_hide").innerText = "◀";
+			document.getElementById("make_schedule").style.width = "79%";
+		} else {
+			document.getElementById("menu_body").style.display = "none";
+			document.getElementById("menu_hide").innerText = "▶";
+			document.getElementById("make_schedule").style.width = "98%";
+		}
+	}
+	function InputError(){
+		var startTime = document.getElementById("start").value;
+		if(startTime.indexOf("-") == -1){
+			alert("날짜 형식 오류입니다.");
+			parent.location.replace("../calander/make_aniv.jsp");
+		}else{
+			var form = document.form_submit;
+			form.method = "post";
+			form.action = "../calander/aniv_store.jsp";
+			form.submit();
+		}
+			
+	}
 </script>
 
 <body background = "../images/background.jpg" onload="mini_calendar(null,null)">
@@ -95,7 +119,7 @@
             <div id="cal_images">
 					<img src="../images/slogo.jpg" alt="small_logo">
 			</div>
-            Calander - 8조
+            <a href="../calander/calander.jsp" id="header-title">HCP calendar</a> 
         </div>
         
         <div id="menu">
@@ -119,19 +143,19 @@
                   </div>
                   <div id="menu_check">
                       	<div id="all_schedule">
-                 			<a href="../calander/calander.jsp">
-							<img src="../images/all.png" alt="all_schedule">
-							전체 일정 보기</a><br>
+                 			<a href="../calander/show_aniv.jsp">
+							<img src="../images/important.png" alt="important">
+							기념일 보기</a><br>
 						</div>
                       
                       	<div id="show_important">
-	                      	<a href="">
-							<img src="../images/important.png" alt="important">
-							중요 일정 보기</a><br>
+                      		<a href="../calander/s_delete_view2.jsp">
+	                      	<img src="../images/can.png" alt="delete">
+							일정 삭제하기</a><br>
 						</div>
                       
                       	<div id="menu_delete">
-                      		<a href="javascript:popupOpen();" >
+                      		<a href="../calander/s_delete_view.jsp" >
 							<img src="../images/can.png" alt="delete">
 							오래된 일정 삭제</a><br>
 						</div>
@@ -141,7 +165,7 @@
                     	  	<a href="../calander/show_memo.jsp">
 							<img src="../images/memo.png" alt="show_memo">
 							메모 모아보기</a>
-						</div>    
+						</div> 
                      
          		  </div>
          </div>
@@ -156,7 +180,7 @@
 							기념일 등록  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
 						</div>
 						<br>
-						<form action ="../calander/aniv_store.jsp" method="post">
+						<form name="form_submit">
 						<div id="title">
 							제목 &nbsp; <input class="title_box", name="submit" type="text" placeholder="제목을 입력하세요">				
 							<tr height="1" bgcolor="#B2CCFF"><td colspan="4"></td></tr>
@@ -166,13 +190,12 @@
 								
 						</div>
 						
-						
 						<div id="schedule_content">
 							내용&nbsp;&nbsp; <textarea cols="50" rows="10" id="content" name="content"></textarea>
 						</div>
-						</table>
+					</table>
 							<div id="save_schedule">
-								<input type="submit" value="저장하기">
+								<input type="submit" value="저장하기" onclick="InputError();">
 							</div>
 						</form>
 					</div>
@@ -184,16 +207,4 @@
             8조 - 박정현, 최기영, 하늘찬
         </div>
 </body>
-<script>
-	function HideLeftMenu() {
-		if (document.getElementById("menu_body").style.display == "none") {
-			document.getElementById("menu_body").style.display = "block";
-			document.getElementById("menu_hide").innerText = "◀";
-			document.getElementById("content").style.width = "79%";
-		} else {
-			document.getElementById("menu_body").style.display = "none";
-			document.getElementById("menu_hide").innerText = "▶";
-			document.getElementById("content").style.width = "98%";
-		}
-	}
-</script>
+</html>

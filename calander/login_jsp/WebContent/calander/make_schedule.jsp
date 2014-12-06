@@ -84,6 +84,31 @@
 	function add_memo(){
 		alert("새 메모를 등록했습니다");
 	}
+	
+	function HideLeftMenu() {
+		if (document.getElementById("menu_body").style.display == "none") {
+			document.getElementById("menu_body").style.display = "block";
+			document.getElementById("menu_hide").innerText = "◀";
+			document.getElementById("make_schedule").style.width = "79%";
+		} else {
+			document.getElementById("menu_body").style.display = "none";
+			document.getElementById("menu_hide").innerText = "▶";
+			document.getElementById("make_schedule").style.width = "98%";
+		}
+	}
+	
+	function InputError(){
+		var startTime = document.getElementById("start").value;
+		if(startTime.indexOf("-") == -1){
+			alert("날짜 형식 오류입니다.");
+			parent.location.replace("../calander/make_schedule.jsp");
+		}else{
+			var form = document.form_submit;
+			form.method = "post";
+			form.action = "../calander/scheduleStore.jsp";
+			form.submit();
+		}
+	}
 </script>
 
 <body background = "../images/background.jpg" onload="mini_calendar(null,null)">
@@ -96,17 +121,18 @@
             <div id="cal_images">
 					<img src="../images/slogo.jpg" alt="small_logo">
 			</div>
-            Calander - 8조
+            <a href="../calander/calander.jsp" id="header-title">HCP calendar</a> 
         </div>
         
         <div id="menu">
             <div id="menu_body">
 	            <a href="../calander/make_schedule.jsp">
-                <input class="menu_button" type="button" value="일정쓰기" >
-                <input class="menu_button" type="button" value="기념일관리" >
+                <input class="menu_button" type="button" value="일정쓰기" ></a>               
+                <a href="../calander/make_aniv.jsp">
+                <input class="menu_button" type="button" value="기념일관리" ></a>
 
                  <!-- 메뉴영역 달력 start -->
-                
+                <div id="mini_calendar" ></div>
                   <!-- 메뉴영역 달력 end -->
                   <div id="menu_memo">
                 	<form action ="../calander/memostore.jsp" method="post">  	
@@ -118,24 +144,27 @@
                   </div>
                   <div id="menu_check">
                       
-                      <a href="">
-                      	<div id="all_schedule">
-							<img src="../images/all.png" alt="all_schedule">
-							전체 일정 보기</a></br>
-						</div>
-                      <a href="">
-                      	<div id="show_important">
+                      <div id="all_schedule">
+                 			<a href="../calander/show_aniv.jsp">
 							<img src="../images/important.png" alt="important">
-							중요 일정 보기</a></br>
+							기념일 보기</a><br>
 						</div>
-                      <a href="">
+                      
+                      	<div id="show_important">
+                      		<a href="../calander/s_delete_view2.jsp">
+	                      	<img src="../images/can.png" alt="delete">
+							일정 삭제하기</a><br>
+						</div>
+                      
                       	<div id="menu_delete">
+                      		<a href="../calander/s_delete_view.jsp" >
 							<img src="../images/can.png" alt="delete">
-							오래된 일정 삭제</a></br>
+							오래된 일정 삭제</a><br>
 						</div>
 						
-                      <a href="../calander/show_memo.jsp">
+                      
                       	<div id="show_memo">
+                    	  	<a href="../calander/show_memo.jsp">
 							<img src="../images/memo.png" alt="show_memo">
 							메모 모아보기</a>
 						</div>
@@ -151,7 +180,7 @@
 						일정 등록  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
 					</div>
 					<br>
-					<form action ="../calander/scheduleStore.jsp" method="post">
+					<form name="form_submit">
 					<div id="title">
 						제목 &nbsp; <input class="title_box", name="submit" type="text" placeholder="제목을 입력하세요">				
 						<tr height="1" bgcolor="#B2CCFF"><td colspan="4"></td></tr>
@@ -228,108 +257,14 @@
 						내용 <textarea cols="36" rows="8" id="content"></textarea>
 					</div>
 					</table>
-					<input type="submit" value="저장하기"></form>
+					<input type="submit" value="저장하기" onclick="InputError();"></form>
 					</div>
-              <table>
-              <br>
-                 <div id="write_top">
-                  일정 등록  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
-               </div>
-               <br>
-               <form action ="../calander/scheduleStore.jsp" method="post">
-               <div id="title">
-                  제목 &nbsp; <input class="title_box", name="submit" type="text" placeholder="제목을 입력하세요">            
-                  <tr height="1" bgcolor="#B2CCFF"><td colspan="4"></td></tr>
-               </div>
-               <div id="time">
-                  시간 &nbsp; <input class="time_box", type="text" id="start" name="start" placeholder="YYYY-MM-DD">
-                     <select name="start_time">
-                        <option value="time0">00:00</option>
-                        <option value="time1">01:00</option>
-                        <option value="time2">02:00</option>
-                        <option value="time3">03:00</option>
-                        <option value="time4">04:00</option>
-                        <option value="time5">05:00</option>
-                        <option value="time6">06:00</option>
-                        <option value="time7">07:00</option>
-                        <option value="time8">08:00</option>
-                        <option value="time9">09:00</option>
-                        <option value="time10">10:00</option>
-                        <option value="time11">11:00</option>
-                        <option value="time12">12:00</option>
-                        <option value="time13">13:00</option>
-                        <option value="time14">14:00</option>
-                        <option value="time15">15:00</option>
-                        <option value="time16">16:00</option>
-                        <option value="time17">17:00</option>
-                        <option value="time18">18:00</option>
-                        <option value="time19">19:00</option>
-                        <option value="time20">20:00</option>
-                        <option value="time21">21:00</option>
-                        <option value="time22">22:00</option>
-                        <option value="time23">23:00</option>
-                     </select>
-                     ~
-                     <input class="time_box" type="text" id="end" name = "end"placeholder="YYYY-MM-DD">
-                     <select name="end_time">
-                        <option value="time24">00:00</option>
-                        <option value="time25">01:00</option>
-                        <option value="time26">02:00</option>
-                        <option value="time27">03:00</option>
-                        <option value="time28">04:00</option>
-                        <option value="time29">05:00</option>
-                        <option value="time30">06:00</option>
-                        <option value="time31">07:00</option>
-                        <option value="time32">08:00</option>
-                        <option value="time33">09:00</option>
-                        <option value="time34">10:00</option>
-                        <option value="time35">11:00</option>
-                        <option value="time36">12:00</option>
-                        <option value="time37">13:00</option>
-                        <option value="time38">14:00</option>
-                        <option value="time39">15:00</option>
-                        <option value="time40">16:00</option>
-                        <option value="time41">17:00</option>
-                        <option value="time42">18:00</option>
-                        <option value="time43">19:00</option>
-                        <option value="time44">20:00</option>
-                        <option value="time45">21:00</option>
-                        <option value="time46">22:00</option>
-                        <option value="time47">23:00</option>
-                     </select>
-               </div>
-               
-               <div id="color">
-                  색상   <select name="color">
-                        <option value="red">빨강</option>
-                        <option value="blue">파랑</option>
-                        <option value="yellow">노랑</option>
-                        <option value="purple">보라</option>
-                        <option value="black">검정</option>
-                     </select>   
-               </div>
-               
-               <div id="schedule_content">
-                  내용 <textarea cols="36" rows="8" id="content" name="content"></textarea>
-               </div>
-               </table>
-               <input type="submit" value="저장하기"></form>
-               </div>
+				</div>
+		</div>		
+
 
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
         </div>
 </body>
-<script>
-	function HideLeftMenu() {
-		if (document.getElementById("menu_body").style.display == "none") {
-			document.getElementById("menu_body").style.display = "block";
-			document.getElementById("menu_hide").innerText = "◀";
-			document.getElementById("content").style.width = "79%";
-		} else {
-			document.getElementById("menu_body").style.display = "none";
-			document.getElementById("menu_hide").innerText = "▶";
-			document.getElementById("content").style.width = "98%";
-		}
-	}
-</script>
+</html>
