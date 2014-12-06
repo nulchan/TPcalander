@@ -18,3 +18,10 @@ create table schedule(
  color varchar(50) not null,
  content text not null
  );
+ 
+ create table aniv(
+ id varchar(20) not null,
+ submit varchar(255) not null,
+ time varchar(50) not null,
+ content varchar(255) not null
+ );
