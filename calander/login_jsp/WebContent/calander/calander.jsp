@@ -68,6 +68,7 @@
 		if(conn != null)try{conn.close();}catch(SQLException e){errorMsg = "SQL 에러" + e.getMessage();}
 	}
 	int count = start_year.size();
+	int count2 = aniv_month.size();
 %>
 <!DOCTYPE html>
 <html>
@@ -170,9 +171,6 @@
    	  		e_month = document.getElementById("e_month"+i).value;
    	  		e_day = document.getElementById("e_day"+i).value;
    	  		color = document.getElementById("color"+i).value;
-   	  		a_month = document.getElementById("a_month"+i).value;
-	  		a_day = document.getElementById("a_day"+i).value;
-	  		a_submit = document.getElementById("a_submit"+i).value;
    	  		title_store[i] = title;
    	  		s_year_store[i] = s_year;
    		  	s_month_store[i] = s_month;
@@ -181,15 +179,20 @@
  		  	e_month_store[i] = e_month;
  		  	e_day_store[i] = e_day;
  		  	color_store[i] = color;
- 			a_month_store[i] = a_month;
- 		  	a_day_store[i] = a_day;
- 		  	a_submit_store[i] = a_submit;
+   	  	}
+   	  	for(var i=0; i < <%=count2%>;i++){
+   	  		a_month = document.getElementById("a_month"+i).value;
+  			a_day = document.getElementById("a_day"+i).value;
+  			a_submit = document.getElementById("a_submit"+i).value;
+  			a_month_store[i] = a_month;
+		  	a_day_store[i] = a_day;
+		  	a_submit_store[i] = a_submit;
    	  	}
    	  	var set_color = new Array();
    	 	set_color[0] = "red";
    	 	set_color[1] = "blue";
    	 	set_color[2] = "yellow";
-   	 	set_color[3] = "puple";
+   	 	set_color[3] = "purple";
    	 	set_color[4] = "black";
    	 	var now_Date = new Date();               
 		var year = now_Date.getFullYear();      
@@ -199,7 +202,6 @@
 		var end_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);      
 		var week = new Array("일","월","화","수","목","금","토");
 		var col=0;  
-
 		if (change_year == null){
 			change_year=year;
 		}	
@@ -216,7 +218,7 @@
 		if((Change_Date.getMonth() == 1)&&(((Change_Date.getYear()%4 == 0)&&(Change_Date.getYear() %100 != 0))|| Change_Date.getYear() % 400 ==0 )){
 			last_Day=29;
 		}
-		calendarSave = "<div id=content_search><input class=search_text type=text value=일정검색><input class=search_button type=button value=검색></div>"
+		calendarSave = "<form action=../calander/search.jsp method=post><div id=content_search><input class=search_text type=text name=search id=search placeholder=일정검색><input class=search_button type=submit value=검색></form></div>"
 		calendarSave += "<div id=content_navbar><a href=../calander/calander_day.jsp><input class=navbar_button type=button value=일간></a><a href=../calander/calander_week.jsp><input class=navbar_button type=button value=주간></a><a href=../calander/calander.jsp><input class=navbar_button type=button value=월간></a><a href=../calander/calander_view.jsp><input class=navbar_button type=button value=목록></a><a href=javascript:popupOpen2()><input class=navbar_button type=button value=정렬></a></div><br>"
 		calendarSave += Change_Date.getFullYear()+"."+(Change_Date.getMonth()+1)
 		calendarSave +="<a href=javascript:big_calendar("+change_year+","+(change_month-1)+")><input class=month_button id=month_button type=button value=◀></a>"
@@ -250,7 +252,7 @@
 							}else if(color_store[num] == set_color[2]){
 								color_name = "yellow";
 							}else if(color_store[num] == set_color[3]){
-								color_name = "puple";
+								color_name = "purple";
 							}else if(color_store[num] == set_color[4]){
 								color_name = "black";
 							}
@@ -281,7 +283,7 @@
 							}else if(color_store[num] == set_color[2]){
 								color_name = "yellow";
 							}else if(color_store[num] == set_color[3]){
-								color_name = "puple";
+								color_name = "purple";
 							}else if(color_store[num] == set_color[4]){
 								color_name = "black";
 							}
@@ -328,7 +330,7 @@
 								}else if(color_store[num] == set_color[2]){
 									color_name = "yellow";
 								}else if(color_store[num] == set_color[3]){
-									color_name = "puple";
+									color_name = "purple";
 								}else if(color_store[num] == set_color[4]){
 									color_name = "black";
 								}
@@ -359,7 +361,7 @@
 								}else if(color_store[num] == set_color[2]){
 									color_name = "yellow";
 								}else if(color_store[num] == set_color[3]){
-									color_name = "puple";
+									color_name = "purple";
 								}else if(color_store[num] == set_color[4]){
 									color_name = "black";
 								}
@@ -405,7 +407,7 @@
 								}else if(color_store[num] == set_color[2]){
 									color_name = "yellow";
 								}else if(color_store[num] == set_color[3]){
-									color_name = "puple";
+									color_name = "purple";
 								}else if(color_store[num] == set_color[4]){
 									color_name = "black";
 								}
@@ -436,7 +438,7 @@
 								}else if(color_store[num] == set_color[2]){
 									color_name = "yellow";
 								}else if(color_store[num] == set_color[3]){
-									color_name = "puple";
+									color_name = "purple";
 								}else if(color_store[num] == set_color[4]){
 									color_name = "black";
 								}
@@ -482,7 +484,7 @@
 								}else if(color_store[num] == set_color[2]){
 									color_name = "yellow";
 								}else if(color_store[num] == set_color[3]){
-									color_name = "puple";
+									color_name = "purple";
 								}else if(color_store[num] == set_color[4]){
 									color_name = "black";
 								}
@@ -513,7 +515,7 @@
 								}else if(color_store[num] == set_color[2]){
 									color_name = "yellow";
 								}else if(color_store[num] == set_color[3]){
-									color_name = "puple";
+									color_name = "purple";
 								}else if(color_store[num] == set_color[4]){
 									color_name = "black";
 								}
@@ -614,15 +616,15 @@
                   </div>
                   <div id="menu_check">
                       	<div id="all_schedule">
-                 			<a href="">
-							<img src="../images/all.png" alt="all_schedule">
-							전체 일정 보기</a><br>
+                 			<a href="../calander/show_aniv.jsp">
+							<img src="../images/important.png" alt="important">
+							기념일 보기</a><br>
 						</div>
                       
                       	<div id="show_important">
-	                      	<a href="../calander/show_aniv.jsp">
-							<img src="../images/important.png" alt="important">
-							기념일 보기</a><br>
+                      		<a href="../calander/s_delete_view2.jsp">
+	                      	<img src="../images/can.png" alt="delete">
+							일정 삭제하기</a><br>
 						</div>
                       
                       	<div id="menu_delete">

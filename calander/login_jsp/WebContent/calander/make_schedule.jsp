@@ -219,7 +219,7 @@
 								<option value="red">빨강</option>
 								<option value="blue">파랑</option>
 								<option value="yellow">노랑</option>
-								<option value="puple">보라</option>
+								<option value="purple">보라</option>
 								<option value="black">검정</option>
 							</select>	
 					</div>
@@ -304,7 +304,7 @@
                         <option value="red">빨강</option>
                         <option value="blue">파랑</option>
                         <option value="yellow">노랑</option>
-                        <option value="puple">보라</option>
+                        <option value="purple">보라</option>
                         <option value="black">검정</option>
                      </select>   
                </div>
