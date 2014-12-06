@@ -183,6 +183,7 @@
 			document.getElementById("menu_hide").innerText = "▶";
 			document.getElementById("memo_content").style.width = "98%";
 		}
+		
 	}
 </script>
 

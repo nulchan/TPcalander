@@ -271,7 +271,7 @@
 							check4 = 0;
 						}
 					}
-					if(Change_Date.getFullYear() == s_year_store[num]){
+					if(Change_Date.getFullYear() == e_year_store[num]){
 						if(Change_Date.getMonth()+1 == e_month_store[num]){
 							if(Change_Date.getMonth()+1 == a_month_store[num]){
 								check4 = 1;
@@ -349,7 +349,7 @@
 								check4 = 0;
 							}
 						}
-						if(Change_Date.getFullYear() == s_year_store[num]){
+						if(Change_Date.getFullYear() == e_year_store[num]){
 							if(Change_Date.getMonth()+1 == e_month_store[num]){
 								if(Change_Date.getMonth()+1 == a_month_store[num]){
 									check4 = 1;
@@ -426,7 +426,7 @@
 								check4 = 0;
 							}
 						}
-						if(Change_Date.getFullYear() == s_year_store[num]){
+						if(Change_Date.getFullYear() == e_year_store[num]){
 							if(Change_Date.getMonth()+1 == e_month_store[num]){
 								if(Change_Date.getMonth()+1 == a_month_store[num]){
 									check4 = 1;
@@ -503,7 +503,7 @@
 								check4 = 0;
 							}
 						}
-						if(Change_Date.getFullYear() == s_year_store[num]){
+						if(Change_Date.getFullYear() == e_year_store[num]){
 							if(Change_Date.getMonth()+1 == e_month_store[num]){
 								if(Change_Date.getMonth()+1 == a_month_store[num]){
 									check4 = 1;
@@ -678,6 +678,9 @@
           		<%}%>
        	
           </div>
+          <script>
+          document.getElementById("hide").style.display = "none";
+          </script>
     	</div>
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
