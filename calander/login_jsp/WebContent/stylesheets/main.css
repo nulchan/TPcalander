@@ -30,6 +30,7 @@ a:hover, a:active {color:#C23700;}
 #top a:hover, a:active {margin-top:20px;}
 #header{ height:70px; width:99.5%; background-color: #353535; color:#ffffff;font-size:30px; font-weight:bold; padding-left:10px; padding-top: 5px; border-radius: 10px;}
 #cal_images{float:right;}
+#header-title{color: white;}
 
 #menu_body{height:550px; width:19%; border:1px solid; float:left; text-align: center;}
 #all_schedule{text-align:left;}

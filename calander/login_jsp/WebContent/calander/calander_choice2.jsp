@@ -289,6 +289,17 @@
 		function add_memo(){
 			alert("새 메모를 등록했습니다");
 		}
+		function HideLeftMenu() {
+			if (document.getElementById("menu_body").style.display == "none") {
+				document.getElementById("menu_body").style.display = "block";
+				document.getElementById("menu_hide").innerText = "◀";
+				document.getElementById("c_content").style.width = "79%";
+			} else {
+				document.getElementById("menu_body").style.display = "none";
+				document.getElementById("menu_hide").innerText = "▶";
+				document.getElementById("c_content").style.width = "98%";
+			}
+		}
 </script>
 </head>
 <body background = "../images/background.jpg" onload="mini_calendar(null,null),set_day(2)">
@@ -302,7 +313,7 @@
             <div id="cal_images">
 					<img src="../images/slogo.jpg" alt="small_logo">
 			</div>
-            Calander - 8조
+            <a href="../calander/calander.jsp" id="header-title">HCP calendar</a> 
         </div>
         
         <div id="menu">
@@ -327,19 +338,19 @@
                   </div>
                   <div id="menu_check">
                       	<div id="all_schedule">
-                 			<a href="">
-							<img src="../images/all.png" alt="all_schedule">
-							전체 일정 보기</a><br>
-						</div>
-                      
-                      	<div id="show_important">
-	                      	<a href="">
+                 			<a href="../calander/show_aniv.jsp">
 							<img src="../images/important.png" alt="important">
 							기념일 보기</a><br>
 						</div>
                       
+                      	<div id="show_important">
+                      		<a href="../calander/s_delete_view2.jsp">
+	                      	<img src="../images/can.png" alt="delete">
+							일정 삭제하기</a><br>
+						</div>
+                      
                       	<div id="menu_delete">
-                      		<a href="javascript:popupOpen();" >
+                      		<a href="../calander/s_delete_view.jsp" >
 							<img src="../images/can.png" alt="delete">
 							오래된 일정 삭제</a><br>
 						</div>
@@ -396,20 +407,6 @@
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
         </div>
-<script>
-	function HideLeftMenu() {
-		if (document.getElementById("menu_body").style.display == "none") {
-			document.getElementById("menu_body").style.display = "block";
-			document.getElementById("menu_hide").innerText = "◀";
-			document.getElementById("content").style.width = "79%";
-		} else {
-			document.getElementById("menu_body").style.display = "none";
-			document.getElementById("menu_hide").innerText = "▶";
-			document.getElementById("content").style.width = "98%";
-		}
-	}
-</script>
-
 </body>
     </html>
 

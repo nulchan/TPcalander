@@ -126,7 +126,7 @@
             <div id="cal_images">
 					<img src="../images/slogo.jpg" alt="small_logo">
 			</div>
-            Calander - 8조
+            <a href="../calander/calander.jsp" id="header-title">HCP calendar</a> 
         </div>
         
         <div id="menu">
@@ -152,19 +152,19 @@
                   </div>
                   <div id="menu_check">
                       	<div id="all_schedule">
-                 			<a href="">
-							<img src="../images/all.png" alt="all_schedule">
-							전체 일정 보기</a><br>
+                 			<a href="../calander/show_aniv.jsp">
+							<img src="../images/important.png" alt="important">
+							기념일 보기</a><br>
 						</div>
                       
                       	<div id="show_important">
-	                      	<a href="">
-							<img src="../images/important.png" alt="important">
-							중요 일정 보기</a><br>
+                      		<a href="../calander/s_delete_view2.jsp">
+	                      	<img src="../images/can.png" alt="delete">
+							일정 삭제하기</a><br>
 						</div>
                       
                       	<div id="menu_delete">
-                      		<a href="javascript:popupOpen();" >
+                      		<a href="../calander/s_delete_view.jsp" >
 							<img src="../images/can.png" alt="delete">
 							오래된 일정 삭제</a><br>
 						</div>
@@ -174,7 +174,7 @@
                     	  	<a href="../calander/show_memo.jsp">
 							<img src="../images/memo.png" alt="show_memo">
 							메모 모아보기</a>
-						</div>    
+						</div>  
                      
          		  </div>
           </div>
