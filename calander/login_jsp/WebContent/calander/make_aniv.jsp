@@ -162,7 +162,7 @@
 							<tr height="1" bgcolor="#B2CCFF"><td colspan="4"></td></tr>
 						</div>
 						<div id="time">
-							시간 &nbsp; <input class="time_box", type="text" id="start" name="start" placeholder="YYYY-MM-DD">
+							시간 &nbsp; <input class="time_box", type="text" id="start" name="start" placeholder="MM-DD">
 								
 						</div>
 						

@@ -218,7 +218,7 @@
 						색상	<select name="color">
 								<option value="red">빨강</option>
 								<option value="blue">파랑</option>
-								<option value="yello">노랑</option>
+								<option value="yellow">노랑</option>
 								<option value="puple">보라</option>
 								<option value="black">검정</option>
 							</select>	
@@ -303,7 +303,7 @@
                   색상   <select name="color">
                         <option value="red">빨강</option>
                         <option value="blue">파랑</option>
-                        <option value="yello">노랑</option>
+                        <option value="yellow">노랑</option>
                         <option value="puple">보라</option>
                         <option value="black">검정</option>
                      </select>   

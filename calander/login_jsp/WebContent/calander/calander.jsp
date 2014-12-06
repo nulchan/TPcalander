@@ -17,12 +17,16 @@
 	List<String> end = new ArrayList<String>();
 	List<String> color = new ArrayList<String>();
 	List<String> submit = new ArrayList<String>();
+	List<String> aniv = new ArrayList<String>();
+	List<String> aniv_submit = new ArrayList<String>();
 	List<Integer> start_year = new ArrayList<Integer>();
 	List<Integer> start_month = new ArrayList<Integer>();
 	List<Integer> start_day = new ArrayList<Integer>();
 	List<Integer> end_year = new ArrayList<Integer>();
 	List<Integer> end_month = new ArrayList<Integer>();
 	List<Integer> end_day = new ArrayList<Integer>();
+	List<Integer> aniv_month = new ArrayList<Integer>();
+	List<Integer> aniv_day = new ArrayList<Integer>();
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
@@ -42,6 +46,19 @@
 			end_year.add(Integer.parseInt(end.get(i).substring(0, 4)));
 			end_month.add(Integer.parseInt(end.get(i).substring(5,7)));
 			end_day.add(Integer.parseInt(end.get(i).substring(8,10)));
+		}
+		stmt.close();
+		rs.close();
+		stmt = conn.prepareStatement("SELECT *FROM users join aniv on users.id = aniv.id WHERE users.id=?");
+		stmt.setString(1,id);
+		rs = stmt.executeQuery();
+		while(rs.next()){
+			aniv.add(rs.getString("time"));
+			aniv_submit.add(rs.getString("submit"));
+		}
+		for(int i=0;i<aniv.size();i++){
+			aniv_month.add(Integer.parseInt(aniv.get(i).substring(0, 2)));
+			aniv_day.add(Integer.parseInt(aniv.get(i).substring(3,5)));
 		}
 	}catch(SQLException e){
 		errorMsg = "SQL 에러" + e.getMessage();
@@ -129,6 +146,10 @@
    	  	var e_year;
    	  	var e_month;
    	  	var e_day;
+   	  	var color;
+   	  	var a_month;
+   	  	var a_day;
+   	  	var a_submit;
    	  	var title_store = new Array();
    	  	var s_year_store = new Array();
    		var s_month_store = new Array();
@@ -136,6 +157,10 @@
    		var e_year_store = new Array();
   	 	var e_month_store = new Array();
   	 	var e_day_store = new Array();
+  	 	var color_store = new Array();
+  	 	var a_month_store = new Array();
+   	  	var a_day_store = new Array();
+   	  	var a_submit_store = new Array();
    	  	for(var i=0; i< <%=count%>;i++){
    	  		title = document.getElementById("submit"+i).value;
    	  		s_year = document.getElementById("s_year"+i).value;
@@ -144,6 +169,10 @@
    	  		e_year = document.getElementById("e_year"+i).value;
    	  		e_month = document.getElementById("e_month"+i).value;
    	  		e_day = document.getElementById("e_day"+i).value;
+   	  		color = document.getElementById("color"+i).value;
+   	  		a_month = document.getElementById("a_month"+i).value;
+	  		a_day = document.getElementById("a_day"+i).value;
+	  		a_submit = document.getElementById("a_submit"+i).value;
    	  		title_store[i] = title;
    	  		s_year_store[i] = s_year;
    		  	s_month_store[i] = s_month;
@@ -151,8 +180,18 @@
    			e_year_store[i] = e_year;
  		  	e_month_store[i] = e_month;
  		  	e_day_store[i] = e_day;
+ 		  	color_store[i] = color;
+ 			a_month_store[i] = a_month;
+ 		  	a_day_store[i] = a_day;
+ 		  	a_submit_store[i] = a_submit;
    	  	}
-		var now_Date = new Date();               
+   	  	var set_color = new Array();
+   	 	set_color[0] = "red";
+   	 	set_color[1] = "blue";
+   	 	set_color[2] = "yellow";
+   	 	set_color[3] = "puple";
+   	 	set_color[4] = "black";
+   	 	var now_Date = new Date();               
 		var year = now_Date.getFullYear();      
 		var month = now_Date.getMonth() ;       
 		var date = now_Date.getDate();          
@@ -195,36 +234,78 @@
 			var check = 0;
 			var check2 = 0;
 			var check3 = 0;
+			var check4 = 0;
+			var color_name;
 			if(Change_Date.getFullYear()==change_year && Change_Date.getMonth()==change_month && i==date){
 				for(num=0; num < <%=count%>; num++){
 					if(Change_Date.getFullYear() == s_year_store[num]){
 						if(Change_Date.getMonth()+1 == s_month_store[num]){
+							if(Change_Date.getMonth()+1 == a_month_store[num]){
+								check4 = 1;
+							}
+							if(color_store[num] == set_color[0]){
+								color_name = "red";
+							}else if(color_store[num] == set_color[1]){
+								color_name = "blue";
+							}else if(color_store[num] == set_color[2]){
+								color_name = "yellow";
+							}else if(color_store[num] == set_color[3]){
+								color_name = "puple";
+							}else if(color_store[num] == set_color[4]){
+								color_name = "black";
+							}
 							if(i == s_day_store[num]){
 								check = 1;
 								if(check2 == 1){
-									calendarSave +=","+title_store[num]+"시작"	
+									calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"	
 								}else{
-									calendarSave +="<td width=14%>"+title_store[num]+"시작"
+									calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+									if(i == a_day_store[num] && check4 == 1){
+										calendarSave += "||"+a_submit_store[num]+"기념일 입니다."
+									}
 								}
 								check2 = 1;
 							}
+							check4 = 0;
 						}
 					}
 					if(Change_Date.getFullYear() == s_year_store[num]){
 						if(Change_Date.getMonth()+1 == e_month_store[num]){
+							if(Change_Date.getMonth()+1 == a_month_store[num]){
+								check4 = 1;
+							}
+							if(color_store[num] == set_color[0]){
+								color_name = "red";
+							}else if(color_store[num] == set_color[1]){
+								color_name = "blue";
+							}else if(color_store[num] == set_color[2]){
+								color_name = "yellow";
+							}else if(color_store[num] == set_color[3]){
+								color_name = "puple";
+							}else if(color_store[num] == set_color[4]){
+								color_name = "black";
+							}
 							if(i == e_day_store[num]){
 								check = 1;
 								if(check3 == 1){
-									calendarSave +=","+title_store[num]+"종료"	
+									calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>종료"	
 								}else{
-									calendarSave +="<td width=14%>"+title_store[num]+"종료"
+									calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>종료"
+									if(i == a_day_store[num] && check4 == 1){
+										calendarSave += "||"+a_submit_store[num]+"기념일 입니다."
+									}
 								}
 								check3 = 1;
 							}
+							check4 = 0;
 						}
 					}
 					if(num == <%=count%>-1  && check == 0){
 						calendarSave +="<td width=14%>"+i
+						check4=2;
+						if(i == a_day_store[num] && check4 == 2 && Change_Date.getMonth()+1 == a_month_store[num]){
+							calendarSave += "||"+a_submit_store[num]+"기념일 입니다."
+						}
 						check = 1;
 					}
 				}
@@ -237,32 +318,72 @@
 					for(num=0; num < <%=count%>; num++){
 						if(Change_Date.getFullYear() == s_year_store[num]){
 							if(Change_Date.getMonth()+1 == s_month_store[num]){
+								if(Change_Date.getMonth()+1 == a_month_store[num]){
+									check4 = 1;
+								}
+								if(color_store[num] == set_color[0]){
+									color_name = "red";
+								}else if(color_store[num] == set_color[1]){
+									color_name = "blue";
+								}else if(color_store[num] == set_color[2]){
+									color_name = "yellow";
+								}else if(color_store[num] == set_color[3]){
+									color_name = "puple";
+								}else if(color_store[num] == set_color[4]){
+									color_name = "black";
+								}
 								if(i == s_day_store[num]){
 									check = 1;
 									if(check2 == 1){
-										calendarSave +=","+title_store[num]+"시작"	
+										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"	
 									}else{
-										calendarSave +="<td width=14%>"+title_store[num]+"시작"
+										calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+										if(i == a_day_store[num] && check4 == 1){
+											calendarSave += "||"+a_submit_store[num]+"기념일 입니다."
+										}
 									}
 									check2 = 1;
 								}
+								check4 = 0;
 							}
 						}
-						if(Change_Date.getFullYear() == e_year_store[num]){
+						if(Change_Date.getFullYear() == s_year_store[num]){
 							if(Change_Date.getMonth()+1 == e_month_store[num]){
+								if(Change_Date.getMonth()+1 == a_month_store[num]){
+									check4 = 1;
+								}
+								if(color_store[num] == set_color[0]){
+									color_name = "red";
+								}else if(color_store[num] == set_color[1]){
+									color_name = "blue";
+								}else if(color_store[num] == set_color[2]){
+									color_name = "yellow";
+								}else if(color_store[num] == set_color[3]){
+									color_name = "puple";
+								}else if(color_store[num] == set_color[4]){
+									color_name = "black";
+								}
 								if(i == e_day_store[num]){
 									check = 1;
 									if(check3 == 1){
-										calendarSave +=","+title_store[num]+"종료"	
+										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>종료"	
 									}else{
-										calendarSave +="<td width=14%>"+title_store[num]+"종료"
+										calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>종료"
+										if(i == a_day_store[num] && check4 == 1){
+											calendarSave += "||"+a_submit_store[num]+"기념일 입니다."
+										}
 									}
 									check3 = 1;
 								}
+								check4 = 0;
 							}
 						}
-						if(num == <%=count%>-1 && check == 0){
+						if(num == <%=count%>-1  && check == 0){
 							calendarSave +="<td width=14%>"+i
+							check4=2;
+							if(i == a_day_store[num] && check4 == 2 && Change_Date.getMonth()+1 == a_month_store[num]){
+								calendarSave += "||"+a_submit_store[num]+"기념일 입니다."
+							}
 							check = 1;
 						}
 					}
@@ -274,32 +395,72 @@
 					for(num=0; num < <%=count%>; num++){
 						if(Change_Date.getFullYear() == s_year_store[num]){
 							if(Change_Date.getMonth()+1 == s_month_store[num]){
+								if(Change_Date.getMonth()+1 == a_month_store[num]){
+									check4 = 1;
+								}
+								if(color_store[num] == set_color[0]){
+									color_name = "red";
+								}else if(color_store[num] == set_color[1]){
+									color_name = "blue";
+								}else if(color_store[num] == set_color[2]){
+									color_name = "yellow";
+								}else if(color_store[num] == set_color[3]){
+									color_name = "puple";
+								}else if(color_store[num] == set_color[4]){
+									color_name = "black";
+								}
 								if(i == s_day_store[num]){
 									check = 1;
 									if(check2 == 1){
-										calendarSave +=","+title_store[num]+"시작"	
+										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"	
 									}else{
-										calendarSave +="<td width=14%>"+title_store[num]+"시작"
+										calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+										if(i == a_day_store[num] && check4 == 1){
+											calendarSave += "||"+a_submit_store[num]+"기념일 입니다."
+										}
 									}
 									check2 = 1;
 								}
+								check4 = 0;
 							}
 						}
-						if(Change_Date.getFullYear() == e_year_store[num]){
+						if(Change_Date.getFullYear() == s_year_store[num]){
 							if(Change_Date.getMonth()+1 == e_month_store[num]){
+								if(Change_Date.getMonth()+1 == a_month_store[num]){
+									check4 = 1;
+								}
+								if(color_store[num] == set_color[0]){
+									color_name = "red";
+								}else if(color_store[num] == set_color[1]){
+									color_name = "blue";
+								}else if(color_store[num] == set_color[2]){
+									color_name = "yellow";
+								}else if(color_store[num] == set_color[3]){
+									color_name = "puple";
+								}else if(color_store[num] == set_color[4]){
+									color_name = "black";
+								}
 								if(i == e_day_store[num]){
 									check = 1;
 									if(check3 == 1){
-										calendarSave +=","+title_store[num]+"종료"	
+										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>종료"	
 									}else{
-										calendarSave +="<td width=14%>"+title_store[num]+"종료"
+										calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>종료"
+										if(i == a_day_store[num] && check4 == 1){
+											calendarSave += "||"+a_submit_store[num]+"기념일 입니다."
+										}
 									}
 									check3 = 1;
 								}
+								check4 = 0;
 							}
 						}
-						if(num == <%=count%>-1 && check == 0){
+						if(num == <%=count%>-1  && check == 0){
 							calendarSave +="<td width=14%>"+i
+							check4=2;
+							if(i == a_day_store[num] && check4 == 2 && Change_Date.getMonth()+1 == a_month_store[num]){
+								calendarSave += "||"+a_submit_store[num]+"기념일 입니다."
+							}
 							check = 1;
 						}
 					}
@@ -311,32 +472,72 @@
 					for(num=0; num < <%=count%>; num++){
 						if(Change_Date.getFullYear() == s_year_store[num]){
 							if(Change_Date.getMonth()+1 == s_month_store[num]){
+								if(Change_Date.getMonth()+1 == a_month_store[num]){
+									check4 = 1;
+								}
+								if(color_store[num] == set_color[0]){
+									color_name = "red";
+								}else if(color_store[num] == set_color[1]){
+									color_name = "blue";
+								}else if(color_store[num] == set_color[2]){
+									color_name = "yellow";
+								}else if(color_store[num] == set_color[3]){
+									color_name = "puple";
+								}else if(color_store[num] == set_color[4]){
+									color_name = "black";
+								}
 								if(i == s_day_store[num]){
 									check = 1;
 									if(check2 == 1){
-										calendarSave +=","+title_store[num]+"시작"	
+										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"	
 									}else{
-										calendarSave +="<td width=14%>"+title_store[num]+"시작"
+										calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+										if(i == a_day_store[num] && check4 == 1){
+											calendarSave += "||"+a_submit_store[num]+"기념일 입니다."
+										}
 									}
 									check2 = 1;
 								}
+								check4 = 0;
 							}
 						}
-						if(Change_Date.getFullYear() == e_year_store[num]){
+						if(Change_Date.getFullYear() == s_year_store[num]){
 							if(Change_Date.getMonth()+1 == e_month_store[num]){
+								if(Change_Date.getMonth()+1 == a_month_store[num]){
+									check4 = 1;
+								}
+								if(color_store[num] == set_color[0]){
+									color_name = "red";
+								}else if(color_store[num] == set_color[1]){
+									color_name = "blue";
+								}else if(color_store[num] == set_color[2]){
+									color_name = "yellow";
+								}else if(color_store[num] == set_color[3]){
+									color_name = "puple";
+								}else if(color_store[num] == set_color[4]){
+									color_name = "black";
+								}
 								if(i == e_day_store[num]){
 									check = 1;
 									if(check3 == 1){
-										calendarSave +=","+title_store[num]+"종료"	
+										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>종료"	
 									}else{
-										calendarSave +="<td width=14%>"+title_store[num]+"종료"
+										calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>종료"
+										if(i == a_day_store[num] && check4 == 1){
+											calendarSave += "||"+a_submit_store[num]+"기념일 입니다."
+										}
 									}
 									check3 = 1;
 								}
+								check4 = 0;
 							}
 						}
-						if(num == <%=count%>-1 && check == 0){
+						if(num == <%=count%>-1  && check == 0){
 							calendarSave +="<td width=14%>"+i
+							check4=2;
+							if(i == a_day_store[num] && check4 == 2 && Change_Date.getMonth()+1 == a_month_store[num]){
+								calendarSave += "||"+a_submit_store[num]+"기념일 입니다."
+							}
 							check = 1;
 						}
 					}
@@ -454,8 +655,10 @@
           			int s_day = start_day.get(i);
           			int e_year = end_year.get(i);
           			int e_month = end_month.get(i);
-          			int e_day = end_day.get(i);%>
+          			int e_day = end_day.get(i);
+          			String color_store = color.get(i);%>
           			<input type="text" id = "submit<%=i%>" value="<%=title%>">
+          			<input type="text" id = "color<%=i%>" value="<%=color_store%>">
           			<input type="text" id = "s_year<%=i%>" value="<%=s_year%>">
           			<input type="text" id = "s_month<%=i%>" value="<%=s_month%>">
           			<input type="text" id = "s_day<%=i%>" value="<%=s_day%>">
@@ -463,7 +666,14 @@
           			<input type="text" id = "e_month<%=i%>" value="<%=e_month%>">
           			<input type="text" id = "e_day<%=i%>" value="<%=e_day%>">
           		<%}
-          	%>
+          		for(int i=0; i<aniv_month.size();i++){
+          			int a_month = aniv_month.get(i);
+          			int a_day = aniv_day.get(i);
+          			String a_submit = aniv_submit.get(i);%>
+          			<input type="text" id = "a_month<%=i%>" value="<%=a_month%>">
+          			<input type="text" id = "a_day<%=i%>" value="<%=a_day%>">
+          			<input type="text" id = "a_submit<%=i%>" value="<%=a_submit%>">
+          		<%}%>
        	
           </div>
     	</div>
