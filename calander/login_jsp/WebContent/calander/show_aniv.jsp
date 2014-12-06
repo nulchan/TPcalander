@@ -191,16 +191,20 @@
 						기념일  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
 					</div>
 			          <table style="margin-top:20px;">
-						<%for(int i=0;i<submit.size();i++){
-			        			String save1 = submit.get(i);
-			        			String save2 = time.get(i);
-			        			String save3 = content.get(i);%>
-			        		<tr>	
-			        		<td><%=save1 %></td>
-			        		<td><%=save2 %></td>
-			        		<td><%=save3 %></td>
-			        		</tr>
-						<%}%>
+			           <%if(submit.size()<1){%>
+	        	   <li>저장한 기념일이 없습니다</li>
+	           <%}else{
+	        	   for(int i=0;i<submit.size();i++){
+	        			String save1 = submit.get(i);
+	        			String save2 = time.get(i);
+	        			String save3 = content.get(i);%>
+	        		<tr>	
+	        		<td><%=save1 %></td>
+	        		<td><%=save2 %></td>
+	        		<td><%=save3 %></td>
+	        		<form action = "../calander/aniv_delete.jsp?check=<%=save1 %>" method="post"><td><input type ="submit" value="삭제하기"></td></form>
+	        		</tr>
+				<%}}%>
 					</table>     	
 	          </div>
 

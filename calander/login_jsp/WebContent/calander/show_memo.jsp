@@ -187,12 +187,13 @@
 						메모  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
 					</div>
 	           <ul>
-	           <% for(String content: memo) { %>
-	                   <li><%=content %></li>
-	                <%} %>
-	                
+	           <%if(memo.size()<1){%>
+	        	   <li>메모가 없습니다</li>
+	           <%}else{
+	           		for(String content: memo) { %>
+	                   <li><%=content %><form action="../calander/memo_delete.jsp?check=<%=content%>" method="post"><input type="submit" value="메모삭제하기"></form></li>
+	                <%} }%>
 	          </ul>
-	          
 	          </div>
 
         <div id="footer">
