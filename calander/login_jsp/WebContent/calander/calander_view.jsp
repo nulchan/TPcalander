@@ -46,7 +46,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Calander</title>
+<title>HCP calendar</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function day_click(change_year,change_month,day,week){
@@ -124,7 +124,7 @@
 	
 	function popupOpen2(){
 		var popUrl = "choice_popUp.jsp";	//팝업창에 출력될 페이지 URL
-		var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+		var popOption = "width=370, height=90, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 			window.open(popUrl,"",popOption);
 
 	}
@@ -213,7 +213,18 @@
         <div id="c_content">
 		    <div id="content_search"><input class="search_text" type="text" value="일정검색"><input class="search_button" type="button" value="검색"></div>
 			<div id="content_navbar"><a href="../calander/calander_day.jsp"><input class="navbar_button" type="button" value="일간"></a><a href="../calander/calander_week.jsp"><input class="navbar_button" type="button" value="주간"></a><a href="../calander/calander.jsp"><input class="navbar_button" type="button" value="월간"></a><a href="../calander/calander_view.jsp"><input class="navbar_button" type="button" value="목록"></a><a href="javascript:popupOpen2()"><input class="navbar_button" type="button" value="정렬"></a></div><br>
-        	<table style="margin-top:20px;">       		
+        	<table style="margin-top:20px;">      
+        	
+        			<tr>	
+		        		<td>&nbsp;&nbsp;일정 명</td>
+		        		<td>&nbsp;&nbsp;|&nbsp;일정 시작 날짜</td>
+		        		<td>&nbsp;&nbsp;|&nbsp;일정 시작 시간</td>
+		        		<td>&nbsp;&nbsp;&nbsp;|&nbsp;일정 종료 날짜</td>
+		        		<td>&nbsp;&nbsp;|&nbsp;일정 종료 시간</td>
+		        		<td>&nbsp;&nbsp;|&nbsp;일정 내용</td>
+		        		
+	        		</tr>	
+	        		<ul> 		
 				<%for(int i=0;i<submit.size();i++){
 	        			String save1 = submit.get(i);
 	        			String save2 = start.get(i);
@@ -221,13 +232,16 @@
 	        			String save4 = start_time.get(i);
 	        			String save5 = end_time.get(i);
 	        			String save6 = content.get(i);%>
+	        		
+	        		
+	        		
 	        		<tr>	
-		        		<td><%=save1 %></td>
-		        		<td><%=save2 %></td>
-		        		<td><%=save3 %></td>
-		        		<td><%=save4 %></td>
-		        		<td><%=save5 %></td>
-		        		<td><%=save6 %></td>	
+		        		<td>&nbsp;&nbsp;<%=save1%></td>
+		        		<td>&nbsp;&nbsp;|&nbsp;<%=save2%></td>
+		        		<td>&nbsp;&nbsp;|&nbsp;<%=save4%></td>
+		        		<td>&nbsp;&nbsp;&nbsp;|&nbsp;<%=save3%></td>
+		        		<td>&nbsp;&nbsp;|&nbsp;<%=save5%></td>
+		        		<td>&nbsp;&nbsp;|&nbsp;<%=save6%></td>	
 	        		</tr>	
 				<%}%>
 			</table>     	

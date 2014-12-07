@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메모 모아보기</title>
+<title>HCP calendar</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function day_click(change_year,change_month,day,week){
@@ -163,6 +163,8 @@
                 <a href="">◀</a>
             </div>
 	         <div id="delete_menu">
+	         <br>
+	         <div id="delete_border">
 		<div id="delete_message">
 			<br>
 	    		오래된 일정 삭제
@@ -170,14 +172,19 @@
 	    <br>
 	    <div id="delete_time">
 	    	<form action ="schedule_delete2.jsp" method="post">
-	    	삭제하고 싶은 일정을 쓰세요
-			<input class="time_box", type="text" id="delete" name="delete" placeholder="일정의 제목을 쓰십시오"><br>
-		</div>
-		<br>
-	    <input class="yes_button" type="submit" value="확인" onclick="frameclose()">
-	    <input class="no_button" type="button" value="취소" onclick="go('../calander/calander.jsp'),frameclose()">
-	    <br><br>
-    	</form>
+		    	삭제하고 싶은 일정을 쓰세요
+		    	<br>
+		    	<br>
+				<input class="time_box", type="text" id="delete" name="delete" placeholder="일정의 제목"><br>
+			
+				<br>
+			    <input class="yes_button" type="submit" value="확인" onclick="frameclose()">
+			    <input class="no_button" type="button" value="취소" 
+			    	onclick="location.href='../calander/calander.jsp'">
+			    <br><br>
+	    	</form>
+    	</div>
+    	</div>
 </div>
 
         <div id="footer">

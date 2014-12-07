@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메모 모아보기</title>
+<title>HCP calendar</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function day_click(change_year,change_month,day,week){
@@ -164,27 +164,40 @@
                 <a href="">◀</a>
             </div>
 	         <div id="delete_menu">
-		<div id="delete_message">
-			<br>
-	    		오래된 일정 삭제
-	    </div>
-	    <br>
-	    <div id="delete_time">
-	    	<form action ="schedule_delete.jsp" method="post">
-			<input class="time_box", type="text" id="start" name="start" placeholder="YYYY-MM"><br>
-			이전의 일정을 모두 삭제하시겠습니까?
-		</div>
-		<br>
-	    <input class="yes_button" type="submit" value="확인" onclick="frameclose()">
-	    <input class="no_button" type="button" value="취소" onclick="go('../calander/calander.jsp'),frameclose()">
-	    <br><br>
-    	</form>
+	         
+	         
+            <br>
+            <div id="delete_border">
+				<div id="delete_message">
+					<br>
+			    		오래된 일정 삭제
+			    </div>
+			    <br>
+			    <div id="delete_time">
+			    	<div>
+			    	<form action ="schedule_delete.jsp" method="post">
+				    	<div>
+						<input class="time_box", type="text" id="start" name="start" placeholder="YYYY-MM"><br>
+						<br>
+						이전의 일정을 모두 삭제하시겠습니까?
+						<br>
+						</div>
+						<br>
+						<div>
+					    <input class="yes_button" type="submit" value="확인" onclick="frameclose()">
+					    <input class="no_button" type="button" value="취소" 
+					    	onclick="location.href='../calander/calander.jsp'">
+					    <br>
+					    </div>
+					    
+		 			</form>
+					</div>
+				</div>
+			</div>
 </div>
-
         <div id="footer">
             8조 - 박정현, 최기영, 하늘찬
         </div>
-<<<<<<< HEAD
 <script>
 	function HideLeftMenu() {
 		if (document.getElementById("menu_body").style.display == "none") {
@@ -199,9 +212,6 @@
 		
 	}
 </script>
-=======
->>>>>>> 17df9f3372ad8d29f66e4e2fedb2ab8bb80cbe81
-
 </body>
     </html>
 

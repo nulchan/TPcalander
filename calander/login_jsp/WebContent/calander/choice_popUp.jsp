@@ -4,20 +4,20 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>오래된 일정 삭제</title>
+	<title>주 범위 선택</title>
 	<link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 </head>
 <script type="text/javascript">
 function frameclose() { 
-	parent.close() 
-	window.close() 
-	self.close() 	
+	parent.close()
+	window.close()
+	self.close()	
 }
 function go(url){
 	opener.location.href = url;
 	window.close;
 }
-	
+
 </script>
 <body>
 <div id="delete_menu">

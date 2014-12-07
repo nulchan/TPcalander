@@ -74,7 +74,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Calander</title>
+<title>HCP calendar</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function day_click(change_year,change_month,day,week){
@@ -206,7 +206,7 @@
       		var title2 = "<div id=content_search><input class=search_text type=text value=일정검색><input class=search_button type=button value=검색></div>"
       		title2 +="<div id=content_navbar><a href=../calander/calander_day.jsp><input class=navbar_button type=button value=일간></a><a href=../calander/calander_week.jsp><input class=navbar_button type=button value=주간></a><a href=../calander/calander.jsp><input class=navbar_button type=button value=월간></a><a href=../calander/calander_view.jsp><input class=navbar_button type=button value=목록></a><a href=javascript:popupOpen2()><input class=navbar_button type=button value=정렬></a></div><br>"
       	 	title2 +="<a href=javascript:week_calandar(-1)><input class=month_button id=month_button type=button value=◀></a>"
-      		title2 += day.getFullYear() + "." + (day.getMonth()+1)+","+Math.ceil((day.getDate()/7))+"번쨰 주"; 
+      		title2 += day.getFullYear() + "." + (day.getMonth()+1)+","+Math.ceil((day.getDate()/7))+"번째 주"; 
       		var data = "<table width=98% height=100% border= 1 solid><tr align=center height=80>" 
       		for(var i=0 ; i<7 ; i++) {
 	      			var check = 0;
@@ -282,7 +282,7 @@
  		
  		function popupOpen2(){
  			var popUrl = "choice_popUp.jsp";	//팝업창에 출력될 페이지 URL
- 			var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+ 			var popOption = "width=370, height=90, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
  				window.open(popUrl,"",popOption);
 
  		}

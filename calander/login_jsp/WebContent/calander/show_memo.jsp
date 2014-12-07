@@ -35,7 +35,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메모 모아보기</title>
+<title>HCP calendar</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function day_click(change_year,change_month,day,week){
@@ -183,17 +183,29 @@
                 <a href="">◀</a>
             </div>
 	          <div id="memo_content" >
+	          <br>
 	         		<div id="write_top">
-						메모  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
+						&nbsp; 메모  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
 					</div>
-	           <ul>
-	           <%if(memo.size()<1){%>
-	        	   <li>메모가 없습니다</li>
-	           <%}else{
-	           		for(String content: memo) { %>
-	                   <li><%=content %><form action="../calander/memo_delete.jsp?check=<%=content%>" method="post"><input type="submit" value="메모삭제하기"></form></li>
-	                <%} }%>
-	          </ul>
+			  
+			   	 
+		           <ul>
+		           <%if(memo.size()<1){%>
+		        	   <li>메모가 없습니다</li>
+		           <%}else{
+		           		for(String content: memo) { %>
+		           		<div id = "img_memo">
+		           		<br>
+		                   <li> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<%=content %><form action="../calander/memo_delete.jsp?check=<%=content%>" method="post">
+		             
+		                    <br><br><br><br><br>
+		                    &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+		                    <input type="submit" value="메모삭제하기"></form></li>
+		                
+		       		   </div>
+		                <%} }%>
+		                
+		           </ul>
 	          </div>
 
         <div id="footer">

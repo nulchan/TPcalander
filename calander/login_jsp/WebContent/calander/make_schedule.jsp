@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Calander</title>
+<title>HCP calendar</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 </head>
 <body background = "../images/background.jpg" >
@@ -13,7 +13,6 @@
 		var popUrl = "delete_popUp.jsp";	//팝업창에 출력될 페이지 URL
 		var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 			window.open(popUrl,"",popOption);
-	
 		}
 	function day_click(change_year,change_month,day,week){
 		date = new Date(change_year,change_month,day);
@@ -99,7 +98,8 @@
 	
 	function InputError(){
 		var startTime = document.getElementById("start").value;
-		if(startTime.indexOf("-") == -1){
+		var endTime = document.getElementById("end").value;
+		if(startTime.indexOf("-") == -1 || startTime.length != 10 || endTime.indexOf("-") == -1 || endTime.length != 10){
 			alert("날짜 형식 오류입니다.");
 			parent.location.replace("../calander/make_schedule.jsp");
 		}else{

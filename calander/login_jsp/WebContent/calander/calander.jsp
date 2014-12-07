@@ -74,7 +74,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Calander</title>
+<title>HCP calendar</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function mini_calendar(change_year,change_month){ 
@@ -571,7 +571,7 @@
 	
 	function popupOpen2(){
 		var popUrl = "choice_popUp.jsp";	//팝업창에 출력될 페이지 URL
-		var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+		var popOption = "width=370, height=90, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 			window.open(popUrl,"",popOption);
 
 	}

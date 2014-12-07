@@ -39,7 +39,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메모 모아보기</title>
+<title>HCP calendar</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function day_click(change_year,change_month,day,week){
@@ -187,12 +187,17 @@
                 <a href="">◀</a>
             </div>
 	          <div id="memo_content" >
-	         		<div id="write_top">
+	          
+	         		<br><div id="write_top">
 						기념일  ㅣ <a href="../calander/calander.jsp">캘린더로 돌아가기  </a>
 					</div>
 			          <table style="margin-top:20px;">
 			           <%if(submit.size()<1){%>
-	        	   <li>저장한 기념일이 없습니다</li>
+			           <br>
+	        	   <li>
+	         		&nbsp;
+	         		&nbsp;
+	         		&nbsp;저장한 기념일이 없습니다</li>
 	           <%}else{
 	        	   for(int i=0;i<submit.size();i++){
 	        			String save1 = submit.get(i);
@@ -224,6 +229,7 @@
 		}
 	}
 </script>
+</div>
 
 </body>
     </html>

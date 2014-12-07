@@ -46,7 +46,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Calander</title>
+<title>HCP calendar</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function day_click(change_year,change_month,day,week){
