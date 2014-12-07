@@ -1,0 +1,154 @@
+/* Reset CSS: from YUI2: Reset CSS */
+html{color:#000;
+	background:#fff; 
+	font: 12px/18px "留묒� 怨좊뵓", "Malgun Gothic", "援대┝", "Gulim", Verdana, Arial, Tahoma;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:1px;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}
+del,ins{text-decoration:none;}
+li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;font-variant:normal;}
+sup{vertical-align:baseline;}
+sub{vertical-align:baseline;}
+legend{color:#000;}
+input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}
+input,button,textarea,select{font-size:100%;}
+
+/* Basic */
+h1 {font-size:14px; line-height:28px; font-weight:bold;}
+h2 {font-size:12px; line-height:24px; font-weight:bold;}
+/*a:visited, a:link {color:#c20A00;text-decoration:none;}
+a:hover, a:active {color:#C23700;}
+*/
+#top{height: 15px;text-align: right;color:black;}
+#top a:visited, a:link {color:black;text-decoration:none;}
+#top a:hover, a:active {margin-top:20px;}
+#header{ height:70px; width:99.5%; background-color: #353535; color:#ffffff;font-size:30px; font-weight:bold; padding-left:10px; padding-top: 5px; border-radius: 10px;}
+#cal_images{float:right;}
+#header-title{color: white;}
+
+#menu_body{height:550px; width:19%; border:1px solid; float:left; text-align: center; background-color : #ffffff;}
+#all_schedule{text-align:left;}
+#show_important{text-align:left;}
+#menu_delete{text-align:left;}
+#show_memo{text-align:left;}
+
+
+
+#menu_hide{height:550px; width:1%; border:1px solid; float:left; text-align: center; background-color : #ffffff;}
+#c_content{height:550px; width:79%; border:1px solid; float:right;}
+#footer{bottom: 80%;height:20px;  width:99.5%;color: #333333; float: left; border: 1px solid; text-align: center;}
+
+.menu_button{ width:87px;height:30px;background-color:#dddddd;border:1px solid #666666;}
+#menu_calander{width:100%; border:0px;}
+.mc_pointer{font-family:tahoma; font-size:24px; color:#aaaaaa;}
+#mc_year{font-family:tahoma; font-size:10px; font-weight:bold; text-align: center;}
+#mc_month{font-family:tahoma; font-size:20px; font-weight:bold; text-align: center;}
+#mc_top{ height:40px;}
+#week_col{ text-align:center; height:21px;}
+#sun{ width:14%; color:#ff0000;}
+#mon{width:14%;}
+#tues{width:14%;}
+#wed{width:14%;}
+#thu{width:14%;}
+#fri{width:14%;}
+#sat{width:14%; color:#0000ff;}
+
+#menu_memo{padding-top: 10px;}
+#menu_check{font-size:15px;line-height: 30px;}
+#menu_check a{text-decoration: none;}
+#menu_check a:visited, a:link{color:black;}
+#menu_check a:hover, a:active{color:black;}
+
+#content_search{padding-left: 10px; padding-top: 10px;}
+.search_text{float:left;}
+.search_button{width:30px; height:22px;}
+#move_month{font-size: 20px; position:absolute; left : 23%;}
+#content_navbar{position: absolute; left:43%;}
+.navbar_button{ width:87px;height:30px;background-color:#dddddd; float: left;}
+
+#frame{margin-top: 40px;}
+.week_header{width:100%; height:40px;}
+.week_header th{text-align: center;border:1px solid black;}
+
+.week_row{width:100%;}
+.week_row tr{height: 70px;}
+.week_row th{border:1px solid black;}
+
+.sun{color:red;}
+.mc_border{ background-color:#666666; height:1px; }
+.mday_col{text-align:center; height:17px; background-color:#eeeeee;}
+.csfont{color:red;}
+
+/* ↓ make _schedule  css */
+#make_schedule{height:70px;  width:79%;color: #333333; float: left; }
+#new_schedule{font-size : 20px; height: 1px color : #dddddd; }
+
+#title{left: 25%; top: 30%; font-size : 20px;}
+.title_box{float : center; padding : 0px;}
+
+#time{font-size : 20px;}
+.time_box{text-align:center; }
+#color{font-size : 20px;}
+
+#schedule_content{font-size : 20px; vertical-align:top; }
+#content{}
+#save_schedule{text-align:center;}
+
+#write_top{height:30px; width:330px; background-color: #D4F4FA; color:#000000;font-size:20px; font-weight:bold;  border-radius: 5px;
+padding-top:10px; padding-left:10px;
+background: rgb(242,245,246); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(242,245,246,1) 0%, rgba(227,234,237,1) 37%, rgba(200,215,220,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,245,246,1)), color-stop(37%,rgba(227,234,237,1)), color-stop(100%,rgba(200,215,220,1)));
+background: -webkit-linear-gradient(top,  rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%); 
+background: -o-linear-gradient(top,  rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+background: -ms-linear-gradient(top,  rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+background: linear-gradient(to bottom,  rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=0 );
+
+}
+
+
+/* delete schedule css */
+#delete_menu{
+float : left; width:79%; height: 100%;
+}
+.yes_button{ font-size: 15px;left : 55%;}
+.no_button{ font-size: 15px;left : 63%;}
+
+.one_button{ font-size: 15px; position: absolute; left :28%;}
+.two_button{ font-size: 15px;position: absolute;left :38%; }
+.three_button{ font-size: 15px; position: absolute;left :48%;}
+.four_button{ font-size: 15px; position: absolute; left :58%;}
+
+#delete_message{position:relative;  width: 395px;  font-size : 20px; text-align : center;
+
+padding-bottom:25px;
+background: rgb(242,245,246); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(242,245,246,1) 0%, rgba(227,234,237,1) 37%, rgba(200,215,220,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,245,246,1)), color-stop(37%,rgba(227,234,237,1)), color-stop(100%,rgba(200,215,220,1)));
+background: -webkit-linear-gradient(top,  rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%); 
+background: -o-linear-gradient(top,  rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+background: -ms-linear-gradient(top,  rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+background: linear-gradient(to bottom,  rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=0 );
+
+}
+
+#delete_time{ font-size : 18px; text-align : center;}
+#delete_border{border : solid 1px; width: 400px; position:relative; left:30%;}
+
+#aniv {text-align: bottom;}
+/* show memo  css */
+#memo_content{width: 79%; height:550px; border:1px solid; float:right;}
+#img_memo{
+	background: url(../images/img_memo.png);
+	width : 283px; height: 190px;
+	
+}
+#memod_btn{algint : left;}

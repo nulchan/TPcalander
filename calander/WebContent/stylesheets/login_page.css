@@ -1,0 +1,18 @@
+#login{
+	width:400px; height:200px; margin: 0 auto;text-align: center;font-size: 25px;font-family: Arial;
+}
+
+#login_box{margin: 0 auto; width: 300px; border-radius: 10px; background-color: #FFFFFF; text-align: center; padding : 10px;}
+#id_box{font-size: 25px; width: 300px; margin: 0 auto; text-align: center; }
+#id_box input{width: 270px; height: 30px; border-radius: 4px;}
+#pwd_box{width: 300px;margin: 0 auto;text-align: left;}
+#pwd_box input{height: 30px;border-radius: 4px;}
+#login_btn {width : 300px; margint:0 auto; text-align : right;}
+#login_btn input{height: 40px; background-color : #FFBB00;  border-style:solid; font-style: bold;}
+#pwd_box2{width: 300px;margin: 0 auto;text-align: left;}
+#pwd_box2 input{height: 30px; border-radius: 4px;}
+#join_btn{width:300px;margin: 0 auto;text-align: right; }
+#join_btn input{height: 40px; background-color : #FFBB00; border-style:solid; font-style: bold;}
+#title_mention{text-align: left; padding-top : 10px; padding-left : 10px; font-size: 17px; border-bottom: #E1E8ED; margin-bottom:12px;}
+#join{width:300px; 	margin: 0 auto;text-align: center;font-size: 25px;font-family: Arial; border-radius: 10px; background-color: #FFFFFF;padding :10px; }
+#error{width:400px; height:200px; margin: 0 auto;text-align: center;}
