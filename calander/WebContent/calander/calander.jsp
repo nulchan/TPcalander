@@ -237,9 +237,17 @@
 			var check2 = 0;
 			var check3 = 0;
 			var color_name;
+			var equal;
+			var equal2;
+			var checking;
+			var checking2;
 			if(Change_Date.getFullYear()==change_year && Change_Date.getMonth()==change_month && i==date){
 				var check4 = 1;
+				checking = 0;
+				checking2 = 0;
 				for(num=0; num < <%=count%>; num++){
+					equal = 0 ;
+					equal2 = 0;
 					if(Change_Date.getFullYear() == s_year_store[num]){
 						if(Change_Date.getMonth()+1 == s_month_store[num]){
 							if(color_store[num] == set_color[0]){
@@ -257,8 +265,11 @@
 								check = 1;
 								if(check2 == 1){
 									calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+								}else if(equal == 1 && checking == 1){
+									calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"
 								}else{
 									calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+									checking2 = 1;
 								}
 								for(var a_num=0; a_num < <%=count2%>; a_num++){
 									if(i == a_day_store[a_num] && Change_Date.getMonth()+1 == a_month_store[num] && check4 ==1){
@@ -269,6 +280,7 @@
 								check4 = 0;
 							}
 						}
+						equal2 = 1;
 					}
 			
 					if(Change_Date.getFullYear() == e_year_store[num]){
@@ -289,8 +301,11 @@
 								if(check3 == 1){
 									calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>종료"	
 									
+								}else if(equal2 == 1 && checking2 == 1){
+									calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>종료"
 								}else{
 									calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>종료"
+									checking = 1;
 								}
 								for(var a_num=0; a_num < <%=count2%>; a_num++){
 									if(i == a_day_store[a_num] && Change_Date.getMonth()+1 == a_month_store[num] && chekc4 == 1){
@@ -301,6 +316,7 @@
 								check4 = 0;
 							}
 						}
+						equal = 1;
 					}
 				
 					if(num == <%=count%>-1  && check == 0){
@@ -329,7 +345,11 @@
 			}else{
 				if(col==0){      
 					var check4 = 1;
+					checking = 0;
+					checking2 = 0;
 					for(num=0; num < <%=count%>; num++){
+						equal = 0 ;
+						equal2 = 0;
 						if(Change_Date.getFullYear() == s_year_store[num]){
 							if(Change_Date.getMonth()+1 == s_month_store[num]){
 								if(color_store[num] == set_color[0]){
@@ -347,8 +367,11 @@
 									check = 1;
 									if(check2 == 1){
 										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+									}else if(equal == 1 && checking == 1){
+										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"
 									}else{
 										calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+										checking2 = 1;
 									}
 									for(var a_num=0; a_num < <%=count2%>; a_num++){
 										if(i == a_day_store[a_num] && Change_Date.getMonth()+1 == a_month_store[num] && check4 ==1){
@@ -359,6 +382,7 @@
 									check4 = 0;
 								}
 							}
+							equal2 = 1;
 						}
 				
 						if(Change_Date.getFullYear() == e_year_store[num]){
@@ -379,8 +403,11 @@
 									if(check3 == 1){
 										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>종료"	
 										
+									}else if(equal2 == 1 && checking2 == 1){
+										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>종료"
 									}else{
 										calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>종료"
+										checking = 1;
 									}
 									for(var a_num=0; a_num < <%=count2%>; a_num++){
 										if(i == a_day_store[a_num] && Change_Date.getMonth()+1 == a_month_store[num] && chekc4 == 1){
@@ -391,6 +418,7 @@
 									check4 = 0;
 								}
 							}
+							equal = 1;
 						}
 					
 						if(num == <%=count%>-1  && check == 0){
@@ -418,7 +446,12 @@
 					calendarSave += "</td>"
 				}else if(1<=col && col<=5){
 					var check4 = 1;
+					checking = 0;
+					checking2 = 0;
 					for(num=0; num < <%=count%>; num++){
+						equal = 0 ;
+						equal2 = 0;
+						
 						if(Change_Date.getFullYear() == s_year_store[num]){
 							if(Change_Date.getMonth()+1 == s_month_store[num]){
 								if(color_store[num] == set_color[0]){
@@ -436,8 +469,11 @@
 									check = 1;
 									if(check2 == 1){
 										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+									}else if(equal == 1 && checking == 1){
+										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"
 									}else{
 										calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+										checking2 = 1;
 									}
 									for(var a_num=0; a_num < <%=count2%>; a_num++){
 										if(i == a_day_store[a_num] && Change_Date.getMonth()+1 == a_month_store[num] && check4 ==1){
@@ -448,6 +484,7 @@
 									check4 = 0;
 								}
 							}
+							equal2 = 1;
 						}
 				
 						if(Change_Date.getFullYear() == e_year_store[num]){
@@ -468,8 +505,11 @@
 									if(check3 == 1){
 										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>종료"	
 										
+									}else if(equal2 == 1 && checking2 == 1){
+										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>종료"
 									}else{
 										calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>종료"
+										checking = 1;
 									}
 									for(var a_num=0; a_num < <%=count2%>; a_num++){
 										if(i == a_day_store[a_num] && Change_Date.getMonth()+1 == a_month_store[num] && chekc4 == 1){
@@ -480,6 +520,7 @@
 									check4 = 0;
 								}
 							}
+							equal = 1;
 						}
 					
 						if(num == <%=count%>-1  && check == 0){
@@ -507,7 +548,12 @@
 					calendarSave += "</td>"
 				}else if(col==6){     
 					var check4 = 1;
+					checking = 0;
+					checking2 = 0;
 					for(num=0; num < <%=count%>; num++){
+						equal = 0 ;
+						equal2 = 0;
+						
 						if(Change_Date.getFullYear() == s_year_store[num]){
 							if(Change_Date.getMonth()+1 == s_month_store[num]){
 								if(color_store[num] == set_color[0]){
@@ -525,8 +571,11 @@
 									check = 1;
 									if(check2 == 1){
 										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+									}else if(equal == 1 && checking == 1){
+										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"
 									}else{
 										calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+										checking2 = 1;
 									}
 									for(var a_num=0; a_num < <%=count2%>; a_num++){
 										if(i == a_day_store[a_num] && Change_Date.getMonth()+1 == a_month_store[num] && check4 ==1){
@@ -537,6 +586,7 @@
 									check4 = 0;
 								}
 							}
+							equal2 = 1;
 						}
 				
 						if(Change_Date.getFullYear() == e_year_store[num]){
@@ -557,8 +607,11 @@
 									if(check3 == 1){
 										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>종료"	
 										
+									}else if(equal2 == 1 && checking2 == 1){
+										calendarSave +=",<span style=color:"+color_name+">"+title_store[num]+"</span>종료"
 									}else{
 										calendarSave +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>종료"
+										checking = 1;
 									}
 									for(var a_num=0; a_num < <%=count2%>; a_num++){
 										if(i == a_day_store[a_num] && Change_Date.getMonth()+1 == a_month_store[num] && chekc4 == 1){
@@ -569,6 +622,7 @@
 									check4 = 0;
 								}
 							}
+							equal = 1;
 						}
 					
 						if(num == <%=count%>-1  && check == 0){

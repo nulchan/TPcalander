@@ -10,7 +10,6 @@
 	String dbPassword = "12345";
 	String userid = "";
 	String userpwd = "";
-
 	request.setCharacterEncoding("utf-8");
 	String id = (String)session.getAttribute("id");
 	List<String> start = new ArrayList<String>();
@@ -142,7 +141,6 @@
 	}
 		var day = new Date(); 
   		day.setDate(day.getDate()-day.getDay()); 
-
   		function week_calandar(week) { 
   			var title;
   			var s_year;
@@ -307,7 +305,6 @@
       		title2 +="<a href=javascript:week_calandar(1)><input class=month_button id=month_button type=button value=▶></a>"
       		document.getElementById("big_calendar").innerHTML = title2 + "<br />" + data; 
       	} 
-
  		function set_day() { 
 	  		day = new Date(); 
 	  		day.setDate(day.getDate()-day.getDay()); 
@@ -317,14 +314,12 @@
  			var popUrl = "delete_popUp.jsp";	//팝업창에 출력될 페이지 URL
  			var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
  				window.open(popUrl,"",popOption);
-
  		}
  		
  		function popupOpen2(){
  			var popUrl = "choice_popUp.jsp";	//팝업창에 출력될 페이지 URL
  			var popOption = "width=370, height=90, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
  				window.open(popUrl,"",popOption);
-
  		}
  		function add_memo(){
  			alert("새 메모를 등록했습니다");
@@ -449,4 +444,3 @@
         </div>
 </body>
     </html>
-
