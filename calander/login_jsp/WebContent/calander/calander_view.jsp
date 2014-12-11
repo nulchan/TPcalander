@@ -211,7 +211,7 @@
                 <a href="">◀</a>
             </div>
         <div id="c_content">
-		    <div id="content_search"><input class="search_text" type="text" value="일정검색"><input class="search_button" type="button" value="검색"></div>
+		    <div id="content_search"><a href="../calander/search.jsp"><input class="search_text" type="text" value="일정검색"><input class="search_button" type="button" value="검색"></a></div>
 			<div id="content_navbar"><a href="../calander/calander_day.jsp"><input class="navbar_button" type="button" value="일간"></a><a href="../calander/calander_week.jsp"><input class="navbar_button" type="button" value="주간"></a><a href="../calander/calander.jsp"><input class="navbar_button" type="button" value="월간"></a><a href="../calander/calander_view.jsp"><input class="navbar_button" type="button" value="목록"></a><a href="javascript:popupOpen2()"><input class="navbar_button" type="button" value="정렬"></a></div><br>
         	<table style="margin-top:20px;">      
         	
@@ -224,7 +224,7 @@
 		        		<td>&nbsp;&nbsp;|&nbsp;일정 내용</td>
 		        		
 	        		</tr>	
-	        		<ul> 		
+	        		 		
 				<%for(int i=0;i<submit.size();i++){
 	        			String save1 = submit.get(i);
 	        			String save2 = start.get(i);

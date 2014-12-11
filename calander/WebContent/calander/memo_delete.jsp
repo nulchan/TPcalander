@@ -32,10 +32,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>HCP calendar</title>
 </head>
 <body>
-	<%=check %>
 	<script type="text/javascript">
 	 	alert("삭제되었습니다");
 		parent.location.replace("../calander/show_memo.jsp");

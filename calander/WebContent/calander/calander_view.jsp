@@ -46,7 +46,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Calander</title>
+<title>HCP calendar</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function day_click(change_year,change_month,day,week){
@@ -211,7 +211,7 @@
                 <a href="">◀</a>
             </div>
         <div id="c_content">
-		    <div id="content_search"><input class="search_text" type="text" value="일정검색"><input class="search_button" type="button" value="검색"></div>
+		    <form action=../calander/search.jsp method=post><div id=content_search><input class=search_text type=text name=search id=search placeholder=일정검색><input class=search_button type=submit value=검색></div></form>
 			<div id="content_navbar"><a href="../calander/calander_day.jsp"><input class="navbar_button" type="button" value="일간"></a><a href="../calander/calander_week.jsp"><input class="navbar_button" type="button" value="주간"></a><a href="../calander/calander.jsp"><input class="navbar_button" type="button" value="월간"></a><a href="../calander/calander_view.jsp"><input class="navbar_button" type="button" value="목록"></a><a href="javascript:popupOpen2()"><input class="navbar_button" type="button" value="정렬"></a></div><br>
         	<table style="margin-top:20px;">      
         	
@@ -224,7 +224,7 @@
 		        		<td>&nbsp;&nbsp;|&nbsp;일정 내용</td>
 		        		
 	        		</tr>	
-	        		<ul> 		
+	        		 		
 				<%for(int i=0;i<submit.size();i++){
 	        			String save1 = submit.get(i);
 	        			String save2 = start.get(i);

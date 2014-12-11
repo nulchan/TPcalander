@@ -10,6 +10,7 @@
 	String dbPassword = "12345";
 	String userid = "";
 	String userpwd = "";
+
 	request.setCharacterEncoding("utf-8");
 	String id = (String)session.getAttribute("id");
 	List<String> start = new ArrayList<String>();
@@ -21,7 +22,6 @@
 	List<String> end_time = new ArrayList<String>();
 	List<String> content = new ArrayList<String>();
 	List<String> aniv_submit = new ArrayList<String>();
-	List<String> aniv_content = new ArrayList<String>();
 	List<Integer> start_year = new ArrayList<Integer>();
 	List<Integer> start_month = new ArrayList<Integer>();
 	List<Integer> start_day = new ArrayList<Integer>();
@@ -61,7 +61,6 @@
 		while(rs.next()){
 			aniv.add(rs.getString("time"));
 			aniv_submit.add(rs.getString("submit"));
-			aniv_content.add(rs.getString("content"));
 		}
 		for(int i=0;i<aniv.size();i++){
 			aniv_month.add(Integer.parseInt(aniv.get(i).substring(0, 2)));
@@ -165,7 +164,6 @@
 	   	  	var content;
 	   	  	var s_time;
 	   	  	var e_time;
-	   	  	var a_content;
 	   	  	var title_store = new Array();
 	   	  	var s_year_store = new Array();
 	   		var s_month_store = new Array();
@@ -180,7 +178,6 @@
 	   		var content_store = new Array();
 	   	  	var s_time_store = new Array();
 	   	  	var e_time_store = new Array();
-	   	  	var a_content_store = new Array();
 	   	  	for(var i=0; i< <%=count%>;i++){
 	   	  		title = document.getElementById("submit"+i).value;
 	   	  		s_year = document.getElementById("s_year"+i).value;
@@ -209,11 +206,9 @@
 	   	  		a_month = document.getElementById("a_month"+i).value;
 	  			a_day = document.getElementById("a_day"+i).value;
 	  			a_submit = document.getElementById("a_submit"+i).value;
-	  			a_content = document.getElementById("a_content"+i).value;
 	  			a_month_store[i] = a_month;
 			  	a_day_store[i] = a_day;
 			  	a_submit_store[i] = a_submit;
-			  	a_content_store[i] = a_content;
 	   	  	}
 	   	 var set_color = new Array();
 	   	 set_color[0] = "red";
@@ -230,6 +225,7 @@
 		var end_day = new Array(31,28,31,30,31,30,31,31,30,31,30,31);      
 		var week = new Array("일","월","화","수","목","금","토");
 		var col=0;  
+
 		if (change_year == null){
 			change_year=year;
 		}	
@@ -284,7 +280,7 @@
 		if((Change_Date.getMonth() == 1)&&(((Change_Date.getYear()%4 == 0)&&(Change_Date.getYear() %100 != 0))|| Change_Date.getYear() % 400 ==0 )){
 			last_Day=29;
 		}
-		calendarSave = "<div id=content_search><input class=search_text type=text value=일정검색><input class=search_button type=button value=검색></div>"
+		calendarSave = "<form action=../calander/search.jsp method=post><div id=content_search><input class=search_text type=text name=search id=search placeholder=일정검색><input class=search_button type=submit value=검색></form></div>"
 		calendarSave += "<div id=content_navbar><a href=../calander/calander_day.jsp><input class=navbar_button type=button value=일간></a><a href=../calander/calander_week.jsp><input class=navbar_button type=button value=주간></a><a href=../calander/calander.jsp><input class=navbar_button type=button value=월간></a><a href=../calander/calander_view.jsp><input class=navbar_button type=button value=목록></a><a href=javascript:popupOpen2()><input class=navbar_button type=button value=정렬></a></div><br>"
 		calendarSave += Change_Date.getFullYear()+"."+(Change_Date.getMonth()+1)+"."+now_Date.getDate()+"."+week[change_day]+"요일"
 		calendarSave +="<a href=javascript:big_calendar("+change_year+","+change_month+","+(change_date-1)+","+(change_day-1)+")><input class=month_button id=month_button type=button value=◀></a>"
@@ -321,28 +317,12 @@
 		    			calendarSave += "<td>"+save3+"</td>"
 		    			calendarSave += "<td>"+save4+"</td>"
 		    			check2 = 1;
-		    			calendarSave +="</tr>"
+		    			calendarSave +="</tr></table>"
     				}
     			}
 			}
 		}
-		for(var i=0;i<<%=count2%>;i++){
-			if(Change_Date.getMonth()+1 == a_month_store[i]){
-	            if(now_Date.getDate() == a_day_store[i]){
-	               calendarSave += "<tr align=center height=50><td>기념일</td><td>제목</td><td>상세내용</td></tr>"
-	                calendarSave += "<tr align=center height=50>"
-	                var save5 = a_submit_store[i];
-	                var save6 = a_content_store[i];
-	                calendarSave += "<td></td>"
-	                calendarSave += "<td>"+save5+"</td>"
-	                calendarSave += "<td>"+save6+"</td>"
-	                check3 = 1;
-	                calendarSave +="</tr>"
-	            }
-	         }
-		}
-		calendarSave += "</table>"
-		if(check == 0 && check2 == 0 && check3 == 0){
+		if(check == 0 && check2 == 0){
 			calendarSave += "<tr><td>내용없음</td>"
 		}
 		calendarSave +="</tr></table>"
@@ -352,12 +332,13 @@
 		var popUrl = "delete_popUp.jsp";	//팝업창에 출력될 페이지 URL
 		var popOption = "width=370, height=165, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 			window.open(popUrl,"",popOption);
+
 	}
-	
 	function popupOpen2(){
 		var popUrl = "choice_popUp.jsp";	//팝업창에 출력될 페이지 URL
-		var popOption = "width=370, height=90, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+		var popOption = "width=370, height=100, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 			window.open(popUrl,"",popOption);
+
 	}
 	function add_memo(){
 		alert("새 메모를 등록했습니다");
@@ -472,12 +453,10 @@
           		for(int i=0; i<aniv_month.size();i++){
           			int a_month = aniv_month.get(i);
           			int a_day = aniv_day.get(i);
-          			String a_submit = aniv_submit.get(i);
-          			String a_content = aniv_content.get(i);%>
+          			String a_submit = aniv_submit.get(i);%>
           			<input type="text" id = "a_month<%=i%>" value="<%=a_month%>">
           			<input type="text" id = "a_day<%=i%>" value="<%=a_day%>">
           			<input type="text" id = "a_submit<%=i%>" value="<%=a_submit%>">
-          			<input type="text" id = "a_content<%=i%>" value="<%=a_content%>">
           		<%}%>
        	
           </div>
@@ -492,3 +471,4 @@
 
 </body>
     </html>
+

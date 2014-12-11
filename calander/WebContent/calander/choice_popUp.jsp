@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>오래된 일정 삭제</title>
+	<title>HCP calendar</title>
 	<link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 </head>
 <script type="text/javascript">
@@ -20,18 +20,18 @@ function go(url){
 
 </script>
 <body>
-<div id="delete_menu">
 		<div id="delete_message">
 			<br>
 	 		보고싶은 주단위를 고르세요
+	 		<br>
+	 		<br>
+	 		<input class="one_button" type="button" value="1주씩" onclick="go('../calander/calander_choice1.jsp'),frameclose()">
+		    <input class="two_button" type="button" value="2주씩" onclick="go('../calander/calander_choice2.jsp'),frameclose()">
+		    <input class="three_button" type="button" value="3주씩" onclick="go('../calander/calander_choice3.jsp'),frameclose()">
+		    <input class="four_button" type="button" value="4주씩" onclick="go('../calander/calander_choice4.jsp'),frameclose()">
+	
+	    	
 	    </div>
-	    <br>
-		<input class="one_button" type="button" value="1주씩" onclick="go('../calander/calander_choice1.jsp'),frameclose()">
-	    <input class="two_button" type="button" value="2주씩" onclick="go('../calander/calander_choice2.jsp'),frameclose()">
-	    <input class="three_button" type="button" value="3주씩" onclick="go('../calander/calander_choice3.jsp'),frameclose()">
-	    <input class="four_button" type="button" value="4주씩" onclick="go('../calander/calander_choice4.jsp'),frameclose()">
-	    <br><br>
-    	
-</div>
+		
 </body>
 </html>

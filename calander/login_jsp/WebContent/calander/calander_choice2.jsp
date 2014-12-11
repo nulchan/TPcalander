@@ -143,7 +143,7 @@
 		var day = new Date(); 
 		day.setDate(day.getDate()-day.getDay()); 
 
-		function week_calandar(week,num) { 
+		function week_calandar(week,number) { 
 			var title;
   			var s_year;
   	   	  	var s_month;
@@ -200,17 +200,18 @@
   	   	 	set_color[4] = "black";
   	   	 	
 	  		day.setDate(day.getDate()+week*7); 
-	  		var title2 = "<div id=content_search><input class=search_text type=text value=일정검색><input class=search_button type=button value=검색></div>"
+	  		var title2 = "<form action=../calander/search.jsp method=post><div id=content_search><input class=search_text type=text placeholder=일정검색><input class=search_button type=submit value=검색></form></div>"
 	  		title2 += "<div id=content_navbar><a href=../calander/calander_day.jsp><input class=navbar_button type=button value=일간></a><a href=../calander/calander_week.jsp><input class=navbar_button type=button value=주간></a><a href=../calander/calander.jsp><input class=navbar_button type=button value=월간></a><a href=../calander/calander_view.jsp><input class=navbar_button type=button value=목록></a><a href=javascript:popupOpen2()><input class=navbar_button type=button value=정렬></a></div><br>"
 	  		title2 +="<a href=javascript:week_calandar(-3,2)><input class=month_button id=month_button type=button value=◀></a>"
-	  		title2 += day.getFullYear() + "." + (day.getMonth()+1)+","+Math.ceil((day.getDate()/14))+"번째 주"; 
+	  		title2 += day.getFullYear() + "." + (day.getMonth()+1)+","+Math.ceil((day.getDate()/14))+"번쨰 주"; 
 	  		var data = "<table width=98% height=100% border= 1 solid>" 
-	      	for(var a=0; a<num-1; a++){
+	      	for(var a=0; a<number; a++){
 	      		data += "<tr align=center height=50>"
 	      			for(var i=0 ; i<7 ; i++) {
 		      			var check = 0;
 		      			var check2 = 0;
 		      			var check3 = 0;
+		      			var check4=0;
 		      			for(num=0; num < <%=count%>; num++){
 		      				if(color_store[num] == set_color[0]){
 								color_name = "red";
@@ -225,40 +226,81 @@
 							}
 			      			if(day.getFullYear() == s_year_store[num]){
 			      				if(day.getMonth()+1 == s_month_store[num]){
+			      					if(day.getMonth()+1 == a_month_store[num]){
+										check4 = 1;
+									}
 			      					if(check == 1){
 			      						check3 = 1;
 			      						if(day.getDate() == s_day_store[num]){
 			      							data +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+			      							for(var a_num=0; a_num < <%=count2%>; a_num++){
+												if(day.getDate() == a_day_store[a_num] && check4 == 1){
+													data += "||"+a_submit_store[a_num]+"기념일 입니다."
+												}
+											}
 			      						}
 			      					}else if(day.getDate() == s_day_store[num]){
 			      						check3 = 1;
 			      						data +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+			      						for(var a_num=0; a_num < <%=count2%>; a_num++){
+											if(day.getDate() == a_day_store[a_num] && check4 == 1){
+												data += "||"+a_submit_store[a_num]+"기념일 입니다."
+											}
+										}
 			      						check = 1;
 			      					}
 			      				}
 			      			}
 			      			if(day.getFullYear() == e_year_store[num]){
 			      				if(day.getMonth()+1 == e_month_store[num]){
+			      					if(day.getMonth()+1 == a_month_store[num]){
+										check4 = 1;
+									}
 			      					if(check2 == 1){
 			      						check3 = 1;
 			      						if(day.getDate() == s_day_store[num]){
 			      							data +=",<span style=color:"+color_name+">"+title_store[num]+"</span>시작"
+			      							for(var a_num=0; a_num < <%=count2%>; a_num++){
+												if(day.getDate() == a_day_store[a_num] && check4 == 1){
+													data += "||"+a_submit_store[a_num]+"기념일 입니다."
+												}
+											}
 			      						}
 			      					}else if(day.getDate() == e_day_store[num]){
 			      						check3 = 1;
 			      						data +="<td width=14%><span style=color:"+color_name+">"+title_store[num]+"</span>종료"
+			      						for(var a_num=0; a_num < <%=count2%>; a_num++){
+											if(day.getDate() == a_day_store[a_num] && check4 == 1){
+												data += "||"+a_submit_store[a_num]+"기념일 입니다."
+											}
+										}
 			      						check2 = 1;
 			      					}
 			      				}
 			      			}
 			      			if(num == <%=count%>-1  && check3 == 0){
+			      				check4=1;
 			      				data +="<td width=14%>"+day.getDate()
+			      				for(var a_num=0; a_num < <%=count2%>; a_num++){
+									if(day.getMonth()+1 == a_month_store[a_num] && day.getDate() == a_day_store[a_num] && check4 == 1){
+										data += "||"+a_submit_store[a_num]+"기념일 입니다."
+									}
+								}
 			      			}
+			      			check4 =0;
 		      			}
 		      			data += "</td>"
 		      			if(<%=count%> == 0){
-							data +="<td width=14%>"+day.getDate()+"</td>"
+		      				check4=1;
+							data +="<td width=14%>"+day.getDate()
+							for(var a_num=0; a_num < <%=count2%>; a_num++){
+								if(day.getMonth()+1 == a_month_store[a_num] && day.getDate() == a_day_store[a_num] && check4 == 1){
+									data += "||"+a_submit_store[a_num]+"기념일 입니다."
+								}
+							}
+							data += "</td>"
 						}
+		      			check4=0;
 		      			day.setDate(day.getDate()+1);
 	      		}
 	      	}
@@ -268,10 +310,10 @@
 	  		document.getElementById("big_calendar").innerHTML = title2 + "<br />" + data; 
 	  	} 
   		
-		function set_day(num) { 
+		function set_day(number) { 
 		day = new Date(); 
 		day.setDate(day.getDate()-day.getDay()); 
-		week_calandar(0,num); 
+		week_calandar(0,number); 
 		} 
 		function popupOpen(){
 			var popUrl = "delete_popUp.jsp";	//팝업창에 출력될 페이지 URL

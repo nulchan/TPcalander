@@ -74,7 +74,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Calander</title>
+<title>HCP calendar</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function mini_calendar(change_year,change_month){ 
@@ -199,7 +199,7 @@
   	   	 	set_color[3] = "purple";
   	   	 	set_color[4] = "black";
       		day.setDate(day.getDate()+week*7); 
-      		var title2 = "<div id=content_search><input class=search_text type=text value=일정검색><input class=search_button type=button value=검색></div>"
+      		var title2 = "<form action=../calander/search.jsp method=post><div id=content_search><input class=search_text type=text name=search id=search placeholder=일정검색><input class=search_button type=submit value=검색></form></div>"
       		title2 += "<div id=content_navbar><a href=../calander/calander_day.jsp><input class=navbar_button type=button value=일간></a><a href=../calander/calander_week.jsp><input class=navbar_button type=button value=주간></a><a href=../calander/calander.jsp><input class=navbar_button type=button value=월간></a><a href=../calander/calander_view.jsp><input class=navbar_button type=button value=목록></a><a href=javascript:popupOpen2()><input class=navbar_button type=button value=정렬></a></div><br>"
       	 	title2 +="<a href=javascript:week_calandar(-5,3)><input class=month_button id=month_button type=button value=◀></a>"
       		title2 += day.getFullYear() + "." + (day.getMonth()+1)+","+Math.ceil((day.getDate()/7))+"번쨰 주"; 

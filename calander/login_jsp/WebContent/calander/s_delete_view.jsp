@@ -168,7 +168,7 @@
 	         
             <br>
             <div id="delete_border">
-				<div id="delete_message">
+				<div id="delete_message2">
 					<br>
 			    		오래된 일정 삭제
 			    </div>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Calander</title>
+<title>HCP calendar</title>
 <link href="../stylesheets/main.css" rel="stylesheet" type="text/css">
 </head>
 <script type="text/javascript">
@@ -96,7 +96,7 @@
 	}
 	function InputError(){
 		var startTime = document.getElementById("start").value;
-		if(startTime.indexOf("-") == -1){
+		if(startTime.indexOf("-") == -1 || startTime.length != 5){
 			alert("날짜 형식 오류입니다.");
 			parent.location.replace("../calander/make_aniv.jsp");
 		}else{

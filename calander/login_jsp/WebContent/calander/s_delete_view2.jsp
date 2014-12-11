@@ -165,7 +165,7 @@
 	         <div id="delete_menu">
 	         <br>
 	         <div id="delete_border">
-		<div id="delete_message">
+		<div id="delete_message2">
 			<br>
 	    		오래된 일정 삭제
 	    </div>
@@ -175,7 +175,7 @@
 		    	삭제하고 싶은 일정을 쓰세요
 		    	<br>
 		    	<br>
-				<input class="time_box", type="text" id="delete" name="delete" placeholder="일정의 제목"><br>
+				<input class="time_box" type="text" id="delete" name="delete" placeholder="일정의 제목"><br>
 			
 				<br>
 			    <input class="yes_button" type="submit" value="확인" onclick="frameclose()">

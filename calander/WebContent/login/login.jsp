@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>환영합니다</title>
+<title>HCP calendar</title>
 <link href="../stylesheets/login_page.css" rel="stylesheet" type="text/css"> 
 </head>
 <body background = "../images/background.jpg">

@@ -44,7 +44,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>register</title>
+<title>HCP calendar</title>
 </head>
 <body>
 	<%String req = request.getHeader("REFERER");

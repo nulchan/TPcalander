@@ -32,7 +32,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>HCP calendar</title>
 </head>
 <body>
 	<script type="text/javascript">
